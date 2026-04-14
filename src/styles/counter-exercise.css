@@ -1,0 +1,170 @@
+.counter-exercise-shell {
+  width: 100%;
+}
+
+.counter-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(244, 247, 252, 0.98));
+  color: #0f172a;
+  border-radius: 22px;
+  padding: 24px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.12);
+}
+
+.counter-kicker {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2563eb;
+  font-weight: 700;
+}
+
+.counter-description {
+  color: #334155;
+  line-height: 1.7;
+}
+
+.counter-display-panel {
+  margin: 20px 0;
+  padding: 18px;
+  border-radius: 18px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+}
+
+.counter-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #1d4ed8;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.counter-value {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 8px 0 0;
+  color: #0f172a;
+}
+
+.counter-button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.counter-button-grid button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.2);
+}
+
+.counter-button-grid button:hover {
+  transform: translateY(-1px);
+}
+
+.counter-notes {
+  margin-top: 24px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.counter-notes h3 {
+  margin-top: 0;
+}
+
+.counter-notes ul {
+  margin-bottom: 0;
+  color: #334155;
+  line-height: 1.7;
+}
+
+/* =========================================
+   WEEK 1 COUNTER CONTRAST FIX
+   ========================================= */
+
+.counter-card {
+  color: #0f172a !important;
+}
+
+.counter-card h1,
+.counter-card h2,
+.counter-card h3,
+.counter-card h4,
+.counter-card h5,
+.counter-card h6,
+.counter-card p,
+.counter-card span,
+.counter-card li,
+.counter-card ul,
+.counter-card ol,
+.counter-card div,
+.counter-card strong,
+.counter-card label {
+  color: #0f172a !important;
+}
+
+.counter-kicker {
+  color: #2563eb !important;
+}
+
+.counter-description {
+  color: #334155 !important;
+}
+
+.counter-display-panel {
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+}
+
+.counter-label {
+  color: #1d4ed8 !important;
+}
+
+.counter-value {
+  color: #0f172a !important;
+}
+
+.counter-notes {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.counter-notes h3 {
+  color: #1e3a8a !important;
+}
+
+.counter-notes ul,
+.counter-notes li,
+.counter-notes p,
+.counter-notes span {
+  color: #334155 !important;
+}
+
+/* Keep buttons strong and readable */
+.counter-button-grid button {
+  color: #ffffff !important;
+}
+
+/* Extra protection when shown inside the assignment guide */
+.assignment-guide-shell .counter-card,
+.assignment-guide-shell .counter-card *:not(button) {
+  text-shadow: none !important;
+  opacity: 1 !important;
+}
+
+.assignment-guide-shell .counter-button-grid button * {
+  color: inherit !important;
+}
+

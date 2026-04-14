@@ -1,0 +1,188 @@
+.assignment-test-panel {
+  margin-top: 24px;
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(120, 157, 230, 0.14);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.assignment-test-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.assignment-test-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  color: #93c5fd;
+}
+
+.assignment-test-header h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+}
+
+.assignment-test-summary {
+  margin: 0;
+  color: #d9e5f6;
+  line-height: 1.7;
+  max-width: 760px;
+}
+
+.assignment-test-score {
+  min-width: 150px;
+  text-align: center;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(30, 41, 59, 0.95);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.assignment-test-score span {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.assignment-test-score small {
+  color: #cbd5e1;
+}
+
+.assignment-test-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.assignment-test-controls button {
+  border: none;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 10px 18px rgba(37, 99, 235, 0.2);
+}
+
+.assignment-test-statebox {
+  background: rgba(30, 41, 59, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+.assignment-test-statebox p {
+  margin: 6px 0;
+  color: #dbeafe;
+}
+
+.assignment-test-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.assignment-test-card {
+  border-radius: 16px;
+  padding: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+}
+
+.assignment-test-card h3 {
+  margin: 10px 0 10px;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.assignment-test-card p {
+  margin: 0;
+  color: #d9e5f6;
+  line-height: 1.6;
+}
+
+.assignment-test-card.passed {
+  background: rgba(6, 95, 70, 0.2);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.assignment-test-card.pending {
+  background: rgba(30, 41, 59, 0.86);
+}
+
+.assignment-test-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.assignment-test-card.passed .assignment-test-badge {
+  background: rgba(16, 185, 129, 0.18);
+  color: #6ee7b7;
+}
+
+.assignment-test-card.pending .assignment-test-badge {
+  background: rgba(148, 163, 184, 0.16);
+  color: #cbd5e1;
+}
+
+.app-shell.theme-light .assignment-test-panel {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98),
+    rgba(248, 250, 252, 0.98)
+  ) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08) !important;
+}
+
+.app-shell.theme-light .assignment-test-header h2,
+.app-shell.theme-light .assignment-test-card h3 {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .assignment-test-summary,
+.app-shell.theme-light .assignment-test-card p,
+.app-shell.theme-light .assignment-test-statebox p {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .assignment-test-kicker {
+  color: #2563eb !important;
+}
+
+.app-shell.theme-light .assignment-test-score,
+.app-shell.theme-light .assignment-test-statebox,
+.app-shell.theme-light .assignment-test-card.pending {
+  background: #f8fafc !important;
+  border: 1px solid rgba(148, 163, 184, 0.2) !important;
+}
+
+.app-shell.theme-light .assignment-test-score span {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .assignment-test-score small {
+  color: #475569 !important;
+}
+
+.app-shell.theme-light .assignment-test-card.passed {
+  background: rgba(16, 185, 129, 0.08) !important;
+  border-color: rgba(16, 185, 129, 0.22) !important;
+}
