@@ -469,3 +469,101 @@
 .app-shell.theme-light .sm-sidebar-label {
   color: #2563eb;
 }
+
+/* -----------------------------------
+   Week 02 Lecture 02 recap overrides
+----------------------------------- */
+.sm-recap-section {
+  background: #203141 !important;
+  color: #ffffff !important;
+  border-color: rgba(52, 152, 219, 0.18) !important;
+}
+
+.sm-recap-section h1,
+.sm-recap-section h2,
+.sm-recap-section h3,
+.sm-recap-section th {
+  color: #ffffff !important;
+}
+
+.sm-recap-section p,
+.sm-recap-section td,
+.sm-recap-section li,
+.sm-recap-section span,
+.sm-recap-section div {
+  color: #bdc3c7;
+}
+
+.sm-recap-section table {
+  color: #bdc3c7;
+}
+
+.sm-recap-section thead tr,
+.sm-recap-section th {
+  color: #3498db !important;
+}
+
+.sm-recap-section code {
+  color: #93c5fd;
+}
+
+.sm-recap-section .sm-explanation {
+  background: rgba(52, 152, 219, 0.1) !important;
+  border-left-color: #3498db !important;
+  color: #ecf0f1 !important;
+}
+
+.sm-recap-section .sm-explanation h3 {
+  color: #3498db !important;
+}
+
+.sm-recap-section .sm-explanation p,
+.sm-recap-section .sm-explanation div,
+.sm-recap-section .sm-explanation span,
+.sm-recap-section .sm-explanation li,
+.sm-recap-section .sm-explanation strong {
+  color: #ecf0f1 !important;
+}
+
+.app-shell.theme-light .sm-recap-section {
+  background: #203141 !important;
+  color: #ffffff !important;
+}
+
+.app-shell.theme-light .sm-recap-section h1,
+.app-shell.theme-light .sm-recap-section h2,
+.app-shell.theme-light .sm-recap-section h3,
+.app-shell.theme-light .sm-recap-section th {
+  color: #ffffff !important;
+}
+
+.app-shell.theme-light .sm-recap-section p,
+.app-shell.theme-light .sm-recap-section td,
+.app-shell.theme-light .sm-recap-section li,
+.app-shell.theme-light .sm-recap-section span,
+.app-shell.theme-light .sm-recap-section div {
+  color: #bdc3c7 !important;
+}
+
+.app-shell.theme-light .sm-recap-section thead tr,
+.app-shell.theme-light .sm-recap-section th {
+  color: #3498db !important;
+}
+
+.app-shell.theme-light .sm-recap-section .sm-explanation {
+  background: rgba(52, 152, 219, 0.1) !important;
+  border-left-color: #3498db !important;
+}
+
+.app-shell.theme-light .sm-recap-section .sm-explanation h3 {
+  color: #3498db !important;
+}
+
+.app-shell.theme-light .sm-recap-section .sm-explanation p,
+.app-shell.theme-light .sm-recap-section .sm-explanation div,
+.app-shell.theme-light .sm-recap-section .sm-explanation span,
+.app-shell.theme-light .sm-recap-section .sm-explanation li,
+.app-shell.theme-light .sm-recap-section .sm-explanation strong {
+  color: #ecf0f1 !important;
+}
+

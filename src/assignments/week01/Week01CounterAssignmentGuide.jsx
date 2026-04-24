@@ -1,6 +1,8 @@
 import Counter from '../../exercises/Counter'
 import AssignmentTestPanel from './AssignmentTestPanel'
 import '../../styles/week01-counter-assignment.css'
+import CodeBlock from '../../components/CodeBlock'
+import { annotateDisplayedCode } from '../../utils/educationalCode'
 
 const counterSyntax = `import { useState } from 'react'
 import '../styles/counter-exercise.css'
@@ -256,9 +258,11 @@ export default function Week01CounterAssignmentGuide() {
 
       <section className="assignment-section">
         <h2>Full Component Syntax</h2>
-        <pre className="assignment-code-window">
-          <code>{counterSyntax}</code>
-        </pre>
+        <CodeBlock
+          code={annotateDisplayedCode(counterSyntax, 'react')}
+          language="jsx"
+          label="Component"
+        />
       </section>
 
       <section className="assignment-section">
@@ -292,9 +296,11 @@ export default function Week01CounterAssignmentGuide() {
 
       <section className="assignment-section">
         <h2>Full Test Syntax</h2>
-        <pre className="assignment-code-window">
-          <code>{testSyntax}</code>
-        </pre>
+        <CodeBlock
+          code={annotateDisplayedCode(testSyntax, 'test')}
+          language="test"
+          label="Vitest"
+        />
       </section>
 
       <section className="assignment-section">

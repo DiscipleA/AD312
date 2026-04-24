@@ -19,7 +19,7 @@ export default function TopicCard({ item, onClick, clickable = false }) {
 
       {clickable ? (
         <div className="topic-card-action">
-          <span>Open lecture</span>
+          <span>{item.type === 'assignment' ? 'Open assignment' : 'Open lecture'}</span>
           <span className="topic-card-arrow">→</span>
         </div>
       ) : null}

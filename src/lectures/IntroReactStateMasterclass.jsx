@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import '../styles/stateMasterclass.css'
+import CodeBlock from '../components/CodeBlock'
+import { annotateDisplayedCode } from '../utils/educationalCode'
 
 const SlideHeader = ({ title, bullets }) => (
   <div
@@ -64,9 +66,11 @@ function SectionWrapper({
       </div>
 
       <h3 className="sm-subheading">Full Code Example</h3>
-      <pre className="sm-code">
-        <code>{fullCode}</code>
-      </pre>
+      <CodeBlock
+        code={annotateDisplayedCode(fullCode, 'react')}
+        language="jsx"
+        label="React JSX"
+      />
 
       <h3 className="sm-subheading">Code in Action</h3>
       <div className="sm-demo-shell">{children}</div>
