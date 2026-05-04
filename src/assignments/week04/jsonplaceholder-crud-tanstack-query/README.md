@@ -1,4 +1,4 @@
-#🎓 AD312 Course Platform — Week 4 Assignment 2
+# 🎓 AD312 Course Platform — Week 4 Assignment 2
 
 ---
 
