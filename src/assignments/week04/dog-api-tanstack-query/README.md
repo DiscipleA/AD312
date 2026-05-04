@@ -1,228 +1,252 @@
-🎓 AD312 Course Platform — Week 4 Assignment 1
+#🎓 AD312 Course Platform — Week 4 Assignment 1
 
-📝 Overview
+---
 
-This project continues the Vite + React learning platform introduced in earlier weeks. Instead of behaving like a basic React app, it functions as a course portfolio and instructional platform.
+## 📝 Overview
+
+This project continues the Vite + React learning platform introduced in Week 1. Instead of behaving like a basic React app, it functions as a **course portfolio and instructional platform**.
 
 It supports:
 
-    course switching
-    week switching
-    clickable lecture and assignment cards
-    lecture detail views
-    assignment guide pages
-    contextual file tree panel
-    dark/light theme support
+* course switching
+* week switching
+* clickable lecture and assignment cards
+* lecture detail views
+* assignment guide pages
+* contextual file tree panel
+* dark/light theme support
 
-Week 4 Assignment 1 introduces data fetching with TanStack Query by using the Dog API. Students learn how to retrieve asynchronous data, handle request states, work with multiple API endpoints, and display selected dog breed information in a clear, readable interface.
+Week 4 Assignment 1 introduces **server-state management using TanStack Query and the Dog API**, allowing students to retrieve, cache, process, and display asynchronous API data through a standalone Dog Query Explorer application.
 
-This assignment focuses on server-state management instead of local-only React state. Students practice using TanStack Query to fetch, cache, and organize API data while keeping the UI responsive and understandable.
+Students practice working with real API responses, request states, query functions, selected data, and structured UI rendering.
 
-🎯 Objective
+---
+
+## 🎯 Objective
 
 The Week 4 Assignment 1 focuses on helping students:
 
-    understand how TanStack Query manages server-state
-    fetch dog breed data from an external API
-    display loading, error, success, and empty states
-    use query functions to separate fetching logic from UI logic
-    process API response structures safely
-    select a dog breed from a dropdown instead of rendering every breed as a large card grid
-    display detailed breed information after selection
-    fetch and render dog facts
-    fetch and render dog groups
-    continue integrating standalone exercises into the larger course platform
-    practice both manual testing and automated testing
+* understand how TanStack Query manages server-state
+* fetch data from an external API
+* use query hooks to retrieve dog breeds, facts, and groups
+* handle request states such as `isPending`, `isError`, and `isSuccess`
+* process API response structures safely
+* use a dropdown to select a dog breed without overwhelming the UI
+* display detailed information for a selected dog breed
+* keep data-fetching logic separated from presentation logic
+* continue integrating standalone exercises into a larger app
+* practice both manual testing and automated testing
 
-⚙️ How It Works
+---
 
-🧠 App Controller Pattern
+## ⚙️ How It Works
 
-The application is controlled centrally through App.jsx, which manages:
+### 🧠 App Controller Pattern
 
-    selected course
-    selected week
-    active lecture
-    active assignment
-    active content rendering
+The application is controlled centrally (via `App.jsx`), which manages:
+
+* selected course
+* selected week
+* active lecture
+* active assignment
+* active content rendering
 
 Instead of separate pages, content is rendered dynamically based on user interaction.
 
-📚 Week-Based Content System
+---
 
-Content is defined through structured data, typically in courseData.js, which determines:
+### 📚 Week-Based Content System
 
-    available weeks
-    lecture cards
-    assignment cards
-    assignment titles
-    assignment summaries
-    card metadata
+Content is defined through structured data (likely `courseData.js`), which determines:
 
-🖱 Navigation Flow
+* available weeks
+* lecture cards
+* assignment cards
+* titles and metadata
 
-    Select Course (e.g., AD312)
-    Select Week 04
-    View lecture + assignment cards
-    Click a card → opens detailed content view
+---
+
+### 🖱 Navigation Flow
+
+1. Select Course (e.g., AD312)
+2. Select Week 04
+3. View lecture + assignment cards
+4. Click a card → opens detailed content view
 
 Assignments follow the same interaction pattern as lectures.
 
-🧩 Two-Layer Assignment Model
+---
 
-1. Standalone Exercise
+### 🧩 Two-Layer Assignment Model
 
-    Located in src/exercises/DogQueryExplorer.jsx
-    Runs independently
-    Uses TanStack Query to fetch Dog API data
-    Fully testable with Vitest and React Testing Library
+#### 1. Standalone Exercise
 
-2. Assignment Guide (UI Layer)
+* Located in `src/exercises/DogQueryExplorer.jsx`
+* Runs independently
+* Fully testable
+* Uses TanStack Query to retrieve data from the Dog API
 
-    Located in src/assignments/week04/dog-api-tanstack-query/...
-    Contains teaching content, preview, full code, test code, and testing instructions
-    Embeds the standalone exercise
-    Explains how the assignment maps to a standalone Vite app
+#### 2. Assignment Guide (UI Layer)
 
-✨ Features
+* Located in `src/assignments/week04/dog-api-tanstack-query/...`
+* Contains teaching content, preview, and testing instructions
+* Embeds the standalone exercise
 
-🧱 Platform Features
+---
 
-    Course + Week navigation
-    Clickable Topic Cards
-    Lecture + Assignment detail views
-    File tree panel
-    Theme support (light/dark)
+## ✨ Features
 
-🧪 Assignment Features
+### 🧱 Platform Features
 
-    Standalone Dog API query component
-    TanStack Query provider setup
-    Query function examples
-    Breed list request
-    Dropdown-based breed selection
-    Detailed selected-breed panel
-    Dog facts request
-    Dog groups request
-    Loading-state UI
-    Error-state UI
-    Success-state UI
-    Empty-state handling
-    Step-by-step learning guide
-    Embedded working preview
-    Full syntax display for component code
-    Full syntax display for test code
-    Manual testing instructions
-    Automated testing expectations
-    In-app visual test panel
+* Course + Week navigation
+* Clickable Topic Cards
+* Lecture + Assignment detail views
+* File tree panel
+* Theme support (light/dark)
 
-🐶 Dog API Behavior
+---
 
-    Breed data is fetched from the Dog API
-    Breeds are presented in a dropdown/select control
-    Selecting a breed displays the selected breed’s details
-    Facts are fetched and displayed in a separate section
-    Groups are fetched and displayed in a separate section
-    Query states are surfaced clearly to the user
-    API response data is normalized before rendering when needed
-    UI avoids overwhelming students with a large card grid of every breed
+### 🧪 Assignment Features
 
-🏗 Architecture
+* Standalone Dog Query Explorer component
+* TanStack Query `useQuery` hooks
+* External API requests to the Dog API
+* Breed dropdown selection
+* Selected breed detail display
+* Dog facts display
+* Dog groups display
+* Loading-state UI
+* Error-state UI
+* Success-state UI
+* Empty-state handling
+* Step-by-step learning guide
+* Embedded working preview
+* Full syntax display (component + tests)
+* Manual testing instructions
+* Automated testing expectations
+* In-app visual test panel
 
-🧭 High-Level Layers
+---
 
-App Shell
+### 🐶 Dog Query Behavior
 
-    Controls navigation and rendering
+* Dog breeds are fetched from the Dog API
+* Breeds are displayed in a dropdown box
+* Selecting a breed displays that breed’s details
+* Dog facts are fetched and displayed in a separate section
+* Dog groups are fetched and displayed in a separate section
+* Loading states appear while requests are pending
+* Error states appear when requests fail
+* Successful responses are rendered clearly
+* Empty or malformed API data is handled safely
 
-Data Layer
+---
 
-    courseData.js defines course/week/card structure
+## 🏗 Architecture
 
-Component Layer
+### 🧭 High-Level Layers
 
-    Sidebar, Header, TopicCard, FileTreePanel, etc.
+#### App Shell
 
-Content Layer
+* Controls navigation and rendering
 
-    Lecture + Assignment guide components
+#### Data Layer
 
-Exercise Layer
+* `courseData.js` defines structure
 
-    Standalone components such as DogQueryExplorer
+#### Component Layer
 
-Testing Layer
+* Sidebar, Header, TopicCard, FileTreePanel, etc.
 
-    Vitest + React Testing Library
-    In-app visual testing panel
+#### Content Layer
 
-🧭 Navigation Behavior
+* Lecture + Assignment components
 
-    Card-based navigation
-    No external routing required
-    Controlled through state in App.jsx
+#### Exercise Layer
 
-📌 Week 4 Assignment Flow
+* Standalone components (e.g., DogQueryExplorer)
 
-    Assignment appears as a Week 04 assignment card
-    Clicking opens the guide inside the main view
-    The embedded preview renders the standalone DogQueryExplorer component
-    File tree stays context-aware
-    Code and test examples appear inside the assignment guide
+#### Testing Layer
 
-🎨 UI Patterns
+* Vitest + React Testing Library
+* In-app visual testing panel
 
-🧱 Card-Based Entry
+---
+
+## 🧭 Navigation Behavior
+
+* Card-based navigation
+* No external routing required
+* Controlled via state in `App.jsx`
+
+### 📌 Week 4 Assignment Flow
+
+* Assignment appears as a card
+* Clicking opens guide inside main view
+* UI remains consistent with lectures and assignments
+* File tree stays context-aware
+* The working preview renders the standalone Dog Query Explorer exercise
+
+---
+
+## 🎨 UI Patterns
+
+### 🧱 Card-Based Entry
 
 All content begins with clickable cards.
 
-📖 Structured Sections
+### 📖 Structured Sections
 
 Assignment uses structured sections:
 
-    Overview
-    Objectives
-    Instructions
-    Working Preview
-    Full Source Code
-    Full Test Code
-    Manual Testing
-    Live Test Results
-    Summary
+* Overview
+* Objectives
+* Instructions
+* Preview
+* Syntax
+* Testing
+* Results
 
-💻 Embedded Preview
+---
 
-The actual DogQueryExplorer component is rendered inside the guide.
+### 💻 Embedded Preview
 
-🧾 Syntax as Learning Tool
+The actual `DogQueryExplorer` component is rendered inside the guide.
 
-Full code and test syntax are displayed directly in the UI with syntax highlighting.
+---
 
-Code examples are intended to teach:
+### 🧾 Syntax as Learning Tool
 
-    imports
-    query client setup
-    query keys
-    query functions
-    request-state handling
-    selected state
-    conditional rendering
-    data normalization
-    test expectations
+Full code and test syntax are displayed directly in the UI.
 
-🧪 Live Test Panel
+The displayed syntax helps students understand:
+
+* how imports connect the component to TanStack Query
+* how query keys identify cached data
+* how query functions retrieve API data
+* how request states control UI feedback
+* how dropdown selection controls the focused detail panel
+* how tests verify normal and edge-case behavior
+
+---
+
+### 🧪 Live Test Panel
 
 The app includes a visual test runner:
 
-    shows PASS / WAIT states
-    groups normal and edge cases
-    demonstrates query behavior interactively
-    complements the official Vitest suite
+* shows PASS / WAIT states
+* tracks query behavior
+* demonstrates API response handling interactively
+* separates normal cases and edge cases
+* complements the official Vitest suite
 
-This complements, but does not replace, automated tests.
+This complements (not replaces) automated tests.
 
-🗂 Project Structure
+---
 
+## 🗂 Project Structure
+
+```bash
 src/
 ├── App.jsx
 ├── components/
@@ -246,109 +270,133 @@ src/
                 └── dog-api-tanstack-query/
                     ├── content.md
                     └── example.jsx
+```
 
-🧪 Testing Structure
+---
 
-✅ Automated Tests
+## 🧪 Testing Structure
+
+### ✅ Automated Tests
 
 Located in:
 
+```bash
 src/exercises/DogQueryExplorer.test.jsx
+```
 
 Includes:
 
-    3 normal cases
-    3 edge cases
+* 3 normal cases
+* 3 edge cases
 
-Normal cases may verify:
+---
 
-    breeds are fetched and rendered into a dropdown
-    selecting a breed displays its detail panel
-    facts and groups are displayed successfully
+### 🧠 In-App Test Panel
 
-Edge cases may verify:
+* Located in assignment guide
+* Visual learning tool
+* Tracks:
 
-    loading state appears before data resolves
-    error state appears when a request fails
-    empty or malformed API responses are handled safely
+  * breed fetching
+  * breed dropdown rendering
+  * selected breed detail rendering
+  * dog facts rendering
+  * dog groups rendering
+  * loading and error-state handling
+  * empty or malformed response handling
+  * pass status
 
-🧠 In-App Test Panel
+---
 
-Located in the assignment guide.
+### 🔍 Why Both?
 
-Visual learning tool.
+| Type            | Purpose                  |
+| --------------- | ------------------------ |
+| Automated Tests | correctness              |
+| Test Panel      | learning + visualization |
 
-Tracks:
+---
 
-    query state behavior
-    breed dropdown behavior
-    selected breed rendering
-    facts response handling
-    groups response handling
-    edge-case handling
+## 🚀 How to Run
 
-🔍 Why Both?
+### 1. Install dependencies
 
-| Type | Purpose |
-|---|---|
-| Automated Tests | correctness |
-| Test Panel | learning + visualization |
-
-🚀 How to Run
-
-1. Install dependencies
-
+```bash
 npm install
+```
 
-2. Start development server
+---
 
+### 2. Start development server
+
+```bash
 npm run dev
+```
 
-3. Open app
+---
 
+### 3. Open app
+
+```bash
 http://localhost:5173/
+```
 
-4. Navigate to Week 4 Assignment 1
+---
 
-    Select course
-    Select Week 04
-    Click the Dog API with TanStack Query assignment card
+### 4. Navigate to Week 4 Assignment
 
-🧪 How to Run Tests
+* Select course
+* Select Week 04
+* Click assignment card
 
-Run all tests
+---
 
+## 🧪 How to Run Tests
+
+### Run all tests
+
+```bash
 npm run test
+```
 
-Run only this assignment’s tests
+### Run this assignment’s tests
 
+```bash
 npm run test -- src/exercises/DogQueryExplorer.test.jsx
+```
 
-Watch mode
+### Watch mode
 
+```bash
 npm run test:watch
+```
 
-UI mode (optional)
+### UI mode (optional)
 
+```bash
 npm run test:ui
+```
 
-🎥 Demo
+---
 
-| Demo Title | Description | Link |
-|---|---|---|
-| Assignment Walkthrough | Full UI + guide demo |  |
+## 🎥 Demo
 
-📌 Summary
+| Demo Title             | Description          | Link |
+| ---------------------- | -------------------- | ---- |
+| Assignment Walkthrough | Full UI + guide demo |      |
+
+---
+
+## 📌 Summary
 
 Week 4 Assignment 1 introduces:
 
-    TanStack Query for asynchronous server-state
-    external API requests using the Dog API
-    query keys and query functions
-    loading, error, success, and empty UI states
-    dropdown-based data selection
-    detail rendering for selected records
-    facts and groups endpoint integration
-    automated and visual testing workflows
+* TanStack Query for server-state management
+* API data retrieval from the Dog API
+* query hooks for breeds, facts, and groups
+* dropdown-based selection for a readable UI
+* request-state handling with loading, error, and success feedback
+* full syntax and test visibility
+* automated and in-app visual testing
 
-This assignment prepares students for more advanced TanStack Query work, especially mutations and CRUD operations in Week 4 Assignment 2.
+This builds directly on the Week 4 TanStack Query lectures and prepares students for CRUD operations and mutation workflows in Week 4 Assignment 2.
