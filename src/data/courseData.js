@@ -122,9 +122,73 @@ export const courseData = {
           },
         ],
       },
-      ...Array.from({ length: 8 }, (_, index) => ({
-        id: `week${String(index + 4).padStart(2, '0')}`,
-        label: `Week ${String(index + 4).padStart(2, '0')}`,
+      {
+        id: 'week04',
+        label: 'Week 04',
+        lectures: [
+          {
+            id: 'introduction-to-tanstack-query',
+            title: 'Introduction to TanStack Query',
+            type: 'lecture',
+            summary:
+              'Masterclass lecture on server state, query keys, caching, background refetching, and getting started with TanStack Query in React.',
+            status: 'ready',
+          },
+          {
+            id: 'queries-with-tanstack-query',
+            title: 'Queries with TanStack Query',
+            type: 'lecture',
+            summary:
+              'Deep masterclass on query fundamentals, query keys, query functions, useQuery syntax, query result states, and fetchStatus.',
+            status: 'ready',
+          },
+          {
+            id: 'tanstack-query-keys',
+            title: 'TanStack Query Keys',
+            type: 'lecture',
+            summary:
+              'Deep masterclass on query keys as cache identity, simple keys, complex keys with variables, deterministic hashing, and dependency-driven refetching.',
+            status: 'ready',
+          },
+          {
+            id: 'query-functions-in-tanstack-query',
+            title: 'Query Functions in TanStack Query',
+            type: 'lecture',
+            summary:
+              'Deep masterclass on query functions, Promise-based data retrieval, fetch error handling, dynamic query variables, QueryFunctionContext, and request cancellation.',
+            status: 'ready',
+          },
+          {
+            id: 'intro-to-mutations-tanstack-query',
+            title: 'Introduction to Mutations in TanStack Query',
+            type: 'lecture',
+            summary:
+              'Deep masterclass on TanStack Query mutations, mutation functions, mutate(), pending/error/success states, reset(), lifecycle side effects, optimistic updates, rollback, and cache invalidation.',
+            status: 'ready',
+          },
+        ],
+        assignments: [
+          {
+            id: 'dog-api-tanstack-query',
+            title: 'Dog API Explorer with TanStack Query',
+            type: 'assignment',
+            summary:
+              'Build a Dog API explorer that uses TanStack Query for breeds, selected breed details, facts, groups, request states, and test-driven verification.',
+            status: 'ready',
+          },
+          {
+            id: 'jsonplaceholder-crud-tanstack-query',
+            title: 'JSONPlaceholder CRUD with TanStack Query',
+            type: 'assignment',
+            summary:
+              'Use the Expo Bridge pattern to practice GET, POST, PUT, PATCH, DELETE, and user-id filtering with TanStack Query and JSONPlaceholder.',
+            status: 'ready',
+          },
+        ],
+      },
+      ...Array.from({ length: 7 }, (_, index) => ({
+        id: `week${String(index + 5).padStart(2, '0')}`,
+        label: `Week ${String(index + 5).padStart(2, '0')}`,
         lectures: [],
         assignments: [],
       })),

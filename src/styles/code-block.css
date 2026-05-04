@@ -137,3 +137,113 @@
   --code-call: #92400e;
   --code-operator: #6d28d9;
 }
+
+/* ASSIGNMENT CODEBLOCK TOKEN CONTRAST PATCH
+   Purpose:
+   - Keep CodeBlock syntax colors visible inside assignment pages even when page-level
+     CSS uses broad rules such as ".assignment-section span { color: ... !important; }".
+   - This preserves the reusable CodeBlock component while making Week 3 and Week 4
+     displayed example code readable in both light and dark mode. */
+.app-shell.theme-light .code-block-shell,
+.theme-light .code-block-shell {
+  --code-surface: #ffffff;
+  --code-toolbar: #eef2ff;
+  --code-gutter: #eef2ff;
+  --code-border: rgba(79, 70, 229, 0.2);
+  --code-pill-bg: rgba(37, 99, 235, 0.11);
+  --code-pill-border: rgba(37, 99, 235, 0.24);
+  --code-pill-text: #1e3a8a;
+  --code-text: #0f172a;
+  --code-line-number: #64748b;
+  --code-comment: #475569;
+  --code-string: #be185d;
+  --code-keyword: #1d4ed8;
+  --code-literal: #b91c1c;
+  --code-number: #c2410c;
+  --code-tag: #0f766e;
+  --code-call: #92400e;
+  --code-operator: #6d28d9;
+  background: var(--code-surface) !important;
+  border-color: var(--code-border) !important;
+}
+
+.app-shell.theme-light .code-block-toolbar,
+.theme-light .code-block-toolbar {
+  background: var(--code-toolbar) !important;
+  border-color: var(--code-border) !important;
+}
+
+.app-shell.theme-light .code-block-line-number,
+.theme-light .code-block-line-number {
+  background: var(--code-gutter) !important;
+  border-color: var(--code-border) !important;
+  color: var(--code-line-number) !important;
+}
+
+.app-shell.theme-light .code-block-pre,
+.theme-light .code-block-pre,
+.app-shell.theme-light .code-block-line-content,
+.theme-light .code-block-line-content {
+  color: var(--code-text) !important;
+}
+
+.app-shell.theme-light .code-block-shell .code-token-comment,
+.theme-light .code-block-shell .code-token-comment { color: var(--code-comment) !important; }
+.app-shell.theme-light .code-block-shell .code-token-string,
+.theme-light .code-block-shell .code-token-string { color: var(--code-string) !important; }
+.app-shell.theme-light .code-block-shell .code-token-keyword,
+.theme-light .code-block-shell .code-token-keyword { color: var(--code-keyword) !important; font-weight: 800; }
+.app-shell.theme-light .code-block-shell .code-token-literal,
+.theme-light .code-block-shell .code-token-literal { color: var(--code-literal) !important; font-weight: 800; }
+.app-shell.theme-light .code-block-shell .code-token-number,
+.theme-light .code-block-shell .code-token-number { color: var(--code-number) !important; }
+.app-shell.theme-light .code-block-shell .code-token-tag,
+.theme-light .code-block-shell .code-token-tag { color: var(--code-tag) !important; }
+.app-shell.theme-light .code-block-shell .code-token-call,
+.theme-light .code-block-shell .code-token-call { color: var(--code-call) !important; }
+.app-shell.theme-light .code-block-shell .code-token-operator,
+.theme-light .code-block-shell .code-token-operator { color: var(--code-operator) !important; }
+.app-shell.theme-light .code-block-shell .code-token-plain,
+.theme-light .code-block-shell .code-token-plain { color: var(--code-text) !important; }
+
+.app-shell.theme-dark .code-block-shell,
+.theme-dark .code-block-shell {
+  --code-surface: #0f172a;
+  --code-toolbar: rgba(15, 23, 42, 0.96);
+  --code-gutter: rgba(15, 23, 42, 0.98);
+  --code-border: rgba(148, 163, 184, 0.24);
+  --code-pill-bg: rgba(59, 130, 246, 0.18);
+  --code-pill-border: rgba(96, 165, 250, 0.35);
+  --code-pill-text: #dbeafe;
+  --code-text: #e2e8f0;
+  --code-line-number: #94a3b8;
+  --code-comment: #a8b7ca;
+  --code-string: #f9a8d4;
+  --code-keyword: #93c5fd;
+  --code-literal: #fca5a5;
+  --code-number: #fdba74;
+  --code-tag: #67e8f9;
+  --code-call: #fcd34d;
+  --code-operator: #c4b5fd;
+  background: var(--code-surface) !important;
+  border-color: var(--code-border) !important;
+}
+
+.app-shell.theme-dark .code-block-shell .code-token-comment,
+.theme-dark .code-block-shell .code-token-comment { color: var(--code-comment) !important; }
+.app-shell.theme-dark .code-block-shell .code-token-string,
+.theme-dark .code-block-shell .code-token-string { color: var(--code-string) !important; }
+.app-shell.theme-dark .code-block-shell .code-token-keyword,
+.theme-dark .code-block-shell .code-token-keyword { color: var(--code-keyword) !important; font-weight: 800; }
+.app-shell.theme-dark .code-block-shell .code-token-literal,
+.theme-dark .code-block-shell .code-token-literal { color: var(--code-literal) !important; font-weight: 800; }
+.app-shell.theme-dark .code-block-shell .code-token-number,
+.theme-dark .code-block-shell .code-token-number { color: var(--code-number) !important; }
+.app-shell.theme-dark .code-block-shell .code-token-tag,
+.theme-dark .code-block-shell .code-token-tag { color: var(--code-tag) !important; }
+.app-shell.theme-dark .code-block-shell .code-token-call,
+.theme-dark .code-block-shell .code-token-call { color: var(--code-call) !important; }
+.app-shell.theme-dark .code-block-shell .code-token-operator,
+.theme-dark .code-block-shell .code-token-operator { color: var(--code-operator) !important; }
+.app-shell.theme-dark .code-block-shell .code-token-plain,
+.theme-dark .code-block-shell .code-token-plain { color: var(--code-text) !important; }

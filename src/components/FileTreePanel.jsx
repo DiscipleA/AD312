@@ -30,6 +30,11 @@ export default function FileTreePanel({
   const week02Lecture2Open = activeLecture?.lectureId === 'objects-in-react-state'
   const week03Lecture1Open = activeLecture?.lectureId === 'updating-arrays-in-state'
   const week03Lecture2Open = activeLecture?.lectureId === 'introduction-to-immer'
+  const week04Lecture1Open = activeLecture?.lectureId === 'introduction-to-tanstack-query'
+  const week04Lecture2Open = activeLecture?.lectureId === 'queries-with-tanstack-query'
+  const week04Lecture3Open = activeLecture?.lectureId === 'tanstack-query-keys'
+  const week04Lecture4Open = activeLecture?.lectureId === 'query-functions-in-tanstack-query'
+  const week04Lecture5Open = activeLecture?.lectureId === 'intro-to-mutations-tanstack-query'
   const week01AssignmentOpen =
     activeAssignment?.assignmentId === 'counter-state-management'
   const week02RecipeGalleryOpen =
@@ -42,6 +47,11 @@ export default function FileTreePanel({
     activeAssignment?.assignmentId === 'state-management-with-immer-in-react'
   const week03UserProfileWithImmerOpen =
     activeAssignment?.assignmentId === 'state-management-with-useimmer-hook'
+
+  const week04DogQueryOpen =
+    activeAssignment?.assignmentId === 'dog-api-tanstack-query'
+  const week04JsonPlaceholderCrudOpen =
+    activeAssignment?.assignmentId === 'jsonplaceholder-crud-tanstack-query'
 
   const lecture1Slides = [
     '01 React State (The Component’s Memory)',
@@ -116,6 +126,58 @@ export default function FileTreePanel({
     '07 Best Practices and Recap',
   ]
 
+  const week04Lecture1Slides = [
+    '01 Introduction to TanStack Query',
+    '02 Motivation Behind TanStack Query',
+    '03 Challenges of Managing Server State',
+    '04 Why TanStack Query?',
+    '05 Features and Benefits',
+    '06 Getting Started with TanStack Query',
+    '07 Best Practices and Recap',
+  ]
+
+  const week04Lecture2Slides = [
+    '01 Introduction to TanStack Query',
+    '02 What is a Query?',
+    '03 Query Key and Query Function',
+    '04 Using the useQuery Hook',
+    '05 Understanding Query Results',
+    '06 Handling Different States',
+    '07 Advanced: fetchStatus',
+    '08 Best Practices and Recap',
+  ]
+
+  const week04Lecture3Slides = [
+    '01 Introduction to TanStack Query',
+    '02 What are Query Keys?',
+    '03 Simple Query Keys',
+    '04 Complex Array Keys with Variables',
+    '05 Deterministic Hashing of Query Keys',
+    '06 Dependency Management with Query Keys',
+    '07 Best Practices and Recap',
+  ]
+
+  const week04Lecture4Slides = [
+    '01 Introduction to Query Functions',
+    '02 Basics of Query Functions',
+    '03 Handling and Throwing Errors',
+    '04 Integration with Fetch API',
+    '05 Advanced Use: Query Function Variables and Context',
+    '06 Understanding QueryFunctionContext',
+    '07 Best Practices and Recap',
+  ]
+
+  const week04Lecture5Slides = [
+    '01 Introduction to Mutations',
+    '02 Basic Mutation Setup',
+    '03 States of a Mutation',
+    '04 Handling Mutation Results',
+    '05 Resetting Mutation State',
+    '06 Advanced Use Cases - Side Effects',
+    '07 Practical Example of Side Effects',
+    '08 Best Practices and Recap',
+  ]
+
   const currentSlides = lecture1Open
     ? lecture1Slides
     : lecture2Open
@@ -128,7 +190,17 @@ export default function FileTreePanel({
             ? week03Lecture1Slides
             : week03Lecture2Open
               ? week03Lecture2Slides
-              : []
+              : week04Lecture1Open
+                ? week04Lecture1Slides
+                : week04Lecture2Open
+                  ? week04Lecture2Slides
+                  : week04Lecture3Open
+                    ? week04Lecture3Slides
+                    : week04Lecture4Open
+                      ? week04Lecture4Slides
+                      : week04Lecture5Open
+                        ? week04Lecture5Slides
+                        : []
 
   return (
     <aside className="filetree-panel">
@@ -181,6 +253,36 @@ export default function FileTreePanel({
           depth={2}
           active={week03Lecture2Open}
           subtle={!week03Lecture2Open}
+        />
+        <TreeLine
+          label="Week04IntroToTanStackQueryMasterclass.jsx"
+          depth={2}
+          active={week04Lecture1Open}
+          subtle={!week04Lecture1Open}
+        />
+        <TreeLine
+          label="Week04QueriesWithTanStackQueryMasterclass.jsx"
+          depth={2}
+          active={week04Lecture2Open}
+          subtle={!week04Lecture2Open}
+        />
+        <TreeLine
+          label="Week04TanStackQueryKeysMasterclass.jsx"
+          depth={2}
+          active={week04Lecture3Open}
+          subtle={!week04Lecture3Open}
+        />
+        <TreeLine
+          label="Week04QueryFunctionsInTanStackQueryMasterclass.jsx"
+          depth={2}
+          active={week04Lecture4Open}
+          subtle={!week04Lecture4Open}
+        />
+        <TreeLine
+          label="Week04IntroToMutationsTanStackQueryMasterclass.jsx"
+          depth={2}
+          active={week04Lecture5Open}
+          subtle={!week04Lecture5Open}
         />
 
         {activeLecture ? (
@@ -248,7 +350,7 @@ export default function FileTreePanel({
           active={week02Lecture1Open}
         />
         <TreeLine
-          label="objects-in-react-state/"
+          label="updating-objects-in-react-state/"
           depth={5}
           active={week02Lecture2Open}
           subtle={!week02Lecture2Open}
@@ -304,9 +406,59 @@ export default function FileTreePanel({
           subtle={!week03UserProfileWithImmerOpen}
         />
         <TreeLine
-          label="week04/ ... week11/"
+          label="week04/"
           depth={3}
-          subtle={selectedWeekId === 'week01' || selectedWeekId === 'week02' || selectedWeekId === 'week03'}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week04'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week04'}
+        />
+        <TreeLine label="lectures/" depth={4} subtle={!(week04Lecture1Open || week04Lecture2Open || week04Lecture3Open || week04Lecture4Open || week04Lecture5Open)} />
+        <TreeLine
+          label="introduction-to-tanstack-query/"
+          depth={5}
+          active={week04Lecture1Open}
+          subtle={!week04Lecture1Open}
+        />
+        <TreeLine
+          label="queries-with-tanstack-query/"
+          depth={5}
+          active={week04Lecture2Open}
+          subtle={!week04Lecture2Open}
+        />
+        <TreeLine
+          label="tanstack-query-keys/"
+          depth={5}
+          active={week04Lecture3Open}
+          subtle={!week04Lecture3Open}
+        />
+        <TreeLine
+          label="query-functions-in-tanstack-query/"
+          depth={5}
+          active={week04Lecture4Open}
+          subtle={!week04Lecture4Open}
+        />
+        <TreeLine
+          label="intro-to-mutations-tanstack-query/"
+          depth={5}
+          active={week04Lecture5Open}
+          subtle={!week04Lecture5Open}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week04DogQueryOpen || week04JsonPlaceholderCrudOpen)} />
+        <TreeLine
+          label="dog-api-tanstack-query/"
+          depth={5}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="jsonplaceholder-crud-tanstack-query/"
+          depth={5}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
+        <TreeLine
+          label="week05/ ... week11/"
+          depth={3}
+          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04'].includes(selectedWeekId)}
         />
 
         <TreeLine
@@ -432,6 +584,47 @@ export default function FileTreePanel({
           active={week03UserProfileWithImmerOpen}
           subtle={!week03UserProfileWithImmerOpen}
         />
+        <TreeLine
+          label="week04/"
+          depth={2}
+          subtle={!(week04DogQueryOpen || week04JsonPlaceholderCrudOpen)}
+        />
+        <TreeLine
+          label="dog-api-tanstack-query/"
+          depth={3}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="Week04DogApiTanStackQueryAssignmentGuide.jsx"
+          depth={4}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="DogQueryTestPanel.jsx"
+          depth={4}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="jsonplaceholder-crud-tanstack-query/"
+          depth={3}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
+        <TreeLine
+          label="Week04JsonPlaceholderCrudAssignmentGuide.jsx"
+          depth={4}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
+        <TreeLine
+          label="PostCrudTestPanel.jsx"
+          depth={4}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
         <TreeLine label="exercises/" depth={1} />
         <TreeLine label="Counter.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
         <TreeLine label="Counter.test.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
@@ -496,7 +689,43 @@ export default function FileTreePanel({
           subtle={!week03UserProfileWithImmerOpen}
         />
 
+        <TreeLine
+          label="DogQueryExplorer.jsx"
+          depth={2}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="DogQueryExplorer.test.jsx"
+          depth={2}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="PostCrudExplorer.jsx"
+          depth={2}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
+        <TreeLine
+          label="PostCrudExplorer.test.jsx"
+          depth={2}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
         <TreeLine label="styles/" depth={1} />
+        <TreeLine
+          label="week04-dog-api-tanstack-query-assignment.css"
+          depth={2}
+          active={week04DogQueryOpen}
+          subtle={!week04DogQueryOpen}
+        />
+        <TreeLine
+          label="week04-jsonplaceholder-crud-tanstack-query-assignment.css"
+          depth={2}
+          active={week04JsonPlaceholderCrudOpen}
+          subtle={!week04JsonPlaceholderCrudOpen}
+        />
         <TreeLine label="app.css" depth={2} active />
         <TreeLine
           label="code-block.css"
@@ -549,8 +778,8 @@ export default function FileTreePanel({
         <TreeLine
           label="assignment-test-panel.css"
           depth={2}
-          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week03UserProfileWithImmerOpen}
-          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week03UserProfileWithImmerOpen)}
+          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen}
+          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen)}
         />
 
         <TreeLine label="App.jsx" depth={1} active />

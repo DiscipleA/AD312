@@ -1,0 +1,483 @@
+.crud-assignment-guide {
+  --crud-panel: rgba(15, 23, 42, 0.72);
+  --crud-panel-strong: rgba(30, 41, 59, 0.88);
+  --crud-border: rgba(148, 163, 184, 0.22);
+  --crud-text: #e5edf8;
+  --crud-muted: #a9b8cf;
+  --crud-accent: #38bdf8;
+  --crud-accent-strong: #22d3ee;
+  --crud-success: #86efac;
+  --crud-warning: #fde68a;
+  --crud-danger: #fca5a5;
+}
+
+.theme-light .crud-assignment-guide {
+  --crud-panel: #ffffff;
+  --crud-panel-strong: #f8fafc;
+  --crud-border: rgba(30, 41, 59, 0.16);
+  --crud-text: #102033;
+  --crud-muted: #475569;
+  --crud-accent: #0369a1;
+  --crud-accent-strong: #0e7490;
+  --crud-success: #166534;
+  --crud-warning: #854d0e;
+  --crud-danger: #b91c1c;
+}
+
+.crud-assignment-hero {
+  border: 1px solid var(--crud-border);
+}
+
+.crud-shell {
+  display: grid;
+  gap: 1rem;
+  color: var(--crud-text);
+}
+
+.crud-card {
+  background: var(--crud-panel);
+  border: 1px solid var(--crud-border);
+  border-radius: 24px;
+  padding: 1.15rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.16);
+}
+
+.theme-light .crud-card {
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+.crud-hero-card h2,
+.crud-card h3,
+.crud-card h4 {
+  margin-top: 0;
+  color: var(--crud-text);
+}
+
+.crud-kicker,
+.crud-pill {
+  color: var(--crud-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.crud-description,
+.crud-card p,
+.crud-card li {
+  color: var(--crud-muted);
+}
+
+.crud-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.crud-form,
+.crud-inline-form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.crud-filter-row {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.crud-form label,
+.crud-inline-form label {
+  color: var(--crud-text);
+  font-weight: 800;
+}
+
+.crud-form input,
+.crud-form textarea,
+.crud-inline-form input {
+  width: 100%;
+  border: 1px solid var(--crud-border);
+  border-radius: 14px;
+  background: var(--crud-panel-strong);
+  color: var(--crud-text);
+  padding: 0.8rem 0.9rem;
+  font: inherit;
+}
+
+.crud-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.crud-form input::placeholder,
+.crud-form textarea::placeholder,
+.crud-inline-form input::placeholder {
+  color: var(--crud-muted);
+}
+
+.crud-card button {
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--crud-accent), var(--crud-accent-strong));
+  color: #00111f;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0.78rem 1rem;
+}
+
+.crud-card button:disabled {
+  cursor: not-allowed;
+  opacity: 0.58;
+}
+
+.crud-card .crud-secondary-button {
+  background: transparent;
+  border: 1px solid var(--crud-border);
+  color: var(--crud-text);
+}
+
+.crud-card .crud-danger-button {
+  width: 100%;
+  margin-top: 0.75rem;
+  background: linear-gradient(135deg, #fb7185, #f97316);
+  color: #fff7ed;
+}
+
+.crud-status,
+.crud-mutation-status {
+  display: grid;
+  gap: 0.25rem;
+  border-radius: 16px;
+  border: 1px solid var(--crud-border);
+  margin: 0.8rem 0;
+  padding: 0.85rem;
+}
+
+.crud-status strong {
+  color: var(--crud-text);
+}
+
+.crud-status-info,
+.crud-mutation-status-info {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.crud-status-success,
+.crud-mutation-status-success {
+  background: rgba(34, 197, 94, 0.13);
+  color: var(--crud-success);
+}
+
+.crud-status-warning {
+  background: rgba(245, 158, 11, 0.13);
+  color: var(--crud-warning);
+}
+
+.crud-status-error,
+.crud-mutation-status-error {
+  background: rgba(239, 68, 68, 0.13);
+  color: var(--crud-danger);
+}
+
+.crud-section-heading-row {
+  align-items: start;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.crud-post-list {
+  display: grid;
+  gap: 0.7rem;
+  max-height: 440px;
+  overflow: auto;
+  padding-right: 0.25rem;
+}
+
+.crud-post-item {
+  border: 1px solid var(--crud-border);
+  border-radius: 18px;
+  background: var(--crud-panel-strong);
+  overflow: hidden;
+}
+
+.crud-post-item-active {
+  border-color: var(--crud-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16);
+}
+
+.crud-post-select {
+  display: grid;
+  gap: 0.35rem;
+  width: 100%;
+  background: transparent !important;
+  color: var(--crud-text) !important;
+  text-align: left;
+}
+
+.crud-post-select span {
+  color: var(--crud-muted);
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.crud-selected-post {
+  border: 1px solid var(--crud-border);
+  border-radius: 18px;
+  background: var(--crud-panel-strong);
+  padding: 1rem;
+}
+
+.crud-form-divider {
+  border-top: 1px solid var(--crud-border);
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
+
+@media (max-width: 850px) {
+  .crud-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crud-section-heading-row,
+  .crud-filter-row {
+    display: grid;
+  }
+}
+
+/* WEEK 04 ASSIGNMENT 02 INTERACTIVE LIVE TEST PANEL */
+.crud-live-test-panel {
+  display: grid;
+  gap: 1rem;
+}
+
+.crud-live-test-header p {
+  max-width: 78ch;
+}
+
+.crud-live-test-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.crud-live-test-summary > div {
+  border: 1px solid var(--crud-border);
+  border-radius: 18px;
+  background: var(--crud-panel);
+  padding: 0.9rem;
+}
+
+.crud-live-test-summary span {
+  color: var(--crud-muted);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.crud-live-test-summary strong {
+  color: var(--crud-text);
+  display: block;
+  font-size: 1.7rem;
+  margin-top: 0.15rem;
+}
+
+.crud-live-test-summary-passed > div {
+  border-color: rgba(34, 197, 94, 0.45);
+}
+
+.crud-live-test-summary-failed > div {
+  border-color: rgba(248, 113, 113, 0.48);
+}
+
+.crud-live-test-actions,
+.crud-test-tabs,
+.crud-test-tab-panel-heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.crud-live-test-actions button,
+.crud-test-tab-panel-heading button,
+.crud-test-tab {
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 0.78rem 1rem;
+}
+
+.crud-live-test-actions button,
+.crud-test-tab-panel-heading button {
+  background: linear-gradient(135deg, var(--crud-accent), var(--crud-accent-strong));
+  color: #00111f;
+}
+
+.crud-live-test-actions .crud-secondary-button {
+  background: transparent;
+  border: 1px solid var(--crud-border);
+  color: var(--crud-text);
+}
+
+.crud-test-tabs {
+  border-bottom: 1px solid var(--crud-border);
+  padding-bottom: 0.75rem;
+}
+
+.crud-test-tab {
+  background: var(--crud-panel);
+  border: 1px solid var(--crud-border);
+  color: var(--crud-text);
+  display: grid;
+  gap: 0.2rem;
+  min-width: 180px;
+  text-align: left;
+}
+
+.crud-test-tab small {
+  color: var(--crud-muted);
+  font-weight: 800;
+}
+
+.crud-test-tab-active {
+  border-color: var(--crud-accent);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.16);
+}
+
+.crud-test-tab-panel {
+  background: var(--crud-panel);
+  border: 1px solid var(--crud-border);
+  border-radius: 24px;
+  padding: 1rem;
+}
+
+.crud-test-tab-panel-heading {
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.crud-test-tab-panel-heading h3,
+.crud-test-tab-panel-heading p {
+  margin-bottom: 0.35rem;
+  margin-top: 0;
+}
+
+.crud-visible-test-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.crud-visible-test-card {
+  border: 1px solid var(--crud-border);
+  border-radius: 18px;
+  background: var(--crud-panel-strong);
+  padding: 0.95rem;
+}
+
+.crud-visible-test-card-passed {
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+.crud-visible-test-card-failed {
+  border-color: rgba(248, 113, 113, 0.56);
+}
+
+.crud-visible-test-status-row {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.crud-visible-test-status-row strong {
+  color: var(--crud-text);
+}
+
+.crud-visible-test-status-row span {
+  border: 1px solid var(--crud-border);
+  border-radius: 999px;
+  color: var(--crud-accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.55rem;
+  text-transform: uppercase;
+}
+
+.crud-visible-test-card-passed .crud-visible-test-status-row span {
+  color: var(--crud-success);
+}
+
+.crud-visible-test-card-failed .crud-visible-test-status-row span {
+  color: var(--crud-danger);
+}
+
+.crud-visible-test-card p,
+.crud-visible-test-hint {
+  color: var(--crud-muted);
+}
+
+.crud-visible-test-details {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0.75rem 0 0;
+}
+
+.crud-visible-test-details div {
+  border: 1px solid var(--crud-border);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.16);
+  padding: 0.7rem;
+}
+
+.theme-light .crud-visible-test-details div {
+  background: rgba(241, 245, 249, 0.82);
+}
+
+.crud-visible-test-details dt {
+  color: var(--crud-accent);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.crud-visible-test-details dd {
+  color: var(--crud-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  margin: 0.25rem 0 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .crud-live-test-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .crud-test-tab,
+  .crud-test-tab-panel-heading button,
+  .crud-live-test-actions button {
+    width: 100%;
+  }
+
+  .crud-test-tab-panel-heading {
+    align-items: stretch;
+    display: grid;
+  }
+}
+
+/* WEEK 04 ASSIGNMENT 2 CODEBLOCK COLOR SAFETY PATCH
+   Keeps Expo reference code, Vite preview code, and test code syntax-colored in light mode. */
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-comment { color: #475569 !important; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-string { color: #be185d !important; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-keyword { color: #1d4ed8 !important; font-weight: 800; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-literal { color: #b91c1c !important; font-weight: 800; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-number { color: #c2410c !important; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-tag { color: #0f766e !important; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-call { color: #92400e !important; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-operator { color: #6d28d9 !important; }
+.app-shell.theme-light .crud-assignment-guide .code-block-shell .code-token-plain { color: #0f172a !important; }

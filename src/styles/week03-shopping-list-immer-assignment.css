@@ -363,3 +363,425 @@
     border-radius: 24px;
   }
 }
+
+/* Week 03 Assignment 1 polish pass:
+   - keep the approved content and test behavior intact
+   - stop action controls from becoming oversized circular buttons
+   - make long notes and labels wrap inside their cards
+   - align the preview card rhythm with the newer Week 4 assignment pages */
+.week03-immer-guide,
+.shopping-immer-shell,
+.shopping-immer-card,
+.shopping-immer-item,
+.shopping-immer-item-copy,
+.shopping-immer-tipbox {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.shopping-immer-card {
+  overflow: hidden;
+}
+
+.shopping-immer-hero {
+  align-items: start;
+}
+
+.shopping-immer-summary-grid {
+  align-self: start;
+}
+
+.shopping-immer-summary-card {
+  min-width: 0;
+}
+
+.shopping-immer-summary-card span,
+.shopping-immer-summary-card strong,
+.shopping-immer-item-heading span,
+.shopping-immer-item-copy p {
+  overflow-wrap: anywhere;
+}
+
+.shopping-immer-item {
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+  align-items: start;
+}
+
+.shopping-immer-item-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-self: stretch;
+  min-width: 0;
+}
+
+.shopping-immer-primary-button,
+.shopping-immer-secondary-button,
+.shopping-immer-item-actions button {
+  min-height: 44px;
+  border-radius: 14px;
+  white-space: normal;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.shopping-immer-item-actions button {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+}
+
+.shopping-immer-danger-button {
+  box-shadow: 0 12px 24px rgba(220, 38, 38, 0.18);
+}
+
+.week03-immer-guide .code-block-shell {
+  margin-top: 14px;
+  border-radius: 18px;
+}
+
+@media (max-width: 980px) {
+  .shopping-immer-item {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-immer-item-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .shopping-immer-item-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Week 03 Assignment 1 — UI Alignment Pass v2
+   Reference: Week 04 Assignment 1 and Week 02 Assignment 2 assignment guides.
+   Purpose:
+   - make the guide frame use the same professional card rhythm as the approved assignments
+   - stop item action controls from becoming giant circular buttons
+   - prevent long copy, notes, and code labels from spilling outside cards
+   - preserve the existing exercise behavior and test IDs
+-------------------------------------------------------------------------- */
+
+.assignment-guide-shell.week03-immer-guide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  display: grid;
+  gap: 20px;
+  color: #e5eefc;
+}
+
+.assignment-hero.week03-immer-guide__hero {
+  display: block;
+  background: linear-gradient(180deg, rgba(24, 39, 67, 0.98), rgba(18, 29, 50, 0.98));
+  border: 1px solid rgba(120, 157, 230, 0.18);
+  border-radius: 24px;
+  padding: 28px;
+  margin: 0;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.assignment-hero.week03-immer-guide__hero h1 {
+  margin: 0 0 12px;
+  color: #f8fafc;
+  line-height: 1.15;
+}
+
+.assignment-guide-shell.week03-immer-guide .week03-immer-guide__kicker {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #93c5fd;
+}
+
+.assignment-guide-shell.week03-immer-guide .week03-immer-guide__lede {
+  margin: 0;
+  max-width: 860px;
+  line-height: 1.75;
+  color: #d9e5f6;
+}
+
+.assignment-section.week03-immer-guide__section {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.88));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.assignment-section.week03-immer-guide__section h2 {
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.assignment-section.week03-immer-guide__section h3 {
+  color: #bfdbfe;
+  margin-top: 20px;
+}
+
+.assignment-section.week03-immer-guide__section p,
+.assignment-section.week03-immer-guide__section li,
+.assignment-section.week03-immer-guide__section ol,
+.assignment-section.week03-immer-guide__section ul {
+  color: #d9e5f6;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.assignment-section.week03-immer-guide__section code {
+  background: rgba(148, 163, 184, 0.16);
+  color: inherit;
+  padding: 2px 6px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.week03-immer-guide__demo-shell {
+  padding: 8px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(14, 165, 233, 0.04));
+  border: 1px solid rgba(147, 197, 253, 0.12);
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* Standalone exercise polish: keep all controls readable and contained. */
+.shopping-immer-shell,
+.shopping-immer-card,
+.shopping-immer-card * {
+  box-sizing: border-box;
+}
+
+.shopping-immer-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+}
+
+.shopping-immer-hero {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+
+.shopping-immer-summary-grid {
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  width: 100%;
+}
+
+.shopping-immer-summary-card {
+  min-width: 0;
+}
+
+.shopping-immer-form-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.shopping-immer-field,
+.shopping-immer-field input,
+.shopping-immer-field select,
+.shopping-immer-field textarea {
+  min-width: 0;
+}
+
+.shopping-immer-item {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.shopping-immer-item-copy,
+.shopping-immer-item-copy p,
+.shopping-immer-item-heading,
+.shopping-immer-item-heading h3,
+.shopping-immer-item-heading span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.shopping-immer-item-heading {
+  align-items: flex-start;
+}
+
+.shopping-immer-item-actions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(135px, 1fr));
+  gap: 10px;
+  width: 100%;
+  align-items: stretch;
+}
+
+.shopping-immer-primary-button,
+.shopping-immer-secondary-button,
+.shopping-immer-item-actions button,
+.shopping-immer-danger-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  height: auto;
+  aspect-ratio: auto;
+  border-radius: 14px !important;
+  padding: 11px 14px;
+  line-height: 1.25;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  box-shadow: none;
+}
+
+.shopping-immer-danger-button {
+  background: linear-gradient(135deg, #dc2626, #f97316) !important;
+  color: #fff !important;
+}
+
+.shopping-immer-tipbox,
+.shopping-immer-empty-state {
+  overflow-wrap: anywhere;
+}
+
+/* Code blocks should stay full-color but never force the assignment card wider. */
+.week03-immer-guide .code-block-shell,
+.week03-immer-guide .code-block-pre,
+.week03-immer-guide .code-block-line,
+.week03-immer-guide .code-block-line-content {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app-shell.theme-light .assignment-guide-shell.week03-immer-guide {
+  color: #0f172a;
+}
+
+.app-shell.theme-light .assignment-hero.week03-immer-guide__hero {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.98)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.24) !important;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1) !important;
+}
+
+.app-shell.theme-light .assignment-hero.week03-immer-guide__hero h1,
+.app-shell.theme-light .assignment-section.week03-immer-guide__section h2 {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .assignment-guide-shell.week03-immer-guide .week03-immer-guide__kicker,
+.app-shell.theme-light .assignment-section.week03-immer-guide__section h3 {
+  color: #2563eb !important;
+}
+
+.app-shell.theme-light .assignment-guide-shell.week03-immer-guide .week03-immer-guide__lede,
+.app-shell.theme-light .assignment-section.week03-immer-guide__section p,
+.app-shell.theme-light .assignment-section.week03-immer-guide__section li,
+.app-shell.theme-light .assignment-section.week03-immer-guide__section ol,
+.app-shell.theme-light .assignment-section.week03-immer-guide__section ul {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .assignment-section.week03-immer-guide__section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08) !important;
+}
+
+@media (max-width: 980px) {
+  .shopping-immer-summary-grid,
+  .shopping-immer-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shopping-immer-item-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .assignment-guide-shell.week03-immer-guide {
+    padding: 24px 12px 48px;
+  }
+
+  .assignment-hero.week03-immer-guide__hero,
+  .assignment-section.week03-immer-guide__section {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .shopping-immer-card {
+    padding: 20px;
+  }
+
+  .shopping-immer-item-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* WEEK 03 ASSIGNMENT 1 LIGHT DEMO CONTRAST PATCH
+   Purpose:
+   - The assignment guide can be in light mode while the standalone preview card still
+     inherited dark-mode-looking surfaces. These direct light-mode rules keep the demo
+     professional and readable without changing the exercise logic. */
+.app-shell.theme-light .week03-immer-guide__demo-shell {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08), rgba(14, 165, 233, 0.04)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-card,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-summary-card,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-item,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-empty-state,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-tipbox {
+  background: #ffffff !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+  color: #0f172a !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-card h2,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-card h3,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-summary-card strong,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-item-heading span,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-field span {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-kicker,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-item h3,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-tipbox h3 {
+  color: #2563eb !important;
+}
+
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-intro,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-summary-card span,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-item-copy p,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-tipbox p,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-tipbox li {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-field input,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-field select,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-field textarea {
+  background: #ffffff !important;
+  border-color: rgba(37, 99, 235, 0.24) !important;
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-secondary-button,
+.app-shell.theme-light .week03-immer-guide__demo-shell .shopping-immer-item-actions button:not(.shopping-immer-danger-button) {
+  background: #f8fafc !important;
+  border: 1px solid #dbe3f0 !important;
+  color: #0f172a !important;
+}

@@ -1,0 +1,367 @@
+.assignment-guide-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: #e5eefc;
+}
+
+.assignment-hero {
+  background: linear-gradient(180deg, rgba(24, 39, 67, 0.98), rgba(18, 29, 50, 0.98));
+  border: 1px solid rgba(120, 157, 230, 0.18);
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.assignment-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: #93c5fd;
+  margin: 0 0 10px;
+}
+
+.assignment-summary {
+  color: #c9d8f0;
+  max-width: 760px;
+}
+
+.assignment-section {
+  background: rgba(15, 23, 42, 0.92);
+  border: 1px solid rgba(120, 157, 230, 0.14);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.assignment-section h2 {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.assignment-section h3 {
+  color: #bfdbfe;
+  margin-top: 20px;
+}
+
+.assignment-section p,
+.assignment-section li,
+.assignment-section ol,
+.assignment-section ul {
+  color: #d9e5f6;
+  line-height: 1.75;
+}
+
+.assignment-section code {
+  background: rgba(148, 163, 184, 0.16);
+  padding: 2px 6px;
+  border-radius: 8px;
+}
+
+.dog-query-shell {
+  margin-top: 8px;
+}
+
+.dog-query-card {
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+}
+
+.dog-query-kicker {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.76rem;
+  color: #93c5fd;
+}
+
+.dog-query-card h2 {
+  margin: 0 0 8px;
+  color: #f8fafc;
+}
+
+.dog-query-description {
+  margin: 0 0 20px;
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+.dog-query-layout,
+.dog-query-resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.dog-query-resource-grid {
+  margin-top: 16px;
+}
+
+.dog-query-panel {
+  background: rgba(15, 23, 42, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.dog-query-panel h3 {
+  margin-top: 0;
+  color: #f8fafc;
+}
+
+.dog-query-panel p,
+.dog-query-panel li,
+.dog-query-panel dd,
+.dog-query-panel dt {
+  color: #dbeafe;
+  line-height: 1.7;
+}
+
+.dog-query-select-label {
+  display: block;
+  margin: 18px 0 8px;
+  color: #bfdbfe;
+  font-weight: 700;
+}
+
+.dog-query-control-panel select {
+  width: 100%;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-radius: 14px;
+  background: #0b1120;
+  color: #f8fafc;
+  padding: 12px 14px;
+  font-size: 1rem;
+}
+
+.dog-query-control-panel select:disabled {
+  opacity: 0.58;
+  cursor: not-allowed;
+}
+
+.dog-query-status {
+  display: grid;
+  gap: 4px;
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(147, 197, 253, 0.2);
+  background: rgba(30, 64, 175, 0.18);
+  color: #dbeafe;
+}
+
+.dog-query-status strong,
+.dog-query-status span {
+  color: inherit;
+}
+
+.dog-query-status-error {
+  border-color: rgba(248, 113, 113, 0.32);
+  background: rgba(127, 29, 29, 0.24);
+  color: #fecaca;
+}
+
+.dog-query-status-warning {
+  border-color: rgba(251, 191, 36, 0.34);
+  background: rgba(113, 63, 18, 0.24);
+  color: #fde68a;
+}
+
+.dog-query-breed-summary {
+  margin-top: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.78);
+  border: 1px solid rgba(147, 197, 253, 0.16);
+}
+
+.dog-query-breed-summary h4 {
+  margin: 8px 0 10px;
+  color: #ffffff;
+  font-size: 1.35rem;
+}
+
+.dog-query-pill {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.16);
+  color: #bfdbfe !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.dog-query-breed-summary dl {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 0;
+}
+
+.dog-query-breed-summary dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid rgba(148, 163, 184, 0.16);
+  padding-top: 10px;
+}
+
+.dog-query-breed-summary dt {
+  font-weight: 700;
+}
+
+.dog-query-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.dog-query-list li + li {
+  margin-top: 10px;
+}
+
+.dog-query-live-panel {
+  margin-top: 16px;
+}
+
+.app-shell.theme-light .assignment-guide-shell {
+  color: #0f172a;
+}
+
+.app-shell.theme-light .assignment-hero {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.98)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.24) !important;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1) !important;
+}
+
+.app-shell.theme-light .assignment-kicker {
+  color: #2563eb !important;
+}
+
+.app-shell.theme-light .assignment-hero h1 {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .assignment-summary {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .assignment-section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08) !important;
+}
+
+.app-shell.theme-light .assignment-section h2 {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .assignment-section h3 {
+  color: #1d4ed8 !important;
+}
+
+.app-shell.theme-light .assignment-section p,
+.app-shell.theme-light .assignment-section li,
+.app-shell.theme-light .assignment-section ol,
+.app-shell.theme-light .assignment-section ul,
+.app-shell.theme-light .assignment-section span,
+.app-shell.theme-light .assignment-section div,
+.app-shell.theme-light .assignment-section strong {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .assignment-section code {
+  background: rgba(59, 130, 246, 0.1) !important;
+  color: #1e3a8a !important;
+  border: 1px solid rgba(59, 130, 246, 0.14);
+}
+
+.app-shell.theme-light .dog-query-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98));
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.app-shell.theme-light .dog-query-kicker {
+  color: #2563eb;
+}
+
+.app-shell.theme-light .dog-query-card h2,
+.app-shell.theme-light .dog-query-panel h3,
+.app-shell.theme-light .dog-query-breed-summary h4 {
+  color: #0f172a;
+}
+
+.app-shell.theme-light .dog-query-description,
+.app-shell.theme-light .dog-query-panel p,
+.app-shell.theme-light .dog-query-panel li,
+.app-shell.theme-light .dog-query-panel dd,
+.app-shell.theme-light .dog-query-panel dt {
+  color: #334155;
+}
+
+.app-shell.theme-light .dog-query-panel,
+.app-shell.theme-light .dog-query-breed-summary {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.app-shell.theme-light .dog-query-select-label {
+  color: #1d4ed8;
+}
+
+.app-shell.theme-light .dog-query-control-panel select {
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(37, 99, 235, 0.28);
+}
+
+.app-shell.theme-light .dog-query-status-info {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+  color: #1e3a8a;
+}
+
+.app-shell.theme-light .dog-query-status-error {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #991b1b;
+}
+
+.app-shell.theme-light .dog-query-status-warning {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #92400e;
+}
+
+.app-shell.theme-light .dog-query-pill {
+  background: #dbeafe;
+  color: #1d4ed8 !important;
+}
+
+@media (max-width: 860px) {
+  .dog-query-layout,
+  .dog-query-resource-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* WEEK 04 ASSIGNMENT 1 CODEBLOCK COLOR SAFETY PATCH
+   The guide has broad light-mode text rules for assignment sections. CodeBlock tokens
+   need higher-specificity rules so example source remains syntax-highlighted. */
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-comment { color: #475569 !important; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-string { color: #be185d !important; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-keyword { color: #1d4ed8 !important; font-weight: 800; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-literal { color: #b91c1c !important; font-weight: 800; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-number { color: #c2410c !important; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-tag { color: #0f766e !important; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-call { color: #92400e !important; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-operator { color: #6d28d9 !important; }
+.app-shell.theme-light .assignment-guide-shell .code-block-shell .code-token-plain { color: #0f172a !important; }

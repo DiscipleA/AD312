@@ -10,8 +10,8 @@ const installCommands = `npm install use-immer`
 
 export default function Week03ShoppingListWithImmerAssignmentGuide() {
   return (
-    <section className="week03-immer-guide">
-      <div className="week03-immer-guide__hero">
+    <section className="assignment-guide-shell week03-immer-guide">
+      <div className="assignment-hero week03-immer-guide__hero">
         <p className="week03-immer-guide__kicker">Week 3 Assignment</p>
         <h1>State Management with Immer in React</h1>
         <p className="week03-immer-guide__lede">
@@ -22,7 +22,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         </p>
       </div>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Overview</h2>
         <p>
           In this assignment, you will learn to manage more complex React state using the
@@ -37,7 +37,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         </p>
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Learning Objectives</h2>
         <ul>
           <li>Initialize array-based React state with <code>useImmer</code>.</li>
@@ -48,7 +48,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         </ul>
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Step-by-Step Build Instructions</h2>
 
         <h3>Step 1: Install the Immer Hook package</h3>
@@ -111,7 +111,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         </p>
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Live standalone preview</h2>
         <p>
           The rendered exercise below is the real standalone component from <code>src/exercises</code>.
@@ -123,7 +123,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         </div>
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Full Exercise Code</h2>
         <p>
           This code block mirrors the real implementation file and then layers in deeper
@@ -136,7 +136,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         />
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Full Test Suite</h2>
         <p>
           These tests cover both normal behavior and edge cases so students can connect the
@@ -150,7 +150,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         />
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Manual Verification Checklist</h2>
         <ol>
           <li>Add a new shopping item and confirm that it appears in the rendered list.</li>
@@ -161,7 +161,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
         </ol>
       </article>
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Run the Automated Tests</h2>
         <ol>
           <li><code>npm install</code></li>
@@ -177,7 +177,7 @@ export default function Week03ShoppingListWithImmerAssignmentGuide() {
 
       <ShoppingListWithImmerTestPanel />
 
-      <article className="week03-immer-guide__section">
+      <article className="assignment-section week03-immer-guide__section">
         <h2>Common Mistakes and Takeaways</h2>
         <ul>
           <li>Do not mutate state outside the <code>useImmer</code> draft callback.</li>

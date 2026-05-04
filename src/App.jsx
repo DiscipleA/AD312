@@ -11,12 +11,19 @@ import Week02StateUpdateQueueingMasterclass from './lectures/Week02StateUpdateQu
 import Week02ObjectsInStateMasterclass from './lectures/Week02ObjectsInStateMasterclass'
 import Week03ArraysInStateMasterclass from './lectures/Week03ArraysInStateMasterclass'
 import Week03IntroductionToImmerMasterclass from './lectures/Week03IntroductionToImmerMasterclass'
+import Week04IntroToTanStackQueryMasterclass from './lectures/Week04IntroToTanStackQueryMasterclass'
+import Week04QueriesWithTanStackQueryMasterclass from './lectures/Week04QueriesWithTanStackQueryMasterclass'
+import Week04TanStackQueryKeysMasterclass from './lectures/Week04TanStackQueryKeysMasterclass'
+import Week04QueryFunctionsInTanStackQueryMasterclass from './lectures/Week04QueryFunctionsInTanStackQueryMasterclass'
+import Week04IntroToMutationsTanStackQueryMasterclass from './lectures/Week04IntroToMutationsTanStackQueryMasterclass'
 import Week01CounterAssignmentGuide from './assignments/week01/Week01CounterAssignmentGuide'
 import Week02RecipeGalleryAssignmentGuide from './assignments/week02/interactive-recipe-gallery/Week02RecipeGalleryAssignmentGuide'
 import Week02ManagingNestedStateAssignmentGuide from './assignments/week02/managing-nested-state/Week02ManagingNestedStateAssignmentGuide'
 import Week02TaskManagerAssignmentGuide from './assignments/week02/taskmanager-react-state/Week02TaskManagerAssignmentGuide'
 import Week03ShoppingListWithImmerAssignmentGuide from './assignments/week03/state-management-with-immer-in-react/Week03ShoppingListWithImmerAssignmentGuide'
 import Week03UserProfileWithImmerAssignmentGuide from './assignments/week03/state-management-with-useimmer-hook/Week03UserProfileWithImmerAssignmentGuide'
+import Week04DogApiTanStackQueryAssignmentGuide from './assignments/week04/dog-api-tanstack-query/Week04DogApiTanStackQueryAssignmentGuide'
+import Week04JsonPlaceholderCrudAssignmentGuide from './assignments/week04/jsonplaceholder-crud-tanstack-query/Week04JsonPlaceholderCrudAssignmentGuide'
 import { courseData } from './data/courseData'
 import './styles/app.css'
 
@@ -83,8 +90,57 @@ const lectureRegistry = {
       defaultSlideTitle: 'Introduction to Immer',
     },
   },
+  'introduction-to-tanstack-query': {
+    component: Week04IntroToTanStackQueryMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      lectureId: 'introduction-to-tanstack-query',
+      title: 'Introduction to TanStack Query',
+      defaultSlideTitle: 'Introduction to TanStack Query',
+    },
+  },
+  'queries-with-tanstack-query': {
+    component: Week04QueriesWithTanStackQueryMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      lectureId: 'queries-with-tanstack-query',
+      title: 'Queries with TanStack Query',
+      defaultSlideTitle: 'Introduction to TanStack Query',
+    },
+  },
+  'tanstack-query-keys': {
+    component: Week04TanStackQueryKeysMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      lectureId: 'tanstack-query-keys',
+      title: 'TanStack Query Keys',
+      defaultSlideTitle: 'Introduction to Query Keys',
+    },
+  },
+  'query-functions-in-tanstack-query': {
+    component: Week04QueryFunctionsInTanStackQueryMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      lectureId: 'query-functions-in-tanstack-query',
+      title: 'Query Functions in TanStack Query',
+      defaultSlideTitle: 'Introduction to Query Functions',
+    },
+  },
+  'intro-to-mutations-tanstack-query': {
+    component: Week04IntroToMutationsTanStackQueryMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      lectureId: 'intro-to-mutations-tanstack-query',
+      title: 'Introduction to Mutations in TanStack Query',
+      defaultSlideTitle: 'Introduction to Mutations',
+    },
+  },
 }
-
 const assignmentRegistry = {
   'counter-state-management': {
     component: Week01CounterAssignmentGuide,
@@ -138,6 +194,24 @@ const assignmentRegistry = {
       weekId: 'week03',
       assignmentId: 'state-management-with-useimmer-hook',
       title: 'State Management with useImmer Hook',
+    },
+  },
+  'dog-api-tanstack-query': {
+    component: Week04DogApiTanStackQueryAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      assignmentId: 'dog-api-tanstack-query',
+      title: 'Dog API Explorer with TanStack Query',
+    },
+  },
+  'jsonplaceholder-crud-tanstack-query': {
+    component: Week04JsonPlaceholderCrudAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week04',
+      assignmentId: 'jsonplaceholder-crud-tanstack-query',
+      title: 'JSONPlaceholder CRUD with TanStack Query',
     },
   },
 }

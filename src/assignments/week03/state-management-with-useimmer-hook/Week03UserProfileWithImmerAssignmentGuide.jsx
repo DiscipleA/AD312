@@ -10,8 +10,8 @@ const installCommands = `npm install immer use-immer`
 
 export default function Week03UserProfileWithImmerAssignmentGuide() {
   return (
-    <section className="week03-user-profile-guide">
-      <div className="week03-user-profile-guide__hero">
+    <section className="assignment-guide-shell week03-user-profile-guide">
+      <div className="assignment-hero week03-user-profile-guide__hero">
         <div className="week03-user-profile-guide__hero-card">
           <p className="week03-user-profile-guide__kicker">Week 3 Assignment 2</p>
           <h1>State Management with useImmer Hook</h1>
@@ -34,7 +34,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </div>
       </div>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Overview</h2>
         <p>
           In this assignment, students learn how to manage complex nested React state with
@@ -51,7 +51,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </p>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Learning Objectives</h2>
         <ul>
           <li>Initialize nested state with <code>useImmer</code>.</li>
@@ -62,7 +62,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </ul>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Step-by-Step Build Strategy</h2>
         <h3>Step 1: Install the Immer utilities</h3>
         <p>
@@ -102,14 +102,14 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </p>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Working Demo</h2>
         <div className="week03-user-profile-guide__demo-shell">
           <UserProfileWithImmer />
         </div>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Why useImmer is valuable here</h2>
         <div className="week03-user-profile-guide__grid">
           <div>
@@ -131,7 +131,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </div>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Full Exercise Code</h2>
         <p>
           The code block below mirrors the real component file from this project. Extra educational
@@ -145,7 +145,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         />
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Testing Expectations</h2>
         <div className="week03-user-profile-guide__checklist">
           <div>
@@ -163,7 +163,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </div>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Full Test File</h2>
         <p>
           The guide intentionally displays the real test file in full. This keeps the assignment
@@ -177,7 +177,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         />
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>How to run the tests</h2>
         <ol>
           <li>Open the project root in your terminal.</li>
@@ -187,7 +187,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </ol>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Common Mistakes to avoid</h2>
         <ul>
           <li>Mutating state outside the Immer updater callback.</li>
@@ -197,7 +197,7 @@ export default function Week03UserProfileWithImmerAssignmentGuide() {
         </ul>
       </article>
 
-      <article className="week03-user-profile-guide__section">
+      <article className="assignment-section week03-user-profile-guide__section">
         <h2>Student Takeaways</h2>
         <p>
           By the end of this assignment, students should understand that Immer does not replace React

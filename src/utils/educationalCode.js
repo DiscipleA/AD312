@@ -2,37 +2,74 @@ const reactPatterns = [
   {
     regex: /^import /,
     comment:
-      '// Import statements bring Hooks, styles, or helper modules into this file before the component can use them.',
+      '// Imports load the React APIs, helper libraries, components, and styles this file depends on before the component renders.',
+    onceKey: 'imports',
+  },
+  {
+    regex: /from 'use-immer'|from "use-immer"/,
+    comment:
+      '// use-immer gives this assignment the useImmer Hook, which exposes a draft so nested state can be edited with readable intent-first syntax.',
+    onceKey: 'use-immer-import',
+  },
+  {
+    regex: /export const initial[A-Za-z0-9_]*\s*=\s*[{[]/,
+    comment:
+      '// Exporting the initial data lets tests verify the same baseline object that the UI renders for students.',
   },
   {
     regex: /const \[.*\] = useState\(/,
     comment:
-      '// useState returns two linked values: the current snapshot of state and the setter that schedules the next render.',
+      '// useState returns the current state snapshot plus a setter that schedules the next render with a new value.',
   },
   {
     regex: /const \[.*\] = useImmer\(/,
     comment:
-      '// useImmer returns the current state plus an updater that exposes a draft, so the code can read like mutation while Immer still creates a safe immutable result.',
+      '// useImmer returns the current state plus an updater. Inside the updater callback, draft changes are converted into a safe immutable React state update.',
   },
   {
     regex: /const .* = useMemo\(/,
     comment:
-      '// useMemo caches a derived value so React can avoid recomputing it unless its dependencies actually change.',
+      '// useMemo derives a display value from state and recalculates it only when the listed dependencies change.',
   },
   {
     regex: /const .* = useRef\(/,
     comment:
-      '// useRef stores a mutable value that survives re-renders without forcing the UI to re-render when that value changes.',
+      '// useRef stores a mutable value that survives re-renders without forcing the component to render again.',
   },
   {
     regex: /(const|function) handle[A-Z]/,
     comment:
-      '// This event handler contains the state transition logic that runs in response to a user action.',
+      '// This event handler translates a user action into a focused state update.',
+  },
+  {
+    regex: /(const|function) update[A-Z]/,
+    comment:
+      '// This helper centralizes update logic so related state changes stay easy to reuse and explain.',
+  },
+  {
+    regex: /(const|function) toggle[A-Z]/,
+    comment:
+      '// This toggle helper flips a boolean value while preserving the rest of the state object.',
+  },
+  {
+    regex: /event\.target\.value/,
+    comment:
+      '// event.target.value is the latest value from the controlled input, so the UI and state stay synchronized.',
+  },
+  {
+    regex: /update[A-Za-z0-9_]*\(\(draft\) => \{/,
+    comment:
+      '// The draft object is temporary. You can assign to it directly here, and Immer will produce the next immutable state snapshot for React.',
+  },
+  {
+    regex: /draft\.[A-Za-z0-9_.]+\s*=/,
+    comment:
+      '// This direct-looking assignment is safe because it happens inside Immer’s draft callback, not against the live React state object.',
   },
   {
     regex: /set[A-Z][A-Za-z0-9_]*\(/,
     comment:
-      '// Calling a React state setter does not mutate the old value in place; it schedules a new render with the next state snapshot.',
+      '// Calling a React state setter schedules a new render; it should not mutate the previous state value directly.',
   },
   {
     regex: /=> \[\.\.\./,
@@ -42,37 +79,37 @@ const reactPatterns = [
   {
     regex: /\.map\(/,
     comment:
-      '// map() rebuilds an entire array by deciding what each item should become in the next immutable version.',
+      '// map() rebuilds an array by deciding what each item should become in the next immutable version.',
   },
   {
     regex: /\.filter\(/,
     comment:
-      '// filter() keeps only the items that pass the rule, which makes it ideal for immutable removals.',
+      '// filter() creates a new array containing only the items that pass the rule, which makes it useful for immutable removals.',
   },
   {
     regex: /\.slice\(/,
     comment:
-      '// slice() copies a selected portion of an array without mutating the original source array.',
+      '// slice() copies part of an array without mutating the original source array.',
   },
   {
     regex: /\.push\(/,
     comment:
-      '// In ordinary React state, push() would mutate the original array; when it appears in a draft example, the surrounding tool is handling immutability for you.',
+      '// push() would be unsafe on normal React state, but it is acceptable here only when the surrounding code is editing an Immer draft.',
   },
   {
     regex: /draft\.find\(/,
     comment:
-      '// draft.find() locates the exact object that should change so the code updates only the matching item instead of rebuilding every nested property by hand.',
+      '// draft.find() locates the exact object that should change, so the update targets one item instead of rebuilding unrelated data.',
   },
   {
     regex: /findIndex\(/,
     comment:
-      '// findIndex() is helpful before a removal because it tells the draft exactly which array position should be deleted.',
+      '// findIndex() identifies the array position to remove before the draft uses a mutating array method.',
   },
   {
     regex: /splice\(/,
     comment:
-      '// splice() mutates the draft array directly here, but Immer converts that draft mutation into a brand-new immutable array snapshot for React.',
+      '// splice() mutates the draft array here, and Immer turns that draft mutation into a new immutable array for React.',
   },
   {
     regex: /\.\.\./,
@@ -87,7 +124,7 @@ const reactPatterns = [
   {
     regex: /^export default function /,
     comment:
-      '// This file exports the component as the default export so other parts of the app can import and render it directly.',
+      '// This file exports the component as the default export so the assignment guide and tests can import it directly.',
   },
 ]
 
@@ -95,42 +132,43 @@ const testPatterns = [
   {
     regex: /^import /,
     comment:
-      '// Test files import the rendering utilities, assertions, and the component under test before the scenarios can run.',
+      '// Test imports bring in the render helpers, assertions, and component under test before any scenario runs.',
+    onceKey: 'test-imports',
   },
   {
     regex: /^afterEach\(/,
     comment:
-      '// afterEach() resets the DOM between tests so one test cannot leak state into another test case.',
+      '// afterEach() resets the test DOM between cases so one scenario cannot leak state into the next one.',
   },
   {
     regex: /^describe\(/,
     comment:
-      '// describe() groups related tests so the suite reads like a specification for one feature.',
+      '// describe() groups these assertions into one readable specification for the standalone exercise.',
   },
   {
     regex: /^\s*test\(/,
     comment:
-      '// Each test() block captures one expected behavior, which keeps both success cases and edge cases explicit.',
+      '// Each test() block captures one behavior students should be able to explain, not just a hidden grading rule.',
   },
   {
     regex: /render\(/,
     comment:
-      '// render() mounts the component into a test DOM so the assertions can interact with it the way a user would.',
+      '// render() mounts the component in a test DOM so the test can interact with it like a user would.',
   },
   {
     regex: /fireEvent\./,
     comment:
-      '// fireEvent simulates the user action that should trigger the state change or visual update being tested.',
+      '// fireEvent simulates the user action that should trigger a visible state change.',
   },
   {
     regex: /screen\.getBy/,
     comment:
-      '// screen queries the rendered DOM and intentionally looks for accessible roles, labels, or test IDs that users can perceive.',
+      '// screen queries the rendered DOM through visible text, roles, labels, or test IDs that represent observable UI.',
   },
   {
     regex: /expect\(/,
     comment:
-      '// expect() states the observable result that must be true after the component renders or the simulated event runs.',
+      '// expect() states the result that must be true after rendering or after the simulated interaction completes.',
   },
 ]
 
@@ -146,6 +184,7 @@ function shouldSkipLine(trimmedLine) {
 
 function addComments(lines, patterns) {
   const output = []
+  const insertedOnce = new Set()
   let lastInsertedComment = ''
 
   for (const line of lines) {
@@ -154,7 +193,12 @@ function addComments(lines, patterns) {
 
     if (!shouldSkipLine(trimmed)) {
       const matchedComments = patterns
-        .filter((pattern) => pattern.regex.test(trimmed))
+        .filter((pattern) => {
+          if (!pattern.regex.test(trimmed)) return false
+          if (pattern.onceKey && insertedOnce.has(pattern.onceKey)) return false
+          if (pattern.onceKey) insertedOnce.add(pattern.onceKey)
+          return true
+        })
         .map((pattern) => `${indent}${pattern.comment}`)
 
       for (const comment of matchedComments) {
@@ -184,12 +228,12 @@ export function annotateDisplayedCode(code, mode = 'react') {
     mode === 'test'
       ? [
           '// EDUCATIONAL VIEW: The original test syntax is preserved below.',
-          '// Extra comments are layered in only to explain what each testing step proves.',
+          '// Extra comments explain what each assertion proves and how each user interaction is simulated.',
           '',
         ]
       : [
           '// EDUCATIONAL VIEW: The original component syntax is preserved below.',
-          '// Extra comments are layered in only to explain how the React syntax works line by line.',
+          '// Extra comments explain the React, useImmer, and JSX syntax line by line without changing the real source file.',
           '',
         ]
 

@@ -420,3 +420,567 @@
     border-radius: 24px;
   }
 }
+
+/* Week 03 Assignment 2 professional polish pass:
+   - make this page visually consistent with the sharper assignment guide pattern
+   - prevent summary-card text, code, and JSON from crossing card borders
+   - remove the duplicated working demo by replacing the test panel component, not by hiding content
+   - strengthen the displayed-code presentation in both light and dark mode */
+.week03-user-profile-guide,
+.user-profile-immer-shell,
+.user-profile-immer-card,
+.user-profile-immer-preview-card,
+.user-profile-immer-json-card,
+.user-profile-immer-summary-card,
+.week03-user-profile-guide__section,
+.week03-user-profile-guide__hero-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.user-profile-immer-card {
+  overflow: hidden;
+}
+
+.user-profile-immer-hero {
+  align-items: start;
+}
+
+.user-profile-immer-summary-grid {
+  align-self: start;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.user-profile-immer-summary-card {
+  display: grid;
+  align-content: start;
+  min-height: 116px;
+}
+
+.user-profile-immer-summary-card span,
+.user-profile-immer-summary-card strong,
+.user-profile-immer-preview-card p,
+.user-profile-immer-preview-card li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.user-profile-immer-preview-grid {
+  align-items: stretch;
+}
+
+.user-profile-immer-preview-card,
+.user-profile-immer-json-card {
+  overflow: hidden;
+}
+
+.user-profile-immer-json-card pre {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.user-profile-immer-checkbox {
+  max-width: 100%;
+}
+
+.user-profile-immer-checkbox span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.week03-user-profile-guide .code-block-shell {
+  margin-top: 14px;
+  border-radius: 18px;
+  max-width: 100%;
+}
+
+.week03-user-profile-guide .code-block-pre {
+  max-width: 100%;
+}
+
+.week03-user-profile-guide .code-token-comment,
+.week03-user-profile-guide .code-token-string,
+.week03-user-profile-guide .code-token-keyword,
+.week03-user-profile-guide .code-token-literal,
+.week03-user-profile-guide .code-token-number,
+.week03-user-profile-guide .code-token-tag,
+.week03-user-profile-guide .code-token-call,
+.week03-user-profile-guide .code-token-operator,
+.week03-user-profile-guide .code-token-plain {
+  text-shadow: none;
+}
+
+.week03-user-profile-test-panel .assignment-test-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+.week03-user-profile-test-panel .assignment-test-tabs button {
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  color: #dbeafe;
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.week03-user-profile-test-panel .assignment-test-tabs button.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  border-color: transparent;
+}
+
+.week03-user-profile-test-panel .assignment-test-controls {
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.week03-user-profile-test-panel .assignment-test-controls button {
+  min-height: 46px;
+  white-space: normal;
+  line-height: 1.25;
+}
+
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell {
+  --code-surface: #0b1120;
+  --code-toolbar: rgba(15, 23, 42, 0.98);
+  --code-gutter: rgba(15, 23, 42, 1);
+  --code-border: rgba(148, 163, 184, 0.26);
+  --code-text: #e2e8f0;
+  --code-comment: #93c5fd;
+  --code-string: #f9a8d4;
+  --code-keyword: #7dd3fc;
+  --code-literal: #fca5a5;
+  --code-number: #fdba74;
+  --code-tag: #67e8f9;
+  --code-call: #fde68a;
+  --code-operator: #c4b5fd;
+}
+
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell {
+  --code-surface: #f8fafc;
+  --code-toolbar: #eef2ff;
+  --code-gutter: #eef2ff;
+  --code-border: rgba(99, 102, 241, 0.2);
+  --code-text: #0f172a;
+  --code-line-number: #475569;
+  --code-comment: #1d4ed8;
+  --code-string: #be185d;
+  --code-keyword: #1e40af;
+  --code-literal: #b91c1c;
+  --code-number: #c2410c;
+  --code-tag: #0f766e;
+  --code-call: #92400e;
+  --code-operator: #6d28d9;
+}
+
+.app-shell.theme-light .week03-user-profile-test-panel .assignment-test-tabs button {
+  color: #1e3a8a;
+  background: #eef2ff;
+  border-color: rgba(99, 102, 241, 0.18);
+}
+
+.app-shell.theme-light .week03-user-profile-test-panel .assignment-test-tabs button.active {
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #0ea5e9);
+  border-color: transparent;
+}
+
+@media (max-width: 980px) {
+  .user-profile-immer-summary-grid,
+  .user-profile-immer-preview-grid,
+  .user-profile-immer-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Week 03 Assignment 2 — UI Alignment Pass v2
+   Reference: Week 04 Assignment 1 and Week 02 Assignment 2 assignment guides.
+   Purpose:
+   - make this assignment stop looking like the visual outlier
+   - keep the single Working Demo, but frame it like the approved assignments
+   - fix card overflow/wrapping from the summary tiles and long inline code labels
+   - keep code blocks full-color and readable in light/dark mode
+-------------------------------------------------------------------------- */
+
+.assignment-guide-shell.week03-user-profile-guide {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  display: grid;
+  gap: 20px;
+  color: #e5eefc;
+}
+
+.assignment-hero.week03-user-profile-guide__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  background: linear-gradient(180deg, rgba(24, 39, 67, 0.98), rgba(18, 29, 50, 0.98));
+  border: 1px solid rgba(120, 157, 230, 0.18);
+  border-radius: 24px;
+  padding: 28px;
+  margin: 0;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+}
+
+.assignment-hero.week03-user-profile-guide__hero .week03-user-profile-guide__hero-card {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  min-width: 0;
+}
+
+.assignment-hero.week03-user-profile-guide__hero .week03-user-profile-guide__hero-card + .week03-user-profile-guide__hero-card {
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: rgba(15, 23, 42, 0.42);
+}
+
+.assignment-hero.week03-user-profile-guide__hero h1 {
+  margin: 0 0 12px;
+  color: #f8fafc;
+  line-height: 1.15;
+}
+
+.assignment-hero.week03-user-profile-guide__hero h2 {
+  margin: 0 0 10px;
+  color: #ffffff;
+}
+
+.assignment-guide-shell.week03-user-profile-guide .week03-user-profile-guide__kicker {
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #93c5fd;
+}
+
+.assignment-guide-shell.week03-user-profile-guide .week03-user-profile-guide__lede,
+.assignment-hero.week03-user-profile-guide__hero p,
+.assignment-hero.week03-user-profile-guide__hero li {
+  color: #d9e5f6;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.assignment-section.week03-user-profile-guide__section {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(15, 23, 42, 0.88));
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  min-width: 0;
+  overflow: hidden;
+}
+
+.assignment-section.week03-user-profile-guide__section h2 {
+  margin: 0 0 16px;
+  color: #ffffff;
+}
+
+.assignment-section.week03-user-profile-guide__section h3 {
+  color: #bfdbfe;
+  margin-top: 20px;
+}
+
+.assignment-section.week03-user-profile-guide__section p,
+.assignment-section.week03-user-profile-guide__section li,
+.assignment-section.week03-user-profile-guide__section ol,
+.assignment-section.week03-user-profile-guide__section ul {
+  color: #d9e5f6;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}
+
+.assignment-section.week03-user-profile-guide__section code,
+.assignment-hero.week03-user-profile-guide__hero code {
+  display: inline;
+  background: rgba(148, 163, 184, 0.16);
+  color: inherit;
+  padding: 2px 6px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+
+.week03-user-profile-guide__grid,
+.week03-user-profile-guide__checklist {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.week03-user-profile-guide__checklist {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.week03-user-profile-guide__grid > div,
+.week03-user-profile-guide__checklist > div {
+  min-width: 0;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  overflow: hidden;
+}
+
+.week03-user-profile-guide__demo-shell {
+  padding: 8px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(59, 130, 246, 0.08), rgba(14, 165, 233, 0.04));
+  border: 1px solid rgba(147, 197, 253, 0.12);
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* Standalone profile demo polish: make summary cards professional instead of cramped. */
+.user-profile-immer-shell,
+.user-profile-immer-card,
+.user-profile-immer-card * {
+  box-sizing: border-box;
+}
+
+.user-profile-immer-card {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+}
+
+.user-profile-immer-hero {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.user-profile-immer-summary-grid {
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  width: 100%;
+}
+
+.user-profile-immer-summary-card,
+.user-profile-immer-preview-card,
+.user-profile-immer-json-card {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.user-profile-immer-summary-card span,
+.user-profile-immer-summary-card strong,
+.user-profile-immer-preview-card p,
+.user-profile-immer-preview-card li,
+.user-profile-immer-list li,
+.user-profile-immer-tip {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.user-profile-immer-form-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.user-profile-immer-field,
+.user-profile-immer-field input,
+.user-profile-immer-checkbox {
+  min-width: 0;
+}
+
+.user-profile-immer-checkbox {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.user-profile-immer-preview-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.user-profile-immer-json-card pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+/* Code block color and containment parity with the approved assignment pages. */
+.week03-user-profile-guide .code-block-shell,
+.week03-user-profile-guide .code-block-pre,
+.week03-user-profile-guide .code-block-line,
+.week03-user-profile-guide .code-block-line-content {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.app-shell.theme-light .assignment-guide-shell.week03-user-profile-guide {
+  color: #0f172a;
+}
+
+.app-shell.theme-light .assignment-hero.week03-user-profile-guide__hero {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(241, 245, 249, 0.98)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.24) !important;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1) !important;
+}
+
+.app-shell.theme-light .assignment-hero.week03-user-profile-guide__hero .week03-user-profile-guide__hero-card + .week03-user-profile-guide__hero-card {
+  background: rgba(248, 250, 252, 0.86) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+}
+
+.app-shell.theme-light .assignment-hero.week03-user-profile-guide__hero h1,
+.app-shell.theme-light .assignment-hero.week03-user-profile-guide__hero h2,
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section h2 {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .assignment-guide-shell.week03-user-profile-guide .week03-user-profile-guide__kicker,
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section h3 {
+  color: #2563eb !important;
+}
+
+.app-shell.theme-light .assignment-guide-shell.week03-user-profile-guide .week03-user-profile-guide__lede,
+.app-shell.theme-light .assignment-hero.week03-user-profile-guide__hero p,
+.app-shell.theme-light .assignment-hero.week03-user-profile-guide__hero li,
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section p,
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section li,
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section ol,
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section ul {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .assignment-section.week03-user-profile-guide__section {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08) !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__grid > div,
+.app-shell.theme-light .week03-user-profile-guide__checklist > div {
+  background: #f8fafc !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+}
+
+@media (max-width: 980px) {
+  .week03-user-profile-guide__grid,
+  .week03-user-profile-guide__checklist,
+  .user-profile-immer-summary-grid,
+  .user-profile-immer-form-grid,
+  .user-profile-immer-preview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .assignment-guide-shell.week03-user-profile-guide {
+    padding: 24px 12px 48px;
+  }
+
+  .assignment-hero.week03-user-profile-guide__hero,
+  .assignment-section.week03-user-profile-guide__section {
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .user-profile-immer-card {
+    padding: 20px;
+  }
+}
+
+/* WEEK 03 ASSIGNMENT 2 LIGHT DEMO AND CODE CONTRAST PATCH
+   Purpose:
+   - Make the useImmer profile working demo readable in light mode.
+   - Keep inline code and displayed CodeBlock syntax colors from being flattened by
+     high-specificity guide text rules. */
+.app-shell.theme-light .week03-user-profile-guide__demo-shell {
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.08), rgba(14, 165, 233, 0.04)) !important;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-card,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-summary-card,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-preview-card,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-json-card {
+  background: #ffffff !important;
+  border-color: rgba(148, 163, 184, 0.24) !important;
+  color: #0f172a !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-card h2,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-card h3,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-summary-card strong,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-field span,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-list strong {
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-kicker,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-preview-card h3,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-json-card h3 {
+  color: #2563eb !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-intro,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-summary-card span,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-preview-card p,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-list,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-list li,
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-tip {
+  color: #334155 !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-field input {
+  background: #ffffff !important;
+  border-color: rgba(37, 99, 235, 0.24) !important;
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-checkbox {
+  background: #f8fafc !important;
+  border-color: #dbe3f0 !important;
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell .user-profile-immer-json-card pre {
+  background: #f8fafc !important;
+  border-color: #dbe3f0 !important;
+  color: #0f172a !important;
+}
+
+.app-shell.theme-light .week03-user-profile-guide__demo-shell code {
+  background: rgba(37, 99, 235, 0.1) !important;
+  border: 1px solid rgba(37, 99, 235, 0.14) !important;
+  color: #1d4ed8 !important;
+}
+
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-comment,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-comment,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-string,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-string,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-keyword,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-keyword,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-literal,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-literal,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-number,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-number,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-tag,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-tag,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-call,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-call,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-operator,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-operator,
+.app-shell.theme-dark .week03-user-profile-guide .code-block-shell .code-token-plain,
+.app-shell.theme-light .week03-user-profile-guide .code-block-shell .code-token-plain {
+  filter: none !important;
+}

@@ -340,7 +340,7 @@ npm run test:ui
 
 | Demo Title             | Description          | Link |
 | ---------------------- | -------------------- | ---- |
-| Assignment Walkthrough | Full UI + guide demo | [W2_A3](https://youtu.be/VtYc4LQ8ftA) |
+| Assignment Walkthrough | Full UI + guide demo |      |
 
 ---
 
