@@ -1,12 +1,19 @@
 # Introduction to TanStack Query
 
-This Week 04 lecture introduces TanStack Query as a server-state synchronization tool for React applications.
+Week 04 Lecture 01 introduces TanStack Query as the modern standard for managing asynchronous server state in React applications.
 
-Use this folder for:
-- notes on client state vs. server state
-- examples of query keys and query functions
-- setup references for QueryClient and QueryClientProvider
-- lightweight reference code that mirrors the runtime masterclass lecture
+This mirror file is intentionally lightweight. The full runtime teaching component lives in:
 
-Runtime lecture component:
 `src/lectures/Week04IntroToTanStackQueryMasterclass.jsx`
+
+Core ideas covered:
+
+- TanStack Query as a server-state management tool
+- the difference between local UI state and remote server state
+- why React apps need a standardized data-fetching pattern
+- challenges of manual `useState` / `useEffect` request logic
+- caching, deduplication, stale data, and background synchronization
+- `QueryClient`, `QueryClientProvider`, and `useQuery`
+- how TanStack Query improves developer efficiency and user experience
+
+This folder mirrors the lecture for course-source transparency only. It should not duplicate the full runtime lecture component.

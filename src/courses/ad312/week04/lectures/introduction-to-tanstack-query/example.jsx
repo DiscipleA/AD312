@@ -2,32 +2,38 @@ import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-quer
 
 const queryClient = new QueryClient()
 
-async function fetchCourseAnnouncements() {
-  const response = await fetch('/api/course-announcements')
+async function fetchBooks() {
+  const response = await fetch('https://api.library.example/books')
 
   if (!response.ok) {
-    throw new Error('Unable to load course announcements.')
+    throw new Error('Unable to load the book catalog.')
   }
 
   return response.json()
 }
 
-function CourseAnnouncements() {
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ['course-announcements'],
-    queryFn: fetchCourseAnnouncements,
+function BookList() {
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ['books'],
+    queryFn: fetchBooks,
   })
 
-  if (isLoading) return <p>Loading announcements...</p>
-  if (isError) return <p>{error.message}</p>
+  if (isPending) return <p>Fetching catalog...</p>
+  if (isError) return <p role="alert">{error.message}</p>
 
-  return <pre>{JSON.stringify(data, null, 2)}</pre>
+  return (
+    <ul>
+      {data.map((book) => (
+        <li key={book.id}>{book.title}</li>
+      ))}
+    </ul>
+  )
 }
 
 export default function TanStackQueryIntroExample() {
   return (
     <QueryClientProvider client={queryClient}>
-      <CourseAnnouncements />
+      <BookList />
     </QueryClientProvider>
   )
 }

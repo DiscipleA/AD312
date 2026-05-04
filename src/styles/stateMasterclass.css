@@ -567,3 +567,11 @@
   color: #ecf0f1 !important;
 }
 
+/* Code in Action demo layout helper
+   Demo buttons reuse the existing .sm-button style. This selector only controls
+   spacing/containment inside demo panels, not a separate visual button system. */
+.sm-demo-shell .sm-button {
+  margin: 10px 0;
+  max-width: 100%;
+  white-space: normal;
+}
