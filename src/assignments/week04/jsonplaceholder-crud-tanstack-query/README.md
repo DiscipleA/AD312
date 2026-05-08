@@ -460,7 +460,7 @@ npm run test:ui
 
 | Demo Title             | Description          | Link |
 | ---------------------- | -------------------- | ---- |
-| Assignment Walkthrough | Full UI + guide demo |      |
+| Assignment Walkthrough | Full UI + guide demo |[Week4_A2](https://youtu.be/9FKA79xJWvE)|
 
 ---
 
