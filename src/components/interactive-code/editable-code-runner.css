@@ -1,0 +1,169 @@
+.editable-runner-shell {
+  display: grid;
+  gap: 16px;
+  margin: 18px 0 28px;
+}
+
+.editable-runner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border: 1px solid rgba(96, 165, 250, 0.24);
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(14, 165, 233, 0.08));
+}
+
+.editable-runner-header h3 {
+  margin: 0;
+}
+
+.editable-runner-header p {
+  margin: 0;
+}
+
+.editable-runner-kicker {
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--code-pill-text, #dbeafe);
+}
+
+.editable-code-window {
+  overflow: hidden;
+  border: 1px solid var(--code-border, rgba(148, 163, 184, 0.28));
+  border-radius: 16px;
+  background: var(--code-surface, #0f172a);
+  box-shadow: 0 12px 32px rgba(2, 6, 23, 0.24);
+}
+
+.editable-code-window .cm-editor {
+  min-height: 420px;
+  background: var(--code-surface, #0f172a);
+  color: var(--code-text, #e2e8f0);
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.editable-code-window .cm-scroller {
+  overflow: auto;
+}
+
+.editable-code-window .cm-gutters {
+  background: var(--code-gutter, rgba(15, 23, 42, 0.98));
+  color: var(--code-line-number, #94a3b8);
+  border-right: 1px solid var(--code-border, rgba(148, 163, 184, 0.24));
+}
+
+.editable-code-window .cm-activeLine,
+.editable-code-window .cm-activeLineGutter {
+  background: rgba(96, 165, 250, 0.1);
+}
+
+.editable-code-window .cm-content {
+  padding: 14px 0;
+}
+
+.editable-code-window .cm-line {
+  padding: 0 16px;
+}
+
+.editable-runner-status {
+  padding: 10px 14px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.06);
+  font-weight: 700;
+}
+
+.editable-preview-shell {
+  padding: 28px;
+  border: 3px solid #3498db;
+  border-radius: 15px;
+  margin-bottom: 24px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.editable-preview-shell.has-error {
+  border-color: #ef4444;
+  background: #fff1f2;
+  color: #7f1d1d;
+}
+
+.editable-preview-error {
+  display: grid;
+  gap: 8px;
+  color: #991b1b;
+}
+
+.editable-preview-error strong {
+  font-size: 1.05rem;
+}
+
+.editable-preview-empty {
+  color: #475569;
+  font-weight: 700;
+}
+
+.theme-dark .editable-runner-header {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.16), rgba(14, 165, 233, 0.1));
+  border-color: rgba(147, 197, 253, 0.22);
+}
+
+.theme-dark .editable-runner-status {
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(148, 163, 184, 0.22);
+  color: #dbeafe;
+}
+
+
+
+
+.theme-light .editable-code-window {
+  background: #ffffff;
+}
+
+.theme-light .editable-code-window .cm-editor {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.theme-light .editable-code-window .cm-gutters {
+  background: #eef2ff;
+  color: #64748b;
+  border-right-color: rgba(79, 70, 229, 0.2);
+}
+
+.theme-light .editable-code-window .cm-activeLine,
+.theme-light .editable-code-window .cm-activeLineGutter {
+  background: rgba(79, 70, 229, 0.08);
+}
+
+@media (max-width: 760px) {
+  .editable-runner-header {
+    flex-direction: column;
+  }
+}
+
+
+.editable-preview-shell h1,
+.editable-preview-shell h2,
+.editable-preview-shell h3,
+.editable-preview-shell h4,
+.editable-preview-shell p,
+.editable-preview-shell li,
+.editable-preview-shell div,
+.editable-preview-shell span {
+  color: inherit;
+}
+
+.editable-preview-shell pre {
+  max-width: 100%;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

@@ -938,6 +938,7 @@ This is a standard React pattern to prevent the entire webpage from refreshing w
 
 export default function StateMasterclass({ onBack, onSectionChange, title = "React's State as a Snapshot" }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [sectionsCollapsed, setSectionsCollapsed] = useState(false)
 
   const activeSection = useMemo(() => sections[activeIndex], [activeIndex])
 
@@ -969,9 +970,20 @@ export default function StateMasterclass({ onBack, onSectionChange, title = "Rea
         </div>
       </div>
 
-      <div className="sm-layout">
-        <aside className="sm-sidebar">
-          <div className="sm-sidebar-label">Lecture Sections</div>
+      <div className={`sm-layout ${sectionsCollapsed ? 'sm-layout-sidebar-collapsed' : ''}`}>
+        <aside className={`sm-sidebar ${sectionsCollapsed ? 'collapsed' : ''}`}>
+          <div className="sm-sidebar-header">
+            <div className="sm-sidebar-label">Lecture Sections</div>
+            <button
+              type="button"
+              className="sm-sidebar-toggle"
+              aria-label={sectionsCollapsed ? 'Show lecture sections' : 'Hide lecture sections'}
+              aria-expanded={!sectionsCollapsed}
+              onClick={() => setSectionsCollapsed((isCollapsed) => !isCollapsed)}
+            >
+              <span aria-hidden="true">{sectionsCollapsed ? '›' : '‹'}</span>
+            </button>
+          </div>
           {sections.map((section, index) => (
             <button
               key={section.title}

@@ -509,6 +509,7 @@ function RecapSection() {
 
 export default function Week04QueriesWithTanStackQueryMasterclass({ onBack, onSectionChange, title = 'Queries with TanStack Query' }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [sectionsCollapsed, setSectionsCollapsed] = useState(false)
   const activeSection = useMemo(() => slides[activeIndex], [activeIndex])
   const ActiveDemo = activeSection?.Demo
 
@@ -527,9 +528,20 @@ export default function Week04QueriesWithTanStackQueryMasterclass({ onBack, onSe
         <button className="sm-button ghost" onClick={onBack}>← Back to Week 04</button>
         <div className="sm-toolbar-copy"><p className="sm-kicker">AD312 • Week 04 • Lecture 02</p><h2>{title}</h2></div>
       </div>
-      <div className="sm-layout">
-        <aside className="sm-sidebar">
-          <div className="sm-sidebar-label">Lecture Sections</div>
+      <div className={`sm-layout ${sectionsCollapsed ? 'sm-layout-sidebar-collapsed' : ''}`}>
+        <aside className={`sm-sidebar ${sectionsCollapsed ? 'collapsed' : ''}`}>
+          <div className="sm-sidebar-header">
+            <div className="sm-sidebar-label">Lecture Sections</div>
+            <button
+              type="button"
+              className="sm-sidebar-toggle"
+              aria-label={sectionsCollapsed ? 'Show lecture sections' : 'Hide lecture sections'}
+              aria-expanded={!sectionsCollapsed}
+              onClick={() => setSectionsCollapsed((isCollapsed) => !isCollapsed)}
+            >
+              <span aria-hidden="true">{sectionsCollapsed ? '›' : '‹'}</span>
+            </button>
+          </div>
           {slides.map((section, index) => (
             <button key={section.title} className={index === activeIndex ? 'sm-nav-button active' : 'sm-nav-button'} onClick={() => setActiveIndex(index)}>
               <span className="sm-nav-step">{String(index + 1).padStart(2, '0')}</span><span>{section.title}</span>

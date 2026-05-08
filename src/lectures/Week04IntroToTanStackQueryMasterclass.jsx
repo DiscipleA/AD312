@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import '../styles/stateMasterclass.css'
 import CodeBlock from '../components/CodeBlock'
+import EditableCodeRunner from '../components/interactive-code/EditableCodeRunner'
 import { annotateDisplayedCode } from '../utils/educationalCode'
 
 const styles = {
@@ -129,6 +130,7 @@ function SectionWrapper({
   narrowed,
   code,
   simpleTerms,
+  interactiveExample,
   children,
 }) {
   return (
@@ -156,11 +158,17 @@ function SectionWrapper({
         <p className="sm-preline">{narrowed}</p>
       </div>
 
-      <h3 className="sm-subheading">Full Code Example</h3>
-      <CodeBlock code={annotateDisplayedCode(code, 'react')} language="jsx" label="React JSX" />
+      {interactiveExample ? (
+        <EditableCodeRunner {...interactiveExample} />
+      ) : (
+        <>
+          <h3 className="sm-subheading">Full Code Example</h3>
+          <CodeBlock code={annotateDisplayedCode(code, 'react')} language="jsx" label="React JSX" />
 
-      <h3 className="sm-subheading">Code in Action</h3>
-      <div className="sm-demo-shell">{children}</div>
+          <h3 className="sm-subheading">Code in Action</h3>
+          <div className="sm-demo-shell">{children}</div>
+        </>
+      )}
 
       <div className="sm-explanation">
         <h3>Simple Terms Explanation</h3>
@@ -351,6 +359,84 @@ function RecapSection() {
   )
 }
 
+
+const bookCatalogEditableCode = `import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query';
+
+// EDUCATIONAL VIEW:
+// This example introduces the core TanStack Query setup.
+// The goal is not just to fetch books; the goal is to see how server-state
+// moves out of scattered component state and into a reusable query system.
+
+// The QueryClient is the central cache manager.
+// Think of it as the shared storage area where TanStack Query remembers
+// successful requests, loading state, errors, and freshness information.
+const queryClient = new QueryClient();
+
+function BookCatalog() {
+  // QueryClientProvider makes the query client available to every child.
+  // Without this provider, useQuery would not know which cache to read from
+  // or where to store the result of a completed request.
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BookList />
+    </QueryClientProvider>
+  );
+}
+
+function BookList() {
+  // useQuery describes one server-state request.
+  // TanStack Query returns request-state values such as data, isLoading,
+  // and isError so the component can render the correct UI branch.
+  const { data, isLoading, isError } = useQuery({
+    // queryKey identifies this request in the cache.
+    // If another component asks for ['books'], TanStack Query can reuse
+    // the same cached data instead of starting from zero again.
+    queryKey: ['books'],
+
+    // queryFn contains the actual fetching instructions.
+    // In a real app, this function reaches out to an API.
+    // In this interactive preview, the runner safely supplies mock data
+    // so students can edit the UI without depending on a live server.
+    queryFn: async () => {
+      const response = await fetch('https://api.library.example/books');
+      return response.json();
+    },
+  });
+
+  // Loading UI protects the user from seeing an empty screen while the
+  // server request is still pending.
+  if (isLoading) return <div>Fetching catalog...</div>;
+
+  // Error UI gives the user a clear message if the request fails.
+  // Try deleting this line and notice how the preview still attempts to run,
+  // but the example becomes less complete from a user-experience perspective.
+  if (isError) return <div>Error loading books.</div>;
+
+  // Success UI renders the server data after the query resolves.
+  // Each item needs a stable key so React can track list items predictably.
+  return (
+    <ul>
+      {data.map((book) => (
+        <li key={book.id}>{book.title}</li>
+      ))}
+    </ul>
+  );
+}`
+
+const bookCatalogEditableExample = {
+  title: 'TanStack Query Book Catalog',
+  description:
+    'Edit the same educational code example shown in the lecture. The preview below recompiles after a short pause. If the code breaks, the Code in Action area shows an error instead of crashing the course platform.',
+  initialCode: bookCatalogEditableCode,
+  entryComponentName: 'BookCatalog',
+  previewLabel: 'Code in Action',
+  mockData: [
+    { id: 1, title: 'Designing Data-Driven Interfaces' },
+    { id: 2, title: 'Practical Server State' },
+    { id: 3, title: 'Caching for Modern Apps' },
+  ],
+}
+
 const lectureSectionTitles = ['Introduction to TanStack Query', 'Motivation Behind TanStack Query', 'Challenges of Managing Server State', 'Why TanStack Query?', 'Features and Benefits', 'Getting Started with TanStack Query']
 
 const lectureSections = [
@@ -399,6 +485,7 @@ function BookList() {
   );
 }`}
         simpleTerms="The code starts by creating a QueryClient, which is like a specialized filing cabinet for all the information we get from the internet. The QueryClientProvider wraps the application, making this filing cabinet available to every component inside it. Inside the BookList component, we use a hook called useQuery. We give this hook a 'queryKey' called ['books'], which acts like a label on a folder in our filing cabinet. The 'queryFn' is the actual instruction on how to go get the data—in this case, using a fetch request to a library API. The hook automatically gives us three variables: 'data' (the actual list of books), 'isLoading' (a true/false value telling us if we are still waiting for the internet), and 'isError' (a true/false value telling us if something went wrong). This prevents us from having to manually create multiple pieces of state for loading and errors, and it ensures that if we ask for ['books'] in another component, the library knows to check the 'books' folder in the filing cabinet first before trying to use the internet again."
+        interactiveExample={bookCatalogEditableExample}
       >
         <BookCatalogDemo />
       </SectionWrapper>,
@@ -659,6 +746,7 @@ export default function Week04IntroToTanStackQueryMasterclass({
   title = 'Introduction to TanStack Query',
 }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [sectionsCollapsed, setSectionsCollapsed] = useState(false)
   const activeSection = useMemo(() => lectureSections[activeIndex], [activeIndex])
 
   useEffect(() => {
@@ -691,9 +779,20 @@ export default function Week04IntroToTanStackQueryMasterclass({
         </div>
       </div>
 
-      <div className="sm-layout">
-        <aside className="sm-sidebar">
-          <div className="sm-sidebar-label">Lecture Sections</div>
+      <div className={`sm-layout ${sectionsCollapsed ? 'sm-layout-sidebar-collapsed' : ''}`}>
+        <aside className={`sm-sidebar ${sectionsCollapsed ? 'collapsed' : ''}`}>
+          <div className="sm-sidebar-header">
+            <div className="sm-sidebar-label">Lecture Sections</div>
+            <button
+              type="button"
+              className="sm-sidebar-toggle"
+              aria-label={sectionsCollapsed ? 'Show lecture sections' : 'Hide lecture sections'}
+              aria-expanded={!sectionsCollapsed}
+              onClick={() => setSectionsCollapsed((isCollapsed) => !isCollapsed)}
+            >
+              <span aria-hidden="true">{sectionsCollapsed ? '›' : '‹'}</span>
+            </button>
+          </div>
 
           {lectureSectionTitles.map((sectionTitle, index) => (
             <button

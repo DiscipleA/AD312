@@ -445,6 +445,7 @@ const slides = rawSlides.map((slide) => ({
 
 export default function Week04IntroToMutationsTanStackQueryMasterclass({ onBack, onSectionChange }) {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [sectionsCollapsed, setSectionsCollapsed] = useState(false)
   const activeSection = useMemo(() => slides[activeIndex], [activeIndex])
   const ActiveDemo = activeSection?.Demo
 
@@ -471,9 +472,20 @@ export default function Week04IntroToMutationsTanStackQueryMasterclass({ onBack,
         </div>
       </div>
 
-      <div className="sm-layout">
-        <aside className="sm-sidebar">
-          <div className="sm-sidebar-label">Lecture Sections</div>
+      <div className={`sm-layout ${sectionsCollapsed ? 'sm-layout-sidebar-collapsed' : ''}`}>
+        <aside className={`sm-sidebar ${sectionsCollapsed ? 'collapsed' : ''}`}>
+          <div className="sm-sidebar-header">
+            <div className="sm-sidebar-label">Lecture Sections</div>
+            <button
+              type="button"
+              className="sm-sidebar-toggle"
+              aria-label={sectionsCollapsed ? 'Show lecture sections' : 'Hide lecture sections'}
+              aria-expanded={!sectionsCollapsed}
+              onClick={() => setSectionsCollapsed((isCollapsed) => !isCollapsed)}
+            >
+              <span aria-hidden="true">{sectionsCollapsed ? '›' : '‹'}</span>
+            </button>
+          </div>
           {slides.map((section, index) => (
             <button
               key={section.title}

@@ -16,14 +16,21 @@ import Week04QueriesWithTanStackQueryMasterclass from './lectures/Week04QueriesW
 import Week04TanStackQueryKeysMasterclass from './lectures/Week04TanStackQueryKeysMasterclass'
 import Week04QueryFunctionsInTanStackQueryMasterclass from './lectures/Week04QueryFunctionsInTanStackQueryMasterclass'
 import Week04IntroToMutationsTanStackQueryMasterclass from './lectures/Week04IntroToMutationsTanStackQueryMasterclass'
-import Week01CounterAssignmentGuide from './assignments/week01/Week01CounterAssignmentGuide'
-import Week02RecipeGalleryAssignmentGuide from './assignments/week02/interactive-recipe-gallery/Week02RecipeGalleryAssignmentGuide'
-import Week02ManagingNestedStateAssignmentGuide from './assignments/week02/managing-nested-state/Week02ManagingNestedStateAssignmentGuide'
-import Week02TaskManagerAssignmentGuide from './assignments/week02/taskmanager-react-state/Week02TaskManagerAssignmentGuide'
-import Week03ShoppingListWithImmerAssignmentGuide from './assignments/week03/state-management-with-immer-in-react/Week03ShoppingListWithImmerAssignmentGuide'
-import Week03UserProfileWithImmerAssignmentGuide from './assignments/week03/state-management-with-useimmer-hook/Week03UserProfileWithImmerAssignmentGuide'
-import Week04DogApiTanStackQueryAssignmentGuide from './assignments/week04/dog-api-tanstack-query/Week04DogApiTanStackQueryAssignmentGuide'
-import Week04JsonPlaceholderCrudAssignmentGuide from './assignments/week04/jsonplaceholder-crud-tanstack-query/Week04JsonPlaceholderCrudAssignmentGuide'
+import Week05SinglyLinkedListsMasterclass from './lectures/Week05SinglyLinkedListsMasterclass'
+import Week05IntroReactRouterMasterclass from './lectures/Week05IntroReactRouterMasterclass'
+import Week05ReactRouterRoutePatternsMasterclass from './lectures/Week05ReactRouterRoutePatternsMasterclass'
+import Week05ReactRouterNavigationMasterclass from './lectures/Week05ReactRouterNavigationMasterclass'
+import Week01CounterAssignmentGuide from './exercises/Week01CounterAssignmentGuide'
+import Week02RecipeGalleryAssignmentGuide from './exercises/Week02RecipeGalleryAssignmentGuide'
+import Week02ManagingNestedStateAssignmentGuide from './exercises/Week02ManagingNestedStateAssignmentGuide'
+import Week02TaskManagerAssignmentGuide from './exercises/Week02TaskManagerAssignmentGuide'
+import Week03ShoppingListWithImmerAssignmentGuide from './exercises/Week03ShoppingListWithImmerAssignmentGuide'
+import Week03UserProfileWithImmerAssignmentGuide from './exercises/Week03UserProfileWithImmerAssignmentGuide'
+import Week04DogApiTanStackQueryAssignmentGuide from './exercises/Week04DogApiTanStackQueryAssignmentGuide'
+import Week04JsonPlaceholderCrudAssignmentGuide from './exercises/Week04JsonPlaceholderCrudAssignmentGuide'
+import Week05HealthRecordSymmetryAssignmentGuide from './exercises/Week05HealthRecordSymmetryAssignmentGuide'
+import Week05RecipeRouterGalleryAssignmentGuide from './exercises/Week05RecipeRouterGalleryAssignmentGuide'
+import Week05BlogRouterMpaAssignmentGuide from './exercises/Week05BlogRouterMpaAssignmentGuide'
 import { courseData } from './data/courseData'
 import './styles/app.css'
 
@@ -140,6 +147,48 @@ const lectureRegistry = {
       defaultSlideTitle: 'Introduction to Mutations',
     },
   },
+  'singly-linked-lists': {
+    component: Week05SinglyLinkedListsMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      lectureId: 'singly-linked-lists',
+      title: 'Introduction to Singly Linked Lists',
+      defaultSlideTitle: 'Introduction to Singly Linked Lists',
+    },
+  },
+  'intro-react-router': {
+    component: Week05IntroReactRouterMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      lectureId: 'intro-react-router',
+      title: 'Introduction to React Router',
+      defaultSlideTitle: 'Introduction to React Router v7',
+    },
+  },
+
+  'react-router-route-patterns': {
+    component: Week05ReactRouterRoutePatternsMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      lectureId: 'react-router-route-patterns',
+      title: 'React Router Route Patterns',
+      defaultSlideTitle: 'Configuring Routes',
+    },
+  },
+
+  'react-router-navigation': {
+    component: Week05ReactRouterNavigationMasterclass,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      lectureId: 'react-router-navigation',
+      title: 'Navigation with React Router',
+      defaultSlideTitle: 'React Router - Navigating',
+    },
+  },
 }
 const assignmentRegistry = {
   'counter-state-management': {
@@ -214,6 +263,33 @@ const assignmentRegistry = {
       title: 'JSONPlaceholder CRUD with TanStack Query',
     },
   },
+  'health-record-symmetry': {
+    component: Week05HealthRecordSymmetryAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      assignmentId: 'health-record-symmetry',
+      title: 'Patient Health Record Symmetry with Singly Linked Lists',
+    },
+  },
+  'recipe-router-gallery': {
+    component: Week05RecipeRouterGalleryAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      assignmentId: 'recipe-router-gallery',
+      title: 'Recipe Gallery Routing with React Router',
+    },
+  },
+  'blog-router-mpa': {
+    component: Week05BlogRouterMpaAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week05',
+      assignmentId: 'blog-router-mpa',
+      title: 'Blog Multi-Page App with React Router',
+    },
+  },
 }
 
 export default function App() {
@@ -223,6 +299,7 @@ export default function App() {
   const [activeAssignment, setActiveAssignment] = useState(null)
   const [activeSlide, setActiveSlide] = useState(null)
   const [theme, setTheme] = useState(() => localStorage.getItem('course-lab-theme') || 'dark')
+  const [isFileTreeCollapsed, setIsFileTreeCollapsed] = useState(false)
 
   useEffect(() => {
     localStorage.setItem('course-lab-theme', theme)
@@ -297,7 +374,7 @@ export default function App() {
   const isShowingAssignment = Boolean(activeAssignment)
 
   return (
-    <div className={`app-shell theme-${theme}`}>
+    <div className={`app-shell theme-${theme}${isFileTreeCollapsed ? ' filetree-collapsed' : ''}`}>
       <Sidebar
         courses={courses}
         selectedCourse={selectedCourse}
@@ -388,6 +465,8 @@ export default function App() {
         activeLecture={activeLecture}
         activeAssignment={activeAssignment}
         activeSlide={activeSlide}
+        isCollapsed={isFileTreeCollapsed}
+        onToggleCollapsed={() => setIsFileTreeCollapsed((current) => !current)}
       />
     </div>
   )

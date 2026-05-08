@@ -22,6 +22,8 @@ export default function FileTreePanel({
   activeLecture,
   activeAssignment,
   activeSlide,
+  isCollapsed = false,
+  onToggleCollapsed,
 }) {
   const lecture1Open = activeLecture?.lectureId === 'intro-react-state'
   const lecture2Open = activeLecture?.lectureId === 'react-state-snapshot'
@@ -35,6 +37,10 @@ export default function FileTreePanel({
   const week04Lecture3Open = activeLecture?.lectureId === 'tanstack-query-keys'
   const week04Lecture4Open = activeLecture?.lectureId === 'query-functions-in-tanstack-query'
   const week04Lecture5Open = activeLecture?.lectureId === 'intro-to-mutations-tanstack-query'
+  const week05Lecture1Open = activeLecture?.lectureId === 'singly-linked-lists'
+  const week05Lecture2Open = activeLecture?.lectureId === 'intro-react-router'
+  const week05Lecture3Open = activeLecture?.lectureId === 'react-router-route-patterns'
+  const week05Lecture4Open = activeLecture?.lectureId === 'react-router-navigation'
   const week01AssignmentOpen =
     activeAssignment?.assignmentId === 'counter-state-management'
   const week02RecipeGalleryOpen =
@@ -52,6 +58,15 @@ export default function FileTreePanel({
     activeAssignment?.assignmentId === 'dog-api-tanstack-query'
   const week04JsonPlaceholderCrudOpen =
     activeAssignment?.assignmentId === 'jsonplaceholder-crud-tanstack-query'
+
+  const week05HealthRecordSymmetryOpen =
+    activeAssignment?.assignmentId === 'health-record-symmetry'
+
+  const week05RecipeRouterGalleryOpen =
+    activeAssignment?.assignmentId === 'recipe-router-gallery'
+
+  const week05BlogRouterMpaOpen =
+    activeAssignment?.assignmentId === 'blog-router-mpa'
 
   const lecture1Slides = [
     '01 React State (The Component’s Memory)',
@@ -178,6 +193,54 @@ export default function FileTreePanel({
     '08 Best Practices and Recap',
   ]
 
+  const week05Lecture1Slides = [
+    '01 Introduction to Singly Linked Lists',
+    '02 Node Structure',
+    '03 The Head Node',
+    '04 Traversing a Linked List',
+    '05 Inserting a New Node',
+    '06 Adding a Node at the Beginning',
+    '07 Deleting a Node',
+    '08 Deleting the First Node',
+    '09 Best Practices and Recap',
+  ]
+  const week05Lecture2Slides = [
+    '01 Introduction to React Router v7',
+    '02 The Three Modes of v7',
+    '03 Mode 1 – Declarative (The Basics)',
+    '04 Mode 2 – Data (Enhanced Performance)',
+    '05 Mode 3 – Framework (The Full Experience)',
+    '06 Picking Your Strategy - Framework',
+    '07 Picking Your Strategy - Data',
+    '08 Use Declarative if...',
+    '09 Best Practices and Recap',
+  ]
+
+  const week05Lecture3Slides = [
+    '01 Configuring Routes',
+    '02 Routes via file naming conventions',
+    '03 Route Modules',
+    '04 Nested Routes',
+    '05 Route Prefixes',
+    '06 Dynamic Segments',
+    '07 Multiple Dynamic Segments',
+    '08 Optional Segments',
+    '09 Splats',
+    '10 Splat - catchall',
+    '11 Best Practices and Recap',
+  ]
+
+
+  const week05Lecture4Slides = [
+    '01 React Router - Navigating',
+    '02 NavLink',
+    '03 Link',
+    '04 Form',
+    '05 Redirect',
+    '06 useNavigate',
+    '07 Best Practices and Recap',
+  ]
+
   const currentSlides = lecture1Open
     ? lecture1Slides
     : lecture2Open
@@ -200,11 +263,30 @@ export default function FileTreePanel({
                       ? week04Lecture4Slides
                       : week04Lecture5Open
                         ? week04Lecture5Slides
-                        : []
+                        : week05Lecture1Open
+                          ? week05Lecture1Slides
+                          : week05Lecture2Open
+                          ? week05Lecture2Slides
+                          : week05Lecture3Open
+                            ? week05Lecture3Slides
+                            : week05Lecture4Open
+                              ? week05Lecture4Slides
+                              : []
 
   return (
-    <aside className="filetree-panel">
-      <div className="sidebar-label">Project Tree</div>
+    <aside className={`filetree-panel${isCollapsed ? ' collapsed' : ''}`}>
+      <div className="filetree-panel-header">
+        <div className="sidebar-label">Project Tree</div>
+        <button
+          type="button"
+          className="filetree-collapse-button"
+          onClick={onToggleCollapsed}
+          aria-label={isCollapsed ? 'Expand project tree' : 'Collapse project tree'}
+          title={isCollapsed ? 'Expand project tree' : 'Collapse project tree'}
+        >
+          <span aria-hidden="true">{isCollapsed ? '‹' : '›'}</span>
+        </button>
+      </div>
 
       <div className="tree-shell">
         <TreeLine label="src/" depth={0} active />
@@ -283,6 +365,30 @@ export default function FileTreePanel({
           depth={2}
           active={week04Lecture5Open}
           subtle={!week04Lecture5Open}
+        />
+        <TreeLine
+          label="Week05SinglyLinkedListsMasterclass.jsx"
+          depth={2}
+          active={week05Lecture1Open}
+          subtle={!week05Lecture1Open}
+        />
+        <TreeLine
+          label="Week05IntroReactRouterMasterclass.jsx"
+          depth={2}
+          active={week05Lecture2Open}
+          subtle={!week05Lecture2Open}
+        />
+        <TreeLine
+          label="Week05ReactRouterRoutePatternsMasterclass.jsx"
+          depth={2}
+          active={week05Lecture3Open}
+          subtle={!week05Lecture3Open}
+        />
+        <TreeLine
+          label="Week05ReactRouterNavigationMasterclass.jsx"
+          depth={2}
+          active={week05Lecture4Open}
+          subtle={!week05Lecture4Open}
         />
 
         {activeLecture ? (
@@ -456,9 +562,59 @@ export default function FileTreePanel({
           subtle={!week04JsonPlaceholderCrudOpen}
         />
         <TreeLine
-          label="week05/ ... week11/"
+          label="week05/"
           depth={3}
-          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04'].includes(selectedWeekId)}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week05'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week05'}
+        />
+        <TreeLine label="lectures/" depth={4} subtle={!(week05Lecture1Open || week05Lecture2Open || week05Lecture3Open || week05Lecture4Open)} />
+        <TreeLine
+          label="introduction-to-singly-linked-lists/"
+          depth={5}
+          active={week05Lecture1Open}
+          subtle={!week05Lecture1Open}
+        />
+        <TreeLine
+          label="intro-react-router/"
+          depth={5}
+          active={week05Lecture2Open}
+          subtle={!week05Lecture2Open}
+        />
+        <TreeLine
+          label="react-router-route-patterns/"
+          depth={5}
+          active={week05Lecture3Open}
+          subtle={!week05Lecture3Open}
+        />
+        <TreeLine
+          label="react-router-navigation/"
+          depth={5}
+          active={week05Lecture4Open}
+          subtle={!week05Lecture4Open}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen)} />
+        <TreeLine
+          label="health-record-symmetry/"
+          depth={5}
+          active={week05HealthRecordSymmetryOpen}
+          subtle={!week05HealthRecordSymmetryOpen}
+        />
+        <TreeLine
+          label="recipe-router-gallery/"
+          depth={5}
+          active={week05RecipeRouterGalleryOpen}
+          subtle={!week05RecipeRouterGalleryOpen}
+        />
+        <TreeLine
+          label="blog-router-mpa/"
+          depth={5}
+          active={week05BlogRouterMpaOpen}
+          subtle={!week05BlogRouterMpaOpen}
+        />
+        <TreeLine
+          label="week06/ ... week11/"
+          depth={3}
+          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05'].includes(selectedWeekId)}
         />
 
         <TreeLine
@@ -479,7 +635,7 @@ export default function FileTreePanel({
         <TreeLine label="assignments/" depth={1} />
         <TreeLine label="week01/" depth={2} subtle={!week01AssignmentOpen} />
         <TreeLine
-          label="Week01CounterAssignmentGuide.jsx"
+          label="Counter.jsx"
           depth={3}
           active={week01AssignmentOpen}
           subtle={!week01AssignmentOpen}
@@ -496,13 +652,13 @@ export default function FileTreePanel({
           subtle={!week02RecipeGalleryOpen}
         />
         <TreeLine
-          label="Week02RecipeGalleryAssignmentGuide.jsx"
+          label="RecipeGallery.jsx"
           depth={4}
           active={week02RecipeGalleryOpen}
           subtle={!week02RecipeGalleryOpen}
         />
         <TreeLine
-          label="RecipeGalleryTestPanel.jsx"
+          label="RecipeGallery.test.jsx"
           depth={4}
           active={week02RecipeGalleryOpen}
           subtle={!week02RecipeGalleryOpen}
@@ -514,13 +670,13 @@ export default function FileTreePanel({
           subtle={!week02NestedStateOpen}
         />
         <TreeLine
-          label="Week02ManagingNestedStateAssignmentGuide.jsx"
+          label="UserProfile.jsx"
           depth={4}
           active={week02NestedStateOpen}
           subtle={!week02NestedStateOpen}
         />
         <TreeLine
-          label="NestedStateTestPanel.jsx"
+          label="UserProfile.test.jsx"
           depth={4}
           active={week02NestedStateOpen}
           subtle={!week02NestedStateOpen}
@@ -532,13 +688,13 @@ export default function FileTreePanel({
           subtle={!week02TaskManagerOpen}
         />
         <TreeLine
-          label="Week02TaskManagerAssignmentGuide.jsx"
+          label="TaskManager.jsx"
           depth={4}
           active={week02TaskManagerOpen}
           subtle={!week02TaskManagerOpen}
         />
         <TreeLine
-          label="TaskManagerTestPanel.jsx"
+          label="TaskManager.test.jsx"
           depth={4}
           active={week02TaskManagerOpen}
           subtle={!week02TaskManagerOpen}
@@ -555,13 +711,13 @@ export default function FileTreePanel({
           subtle={!week03ShoppingListOpen}
         />
         <TreeLine
-          label="Week03ShoppingListWithImmerAssignmentGuide.jsx"
+          label="ShoppingListWithImmer.jsx"
           depth={4}
           active={week03ShoppingListOpen}
           subtle={!week03ShoppingListOpen}
         />
         <TreeLine
-          label="ShoppingListWithImmerTestPanel.jsx"
+          label="ShoppingListWithImmer.test.jsx"
           depth={4}
           active={week03ShoppingListOpen}
           subtle={!week03ShoppingListOpen}
@@ -573,13 +729,13 @@ export default function FileTreePanel({
           subtle={!week03UserProfileWithImmerOpen}
         />
         <TreeLine
-          label="Week03UserProfileWithImmerAssignmentGuide.jsx"
+          label="UserProfileWithImmer.jsx"
           depth={4}
           active={week03UserProfileWithImmerOpen}
           subtle={!week03UserProfileWithImmerOpen}
         />
         <TreeLine
-          label="UserProfileWithImmerTestPanel.jsx"
+          label="UserProfileWithImmer.test.jsx"
           depth={4}
           active={week03UserProfileWithImmerOpen}
           subtle={!week03UserProfileWithImmerOpen}
@@ -596,13 +752,13 @@ export default function FileTreePanel({
           subtle={!week04DogQueryOpen}
         />
         <TreeLine
-          label="Week04DogApiTanStackQueryAssignmentGuide.jsx"
+          label="DogQueryExplorer.jsx"
           depth={4}
           active={week04DogQueryOpen}
           subtle={!week04DogQueryOpen}
         />
         <TreeLine
-          label="DogQueryTestPanel.jsx"
+          label="DogQueryExplorer.test.jsx"
           depth={4}
           active={week04DogQueryOpen}
           subtle={!week04DogQueryOpen}
@@ -614,105 +770,95 @@ export default function FileTreePanel({
           subtle={!week04JsonPlaceholderCrudOpen}
         />
         <TreeLine
-          label="Week04JsonPlaceholderCrudAssignmentGuide.jsx"
-          depth={4}
-          active={week04JsonPlaceholderCrudOpen}
-          subtle={!week04JsonPlaceholderCrudOpen}
-        />
-        <TreeLine
-          label="PostCrudTestPanel.jsx"
-          depth={4}
-          active={week04JsonPlaceholderCrudOpen}
-          subtle={!week04JsonPlaceholderCrudOpen}
-        />
-        <TreeLine label="exercises/" depth={1} />
-        <TreeLine label="Counter.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
-        <TreeLine label="Counter.test.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
-        <TreeLine
-          label="RecipeGallery.jsx"
-          depth={2}
-          active={week02RecipeGalleryOpen}
-          subtle={!week02RecipeGalleryOpen}
-        />
-        <TreeLine
-          label="RecipeGallery.test.jsx"
-          depth={2}
-          active={week02RecipeGalleryOpen}
-          subtle={!week02RecipeGalleryOpen}
-        />
-        <TreeLine
-          label="UserProfile.jsx"
-          depth={2}
-          active={week02NestedStateOpen}
-          subtle={!week02NestedStateOpen}
-        />
-        <TreeLine
-          label="UserProfile.test.jsx"
-          depth={2}
-          active={week02NestedStateOpen}
-          subtle={!week02NestedStateOpen}
-        />
-        <TreeLine
-          label="TaskManager.jsx"
-          depth={2}
-          active={week02TaskManagerOpen}
-          subtle={!week02TaskManagerOpen}
-        />
-        <TreeLine
-          label="TaskManager.test.jsx"
-          depth={2}
-          active={week02TaskManagerOpen}
-          subtle={!week02TaskManagerOpen}
-        />
-        <TreeLine
-          label="ShoppingListWithImmer.jsx"
-          depth={2}
-          active={week03ShoppingListOpen}
-          subtle={!week03ShoppingListOpen}
-        />
-        <TreeLine
-          label="ShoppingListWithImmer.test.jsx"
-          depth={2}
-          active={week03ShoppingListOpen}
-          subtle={!week03ShoppingListOpen}
-        />
-        <TreeLine
-          label="UserProfileWithImmer.jsx"
-          depth={2}
-          active={week03UserProfileWithImmerOpen}
-          subtle={!week03UserProfileWithImmerOpen}
-        />
-        <TreeLine
-          label="UserProfileWithImmer.test.jsx"
-          depth={2}
-          active={week03UserProfileWithImmerOpen}
-          subtle={!week03UserProfileWithImmerOpen}
-        />
-
-        <TreeLine
-          label="DogQueryExplorer.jsx"
-          depth={2}
-          active={week04DogQueryOpen}
-          subtle={!week04DogQueryOpen}
-        />
-        <TreeLine
-          label="DogQueryExplorer.test.jsx"
-          depth={2}
-          active={week04DogQueryOpen}
-          subtle={!week04DogQueryOpen}
-        />
-        <TreeLine
           label="PostCrudExplorer.jsx"
-          depth={2}
+          depth={4}
           active={week04JsonPlaceholderCrudOpen}
           subtle={!week04JsonPlaceholderCrudOpen}
         />
         <TreeLine
           label="PostCrudExplorer.test.jsx"
-          depth={2}
+          depth={4}
           active={week04JsonPlaceholderCrudOpen}
           subtle={!week04JsonPlaceholderCrudOpen}
         />
+        <TreeLine label="week05/" depth={2} subtle={!(week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen)} />
+        <TreeLine
+          label="health-record-symmetry/"
+          depth={3}
+          active={week05HealthRecordSymmetryOpen}
+          subtle={!week05HealthRecordSymmetryOpen}
+        />
+        <TreeLine
+          label="HealthRecordSymmetry.js"
+          depth={4}
+          active={week05HealthRecordSymmetryOpen}
+          subtle={!week05HealthRecordSymmetryOpen}
+        />
+        <TreeLine
+          label="HealthRecordSymmetry.console-tests.js"
+          depth={4}
+          active={week05HealthRecordSymmetryOpen}
+          subtle={!week05HealthRecordSymmetryOpen}
+        />
+        <TreeLine
+          label="recipe-router-gallery/"
+          depth={3}
+          active={week05RecipeRouterGalleryOpen}
+          subtle={!week05RecipeRouterGalleryOpen}
+        />
+        <TreeLine
+          label="RecipeRouterBridge.jsx"
+          depth={4}
+          active={week05RecipeRouterGalleryOpen}
+          subtle={!week05RecipeRouterGalleryOpen}
+        />
+        <TreeLine
+          label="RecipeRouterBridge.test.jsx"
+          depth={4}
+          active={week05RecipeRouterGalleryOpen}
+          subtle={!week05RecipeRouterGalleryOpen}
+        />
+        <TreeLine
+          label="blog-router-mpa/"
+          depth={3}
+          active={week05BlogRouterMpaOpen}
+          subtle={!week05BlogRouterMpaOpen}
+        />
+        <TreeLine
+          label="BlogRouterBridge.jsx"
+          depth={4}
+          active={week05BlogRouterMpaOpen}
+          subtle={!week05BlogRouterMpaOpen}
+        />
+        <TreeLine
+          label="BlogRouterBridge.test.jsx"
+          depth={4}
+          active={week05BlogRouterMpaOpen}
+          subtle={!week05BlogRouterMpaOpen}
+        />
+        <TreeLine label="exercises/" depth={1} />
+        <TreeLine label="Week01CounterAssignmentGuide.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
+        <TreeLine label="AssignmentTestPanel.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
+        <TreeLine label="Week02RecipeGalleryAssignmentGuide.jsx" depth={2} active={week02RecipeGalleryOpen} subtle={!week02RecipeGalleryOpen} />
+        <TreeLine label="RecipeGalleryTestPanel.jsx" depth={2} active={week02RecipeGalleryOpen} subtle={!week02RecipeGalleryOpen} />
+        <TreeLine label="Week02ManagingNestedStateAssignmentGuide.jsx" depth={2} active={week02NestedStateOpen} subtle={!week02NestedStateOpen} />
+        <TreeLine label="NestedStateTestPanel.jsx" depth={2} active={week02NestedStateOpen} subtle={!week02NestedStateOpen} />
+        <TreeLine label="Week02TaskManagerAssignmentGuide.jsx" depth={2} active={week02TaskManagerOpen} subtle={!week02TaskManagerOpen} />
+        <TreeLine label="TaskManagerTestPanel.jsx" depth={2} active={week02TaskManagerOpen} subtle={!week02TaskManagerOpen} />
+        <TreeLine label="Week03ShoppingListWithImmerAssignmentGuide.jsx" depth={2} active={week03ShoppingListOpen} subtle={!week03ShoppingListOpen} />
+        <TreeLine label="ShoppingListWithImmerTestPanel.jsx" depth={2} active={week03ShoppingListOpen} subtle={!week03ShoppingListOpen} />
+        <TreeLine label="Week03UserProfileWithImmerAssignmentGuide.jsx" depth={2} active={week03UserProfileWithImmerOpen} subtle={!week03UserProfileWithImmerOpen} />
+        <TreeLine label="UserProfileWithImmerTestPanel.jsx" depth={2} active={week03UserProfileWithImmerOpen} subtle={!week03UserProfileWithImmerOpen} />
+        <TreeLine label="Week04DogApiTanStackQueryAssignmentGuide.jsx" depth={2} active={week04DogQueryOpen} subtle={!week04DogQueryOpen} />
+        <TreeLine label="DogQueryTestPanel.jsx" depth={2} active={week04DogQueryOpen} subtle={!week04DogQueryOpen} />
+        <TreeLine label="Week04JsonPlaceholderCrudAssignmentGuide.jsx" depth={2} active={week04JsonPlaceholderCrudOpen} subtle={!week04JsonPlaceholderCrudOpen} />
+        <TreeLine label="PostCrudTestPanel.jsx" depth={2} active={week04JsonPlaceholderCrudOpen} subtle={!week04JsonPlaceholderCrudOpen} />
+        <TreeLine label="Week05HealthRecordSymmetryAssignmentGuide.jsx" depth={2} active={week05HealthRecordSymmetryOpen} subtle={!week05HealthRecordSymmetryOpen} />
+        <TreeLine label="HealthRecordSymmetryTestPanel.jsx" depth={2} active={week05HealthRecordSymmetryOpen} subtle={!week05HealthRecordSymmetryOpen} />
+        <TreeLine label="Week05RecipeRouterGalleryAssignmentGuide.jsx" depth={2} active={week05RecipeRouterGalleryOpen} subtle={!week05RecipeRouterGalleryOpen} />
+        <TreeLine label="RecipeRouterGalleryTestPanel.jsx" depth={2} active={week05RecipeRouterGalleryOpen} subtle={!week05RecipeRouterGalleryOpen} />
+        <TreeLine label="Week05BlogRouterMpaAssignmentGuide.jsx" depth={2} active={week05BlogRouterMpaOpen} subtle={!week05BlogRouterMpaOpen} />
+        <TreeLine label="BlogRouterTestPanel.jsx" depth={2} active={week05BlogRouterMpaOpen} subtle={!week05BlogRouterMpaOpen} />
         <TreeLine label="styles/" depth={1} />
         <TreeLine
           label="week04-dog-api-tanstack-query-assignment.css"
@@ -776,10 +922,28 @@ export default function FileTreePanel({
           subtle={!week03UserProfileWithImmerOpen}
         />
         <TreeLine
+          label="week05-health-record-symmetry-assignment.css"
+          depth={2}
+          active={week05HealthRecordSymmetryOpen}
+          subtle={!week05HealthRecordSymmetryOpen}
+        />
+        <TreeLine
+          label="week05-recipe-router-gallery-assignment.css"
+          depth={2}
+          active={week05RecipeRouterGalleryOpen}
+          subtle={!week05RecipeRouterGalleryOpen}
+        />
+        <TreeLine
+          label="week05-blog-router-mpa-assignment.css"
+          depth={2}
+          active={week05BlogRouterMpaOpen}
+          subtle={!week05BlogRouterMpaOpen}
+        />
+        <TreeLine
           label="assignment-test-panel.css"
           depth={2}
-          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen}
-          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen)}
+          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen}
+          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen)}
         />
 
         <TreeLine label="App.jsx" depth={1} active />

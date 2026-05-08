@@ -186,9 +186,82 @@ export const courseData = {
           },
         ],
       },
-      ...Array.from({ length: 7 }, (_, index) => ({
-        id: `week${String(index + 5).padStart(2, '0')}`,
-        label: `Week ${String(index + 5).padStart(2, '0')}`,
+      {
+        id: 'week05',
+        label: 'Week 05',
+        lectures: [
+          {
+            id: 'intro-react-router',
+            title: 'Introduction to React Router',
+            type: 'lecture',
+            summary:
+              'Masterclass lecture on React Router v7 modes, declarative routing, data routers, framework mode, route loaders/actions, and editable Code in Action examples.',
+            status: 'ready',
+          },
+
+          {
+            id: 'singly-linked-lists',
+            title: 'Introduction to Singly Linked Lists',
+            type: 'lecture',
+            summary:
+              'Masterclass lecture on node structure, head references, traversal, insertion, deletion, and editable linked-list code examples.',
+            status: 'ready',
+          },
+
+          {
+            id: 'react-router-route-patterns',
+            title: 'React Router Route Patterns',
+            type: 'lecture',
+            summary:
+              'Masterclass lecture on configuring routes, file naming conventions, route modules, nested routes, prefixes, dynamic segments, optional segments, splats, and catch-all 404 routing in React Router.',
+            status: 'ready',
+          },
+
+          {
+            id: 'react-router-navigation',
+            title: 'Navigation with React Router',
+            type: 'lecture',
+            summary:
+              'Masterclass lecture on Link, NavLink, Form, redirect, and useNavigate for client-side, data-driven, and imperative navigation in React Router / Remix.',
+            status: 'ready',
+          },
+
+
+        ],
+        assignments: [
+          {
+            id: 'health-record-symmetry',
+            title: 'Patient Health Record Symmetry with Singly Linked Lists',
+            type: 'assignment',
+            summary:
+              'Use raw JavaScript and singly linked-list pointers to determine whether a patient health metric sequence is symmetrical, with console-log normal and edge tests.',
+            status: 'ready',
+          },
+
+          {
+            id: 'recipe-router-gallery',
+            title: 'Recipe Gallery Routing with React Router',
+            type: 'assignment',
+            summary:
+              'Continue the Week 2 Recipe Gallery by converting it into a React Router framework-style app with Home, Gallery, and dynamic Recipe Detail routes.',
+            status: 'ready',
+          },
+
+          {
+            id: 'blog-router-mpa',
+            title: 'Blog Multi-Page App with React Router',
+            type: 'assignment',
+            summary:
+              'Convert a static Blog app into a React Router / Remix-style multi-page app with Home, About, dynamic Post routes, Outlet layout, useParams, and useNavigate.',
+            status: 'ready',
+          },
+
+
+        ],
+      },
+      ...Array.from({ length: 6 }, (_, index) => ({
+        id: `week${String(index + 6).padStart(2, '0')}`,
+        label: `Week ${String(index + 6).padStart(2, '0')}`,
         lectures: [],
         assignments: [],
       })),
