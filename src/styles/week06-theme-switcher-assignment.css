@@ -1,0 +1,303 @@
+.theme-switcher-assignment-guide {
+  --ts-card: rgba(15, 23, 42, 0.92);
+  --ts-card-soft: rgba(18, 30, 52, 0.96);
+  --ts-card-strong: rgba(13, 24, 43, 0.98);
+  --ts-border: rgba(125, 157, 213, 0.2);
+  --ts-border-strong: rgba(125, 157, 213, 0.3);
+  --ts-heading: #ffffff;
+  --ts-body: #d9e7fb;
+  --ts-muted: #b9c9e6;
+  --ts-kicker: #67e8f9;
+  --ts-code-bg: rgba(148, 163, 184, 0.16);
+  --ts-code-text: #bfdbfe;
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: var(--ts-body);
+}
+
+.app-shell.theme-light .theme-switcher-assignment-guide {
+  --ts-card: rgba(255, 255, 255, 0.94);
+  --ts-card-soft: rgba(248, 251, 255, 0.98);
+  --ts-card-strong: rgba(239, 246, 255, 0.98);
+  --ts-border: rgba(37, 99, 235, 0.16);
+  --ts-border-strong: rgba(37, 99, 235, 0.24);
+  --ts-heading: #0f172a;
+  --ts-body: #24364f;
+  --ts-muted: #53657f;
+  --ts-kicker: #2563eb;
+  --ts-code-bg: rgba(37, 99, 235, 0.1);
+  --ts-code-text: #1d4ed8;
+}
+
+.theme-switcher-guide-card,
+.theme-switcher-live-panel {
+  border: 1px solid var(--ts-border);
+  border-radius: 22px;
+  background: var(--ts-card);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.2);
+  color: var(--ts-body);
+  padding: clamp(1.25rem, 2vw, 2rem);
+  min-width: 0;
+}
+
+.app-shell.theme-light .theme-switcher-guide-card,
+.app-shell.theme-light .theme-switcher-live-panel {
+  box-shadow: 0 16px 36px rgba(20, 35, 56, 0.1);
+}
+
+.theme-switcher-guide-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(103, 232, 249, 0.13), transparent 34%),
+    linear-gradient(135deg, rgba(16, 27, 48, 0.98) 0%, rgba(18, 32, 56, 0.98) 54%, rgba(14, 44, 70, 0.94) 100%);
+  border-color: rgba(96, 165, 250, 0.26);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+}
+
+.theme-switcher-guide-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04), transparent 42%),
+    radial-gradient(circle at 4% 6%, rgba(96, 165, 250, 0.1), transparent 28%);
+}
+
+.theme-switcher-guide-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.app-shell.theme-light .theme-switcher-guide-hero {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(56, 189, 248, 0.18), transparent 34%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(239, 246, 255, 0.98) 56%, rgba(219, 234, 254, 0.94) 100%);
+  border-color: rgba(37, 99, 235, 0.2);
+  box-shadow: 0 18px 42px rgba(20, 35, 56, 0.1);
+}
+
+
+
+
+.theme-switcher-guide-kicker,
+.theme-switcher-eyebrow {
+  margin: 0 0 0.45rem;
+  color: var(--ts-kicker);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.theme-switcher-guide-card h1,
+.theme-switcher-guide-card h2,
+.theme-switcher-guide-card h3,
+.theme-switcher-live-panel h2,
+.theme-switcher-live-panel h3 {
+  color: var(--ts-heading);
+  margin-top: 0;
+}
+
+.theme-switcher-guide-card p,
+.theme-switcher-guide-card li,
+.theme-switcher-live-panel p,
+.theme-switcher-live-panel li {
+  color: var(--ts-body);
+  line-height: 1.7;
+}
+
+.theme-switcher-guide-card code,
+.theme-switcher-live-panel code {
+  background: var(--ts-code-bg);
+  color: var(--ts-code-text);
+  border-radius: 8px;
+  font-weight: 700;
+  padding: 2px 6px;
+}
+
+.theme-switcher-guide-checklist {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 0;
+  padding-left: 1.25rem;
+}
+
+/* Previous Week 4/5/6 assignment guides use a single-column reading flow.
+   This keeps the final Manual Testing and Takeaways section stacked instead
+   of splitting into side-by-side columns. */
+.theme-switcher-guide-grid-two {
+  display: block;
+}
+
+.theme-switcher-guide-grid-two > div + div {
+  margin-top: 1.25rem;
+}
+
+.theme-switcher-preview {
+  --theme-bg: #f8fafc;
+  --theme-surface: #ffffff;
+  --theme-surface-alt: #eef6ff;
+  --theme-text: #0f172a;
+  --theme-muted: #475569;
+  --theme-border: #cbd5e1;
+  --theme-accent: #2563eb;
+  --theme-accent-soft: #dbeafe;
+  --theme-button-text: #ffffff;
+  display: grid;
+  gap: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--theme-border);
+  border-radius: 24px;
+  padding: clamp(1.25rem, 2vw, 2rem);
+  background:
+    radial-gradient(circle at 10% 10%, var(--theme-accent-soft), transparent 30%),
+    linear-gradient(135deg, var(--theme-bg), var(--theme-surface-alt));
+  color: var(--theme-text);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+  transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
+}
+
+.theme-switcher-preview-dark {
+  box-shadow: 0 22px 55px rgba(2, 6, 23, 0.32);
+}
+
+.theme-switcher-preview .theme-switcher-eyebrow {
+  color: var(--theme-accent);
+}
+
+.theme-switcher-header,
+.theme-switcher-toolbar,
+.theme-switcher-card,
+.theme-switcher-nested-panel {
+  border: 1px solid var(--theme-border);
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--theme-surface) 88%, transparent);
+  color: var(--theme-text);
+  padding: 1rem;
+}
+
+.theme-switcher-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-switcher-header h2,
+.theme-switcher-toolbar h3,
+.theme-switcher-card h3,
+.theme-switcher-nested-panel h3 {
+  color: var(--theme-text);
+  margin: 0 0 0.5rem;
+}
+
+.theme-switcher-header p,
+.theme-switcher-toolbar p,
+.theme-switcher-card p,
+.theme-switcher-nested-panel p,
+.theme-switcher-note {
+  color: var(--theme-muted);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.theme-switcher-pill {
+  border: 1px solid var(--theme-border);
+  border-radius: 999px;
+  background: var(--theme-accent-soft);
+  color: var(--theme-text);
+  font-size: 0.82rem;
+  font-weight: 800;
+  padding: 0.45rem 0.75rem;
+}
+
+.theme-switcher-dashboard {
+  display: grid;
+  gap: 1rem;
+}
+
+.theme-switcher-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-switcher-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.theme-switcher-buttons button {
+  border: 1px solid var(--theme-border);
+  border-radius: 999px;
+  background: var(--theme-surface);
+  color: var(--theme-text);
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.65rem 0.9rem;
+}
+
+.theme-switcher-buttons button.active,
+.theme-switcher-buttons .theme-switcher-primary {
+  border-color: var(--theme-accent);
+  background: var(--theme-accent);
+  color: var(--theme-button-text);
+}
+
+.theme-switcher-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+}
+
+.theme-switcher-card {
+  position: relative;
+}
+
+.theme-switcher-card-dot {
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background: var(--theme-accent);
+  box-shadow: 0 0 0 6px var(--theme-accent-soft);
+  margin-bottom: 0.9rem;
+}
+
+.theme-switcher-token-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.theme-switcher-token-list span {
+  border: 1px solid var(--theme-border);
+  border-radius: 999px;
+  background: var(--theme-surface-alt);
+  color: var(--theme-text);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.6rem;
+}
+
+.theme-switcher-note code,
+.theme-switcher-nested-panel code {
+  color: var(--theme-text);
+}
+
+@media (max-width: 720px) {
+  .theme-switcher-header,
+  .theme-switcher-toolbar {
+    display: grid;
+  }
+}

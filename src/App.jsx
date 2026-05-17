@@ -31,6 +31,9 @@ import Week04JsonPlaceholderCrudAssignmentGuide from './exercises/Week04JsonPlac
 import Week05HealthRecordSymmetryAssignmentGuide from './exercises/Week05HealthRecordSymmetryAssignmentGuide'
 import Week05RecipeRouterGalleryAssignmentGuide from './exercises/Week05RecipeRouterGalleryAssignmentGuide'
 import Week05BlogRouterMpaAssignmentGuide from './exercises/Week05BlogRouterMpaAssignmentGuide'
+import Week06PatientRecordMergeAssignmentGuide from './exercises/Week06PatientRecordMergeAssignmentGuide'
+import Week06ContextRefactorAssignmentGuide from './exercises/Week06ContextRefactorAssignmentGuide'
+import Week06ThemeSwitcherAssignmentGuide from './exercises/Week06ThemeSwitcherAssignmentGuide'
 import { courseData } from './data/courseData'
 import './styles/app.css'
 
@@ -270,6 +273,33 @@ const assignmentRegistry = {
       weekId: 'week05',
       assignmentId: 'health-record-symmetry',
       title: 'Patient Health Record Symmetry with Singly Linked Lists',
+    },
+  },
+  'patient-record-merge-doubly-linked-list': {
+    component: Week06PatientRecordMergeAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week06',
+      assignmentId: 'patient-record-merge-doubly-linked-list',
+      title: 'Integrating Patient Records from Two Healthcare Providers',
+    },
+  },
+  'context-refactor-to-context': {
+    component: Week06ContextRefactorAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week06',
+      assignmentId: 'context-refactor-to-context',
+      title: 'Refactoring Prop Drilling to Context',
+    },
+  },
+  'global-theme-switcher': {
+    component: Week06ThemeSwitcherAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week06',
+      assignmentId: 'global-theme-switcher',
+      title: 'Building a Global Theme/Dark Mode Switcher',
     },
   },
   'recipe-router-gallery': {

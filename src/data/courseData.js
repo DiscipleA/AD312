@@ -259,9 +259,40 @@ export const courseData = {
 
         ],
       },
-      ...Array.from({ length: 6 }, (_, index) => ({
-        id: `week${String(index + 6).padStart(2, '0')}`,
-        label: `Week ${String(index + 6).padStart(2, '0')}`,
+      {
+        id: 'week06',
+        label: 'Week 06',
+        lectures: [],
+        assignments: [
+          {
+            id: 'patient-record-merge-doubly-linked-list',
+            title: 'Integrating Patient Records from Two Healthcare Providers',
+            type: 'assignment',
+            summary:
+              'Use raw JavaScript and doubly linked-list pointers to merge two sorted patient-record lists by SSN while preserving duplicate records.',
+            status: 'ready',
+          },
+          {
+            id: 'context-refactor-to-context',
+            title: 'Refactoring Prop Drilling to Context',
+            type: 'assignment',
+            summary:
+              'Refactor a Vite React prop-drilling component tree into a Context API provider pattern with useContext, Vitest coverage, and a live preview.',
+            status: 'ready',
+          },
+          {
+            id: 'global-theme-switcher',
+            title: 'Building a Global Theme/Dark Mode Switcher',
+            type: 'assignment',
+            summary:
+              'Build a Vite React global light/dark theme switcher with Context API, useContext, dynamic UI styles, Vitest coverage, and a live preview.',
+            status: 'ready',
+          },
+        ],
+      },
+      ...Array.from({ length: 5 }, (_, index) => ({
+        id: `week${String(index + 7).padStart(2, '0')}`,
+        label: `Week ${String(index + 7).padStart(2, '0')}`,
         lectures: [],
         assignments: [],
       })),

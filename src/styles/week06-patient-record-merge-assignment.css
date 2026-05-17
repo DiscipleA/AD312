@@ -1,0 +1,275 @@
+.patient-merge-assignment-guide {
+  --patient-card: rgba(15, 23, 42, 0.92);
+  --patient-card-soft: rgba(24, 39, 67, 0.98);
+  --patient-card-strong: rgba(18, 29, 50, 0.98);
+  --patient-border: rgba(120, 157, 230, 0.14);
+  --patient-border-strong: rgba(120, 157, 230, 0.18);
+  --patient-text: #e5eefc;
+  --patient-heading: #ffffff;
+  --patient-body: #d9e5f6;
+  --patient-muted: #c9d8f0;
+  --patient-kicker: #93c5fd;
+  --patient-code-bg: rgba(148, 163, 184, 0.16);
+  --patient-accent: #bfdbfe;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: var(--patient-text);
+}
+
+.patient-merge-card {
+  background: var(--patient-card);
+  border: 1px solid var(--patient-border);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  min-width: 0;
+}
+
+.patient-merge-hero-card {
+  background: linear-gradient(180deg, var(--patient-card-soft), var(--patient-card-strong));
+  border: 1px solid var(--patient-border-strong);
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.patient-merge-hero-card h1 {
+  margin: 0 0 10px;
+  color: var(--patient-heading);
+  font-size: 2rem;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.patient-merge-card h2 {
+  margin-top: 0;
+  color: var(--patient-heading);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.patient-merge-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: var(--patient-kicker);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.patient-merge-hero-card p,
+.patient-merge-card p,
+.patient-merge-card li {
+  color: var(--patient-body);
+  line-height: 1.75;
+}
+
+.patient-merge-hero-card p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--patient-muted);
+}
+
+.patient-merge-card ul,
+.patient-merge-card ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.patient-merge-card li + li {
+  margin-top: 0.35rem;
+}
+
+.patient-merge-card code,
+.patient-merge-live-panel code {
+  background: var(--patient-code-bg);
+  color: var(--patient-accent);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.patient-merge-checklist {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.patient-merge-grid-two {
+  display: block;
+}
+
+.patient-merge-grid-two > div + div {
+  margin-top: 20px;
+}
+
+.patient-merge-live-panel {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.patient-merge-assignment-guide .code-block,
+.patient-merge-assignment-guide .code-window,
+.patient-merge-assignment-guide pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.app-shell.theme-light .patient-merge-assignment-guide {
+  --patient-card: #ffffff;
+  --patient-card-soft: rgba(255, 255, 255, 0.98);
+  --patient-card-strong: rgba(241, 245, 249, 0.98);
+  --patient-border: rgba(148, 163, 184, 0.22);
+  --patient-border-strong: rgba(148, 163, 184, 0.24);
+  --patient-text: #0f172a;
+  --patient-heading: #0f172a;
+  --patient-body: #334155;
+  --patient-muted: #475569;
+  --patient-kicker: #0369a1;
+  --patient-code-bg: rgba(2, 132, 199, 0.1);
+  --patient-accent: #0369a1;
+}
+
+.app-shell.theme-light .patient-merge-card,
+.app-shell.theme-light .patient-merge-hero-card {
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+
+.patient-merge-assignment-guide {
+  --patient-success: #86efac;
+  --patient-warning: #fde68a;
+}
+
+.patient-merge-preview-card {
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+  border: 1px solid var(--patient-border);
+  border-radius: 24px;
+  padding: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  min-width: 0;
+}
+
+.patient-merge-preview-card h3 {
+  margin-top: 0;
+  color: var(--patient-heading);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.patient-merge-preview-card p,
+.patient-merge-preview-card label {
+  color: var(--patient-body);
+  line-height: 1.75;
+}
+
+.patient-merge-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.patient-merge-input-label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--patient-accent);
+  font-weight: 700;
+}
+
+.patient-merge-preview-card input {
+  width: 100%;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-radius: 14px;
+  background: #0b1120;
+  color: #f8fafc;
+  padding: 12px 14px;
+  font: inherit;
+}
+
+.patient-merge-preset-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1rem 0;
+}
+
+.patient-merge-preset-row button,
+.patient-merge-preview-card button {
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #38bdf8, #22d3ee);
+  color: #00111f;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.78rem 1rem;
+}
+
+.patient-merge-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.patient-merge-result-grid article {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
+  padding: 20px;
+  min-width: 0;
+}
+
+.patient-merge-result-grid span {
+  color: var(--patient-kicker);
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.patient-merge-result-grid strong {
+  color: var(--patient-heading);
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+
+.patient-merge-result-grid .patient-merge-pass strong {
+  color: var(--patient-success);
+}
+
+.patient-merge-result-grid .patient-merge-warn strong {
+  color: var(--patient-warning);
+}
+
+.app-shell.theme-light .patient-merge-preview-card,
+.app-shell.theme-light .patient-merge-result-grid article {
+  background: #ffffff;
+}
+
+.app-shell.theme-light .patient-merge-preview-card input {
+  background: #f8fafc;
+  color: #0f172a;
+  border-color: var(--patient-border-strong);
+}
+
+@media (max-width: 860px) {
+  .patient-merge-assignment-guide {
+    padding: 24px 14px 48px;
+  }
+
+  .patient-merge-input-grid,
+  .patient-merge-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .patient-merge-card,
+  .patient-merge-preview-card,
+  .patient-merge-hero-card {
+    padding: 20px;
+  }
+}

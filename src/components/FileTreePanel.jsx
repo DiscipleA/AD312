@@ -68,6 +68,13 @@ export default function FileTreePanel({
   const week05BlogRouterMpaOpen =
     activeAssignment?.assignmentId === 'blog-router-mpa'
 
+  const week06PatientRecordMergeOpen =
+    activeAssignment?.assignmentId === 'patient-record-merge-doubly-linked-list'
+  const week06ContextRefactorOpen =
+    activeAssignment?.assignmentId === 'context-refactor-to-context'
+  const week06ThemeSwitcherOpen =
+    activeAssignment?.assignmentId === 'global-theme-switcher'
+
   const lecture1Slides = [
     '01 React State (The Component’s Memory)',
     '02 Understanding Component State',
@@ -612,9 +619,34 @@ export default function FileTreePanel({
           subtle={!week05BlogRouterMpaOpen}
         />
         <TreeLine
-          label="week06/ ... week11/"
+          label="week06/"
           depth={3}
-          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05'].includes(selectedWeekId)}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week06'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week06'}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week06PatientRecordMergeOpen || week06ContextRefactorOpen)} />
+        <TreeLine
+          label="patient-record-merge-doubly-linked-list/"
+          depth={5}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="context-refactor-to-context/"
+          depth={5}
+          active={week06ContextRefactorOpen}
+          subtle={!week06ContextRefactorOpen}
+        />
+        <TreeLine
+          label="global-theme-switcher/"
+          depth={5}
+          active={week06ThemeSwitcherOpen}
+          subtle={!week06ThemeSwitcherOpen}
+        />
+        <TreeLine
+          label="week07/ ... week11/"
+          depth={3}
+          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05', 'week06'].includes(selectedWeekId)}
         />
 
         <TreeLine
@@ -836,6 +868,85 @@ export default function FileTreePanel({
           active={week05BlogRouterMpaOpen}
           subtle={!week05BlogRouterMpaOpen}
         />
+        <TreeLine label="week06/" depth={2} subtle={!(week06PatientRecordMergeOpen || week06ContextRefactorOpen)} />
+        <TreeLine
+          label="patient-record-merge-doubly-linked-list/"
+          depth={3}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="PatientRecordMerge.js"
+          depth={4}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="PatientRecordMergeExplorer.jsx"
+          depth={4}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="PatientRecordMerge.console-tests.js"
+          depth={4}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="context-refactor-to-context/"
+          depth={3}
+          active={week06ContextRefactorOpen}
+          subtle={!week06ContextRefactorOpen}
+        />
+        <TreeLine
+          label="ContextRefactorApp.jsx"
+          depth={4}
+          active={week06ContextRefactorOpen}
+          subtle={!week06ContextRefactorOpen}
+        />
+        <TreeLine
+          label="ContextRefactorApp.test.jsx"
+          depth={4}
+          active={week06ContextRefactorOpen}
+          subtle={!week06ContextRefactorOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week06ContextRefactorOpen}
+          subtle={!week06ContextRefactorOpen}
+        />
+        <TreeLine
+          label="global-theme-switcher/"
+          depth={3}
+          active={week06ThemeSwitcherOpen}
+          subtle={!week06ThemeSwitcherOpen}
+        />
+        <TreeLine
+          label="ThemeSwitcherApp.jsx"
+          depth={4}
+          active={week06ThemeSwitcherOpen}
+          subtle={!week06ThemeSwitcherOpen}
+        />
+        <TreeLine
+          label="ThemeSwitcherApp.test.jsx"
+          depth={4}
+          active={week06ThemeSwitcherOpen}
+          subtle={!week06ThemeSwitcherOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week06ThemeSwitcherOpen}
+          subtle={!week06ThemeSwitcherOpen}
+        />
         <TreeLine label="exercises/" depth={1} />
         <TreeLine label="Week01CounterAssignmentGuide.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
         <TreeLine label="AssignmentTestPanel.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
@@ -859,6 +970,12 @@ export default function FileTreePanel({
         <TreeLine label="RecipeRouterGalleryTestPanel.jsx" depth={2} active={week05RecipeRouterGalleryOpen} subtle={!week05RecipeRouterGalleryOpen} />
         <TreeLine label="Week05BlogRouterMpaAssignmentGuide.jsx" depth={2} active={week05BlogRouterMpaOpen} subtle={!week05BlogRouterMpaOpen} />
         <TreeLine label="BlogRouterTestPanel.jsx" depth={2} active={week05BlogRouterMpaOpen} subtle={!week05BlogRouterMpaOpen} />
+        <TreeLine label="Week06PatientRecordMergeAssignmentGuide.jsx" depth={2} active={week06PatientRecordMergeOpen} subtle={!week06PatientRecordMergeOpen} />
+        <TreeLine label="PatientRecordMergeTestPanel.jsx" depth={2} active={week06PatientRecordMergeOpen} subtle={!week06PatientRecordMergeOpen} />
+        <TreeLine label="Week06ContextRefactorAssignmentGuide.jsx" depth={2} active={week06ContextRefactorOpen} subtle={!week06ContextRefactorOpen} />
+        <TreeLine label="ContextRefactorTestPanel.jsx" depth={2} active={week06ContextRefactorOpen} subtle={!week06ContextRefactorOpen} />
+        <TreeLine label="Week06ThemeSwitcherAssignmentGuide.jsx" depth={2} active={week06ThemeSwitcherOpen} subtle={!week06ThemeSwitcherOpen} />
+        <TreeLine label="ThemeSwitcherTestPanel.jsx" depth={2} active={week06ThemeSwitcherOpen} subtle={!week06ThemeSwitcherOpen} />
         <TreeLine label="styles/" depth={1} />
         <TreeLine
           label="week04-dog-api-tanstack-query-assignment.css"
@@ -940,10 +1057,28 @@ export default function FileTreePanel({
           subtle={!week05BlogRouterMpaOpen}
         />
         <TreeLine
+          label="week06-patient-record-merge-assignment.css"
+          depth={2}
+          active={week06PatientRecordMergeOpen}
+          subtle={!week06PatientRecordMergeOpen}
+        />
+        <TreeLine
+          label="week06-context-refactor-assignment.css"
+          depth={2}
+          active={week06ContextRefactorOpen}
+          subtle={!week06ContextRefactorOpen}
+        />
+        <TreeLine
+          label="week06-theme-switcher-assignment.css"
+          depth={2}
+          active={week06ThemeSwitcherOpen}
+          subtle={!week06ThemeSwitcherOpen}
+        />
+        <TreeLine
           label="assignment-test-panel.css"
           depth={2}
-          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen}
-          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen)}
+          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen}
+          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen)}
         />
 
         <TreeLine label="App.jsx" depth={1} active />
