@@ -34,6 +34,9 @@ import Week05BlogRouterMpaAssignmentGuide from './exercises/Week05BlogRouterMpaA
 import Week06PatientRecordMergeAssignmentGuide from './exercises/Week06PatientRecordMergeAssignmentGuide'
 import Week06ContextRefactorAssignmentGuide from './exercises/Week06ContextRefactorAssignmentGuide'
 import Week06ThemeSwitcherAssignmentGuide from './exercises/Week06ThemeSwitcherAssignmentGuide'
+import Week07OrderProcessingAssignmentGuide from './exercises/Week07OrderProcessingAssignmentGuide'
+import Week07ReactHookFormAssignmentGuide from './exercises/Week07ReactHookFormAssignmentGuide'
+import Week07QueryFormIntegrationAssignmentGuide from './exercises/Week07QueryFormIntegrationAssignmentGuide'
 import { courseData } from './data/courseData'
 import './styles/app.css'
 
@@ -300,6 +303,33 @@ const assignmentRegistry = {
       weekId: 'week06',
       assignmentId: 'global-theme-switcher',
       title: 'Building a Global Theme/Dark Mode Switcher',
+    },
+  },
+  'ecommerce-order-processing-system': {
+    component: Week07OrderProcessingAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week07',
+      assignmentId: 'ecommerce-order-processing-system',
+      title: 'E-Commerce Order Processing System',
+    },
+  },
+  'react-hook-form-registration': {
+    component: Week07ReactHookFormAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week07',
+      assignmentId: 'react-hook-form-registration',
+      title: 'Advanced Performance Forms with React Hook Form',
+    },
+  },
+  'query-form-profile-integration': {
+    component: Week07QueryFormIntegrationAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week07',
+      assignmentId: 'query-form-profile-integration',
+      title: 'Enterprise Server-State Integration with TanStack Query & React Hook Form',
     },
   },
   'recipe-router-gallery': {

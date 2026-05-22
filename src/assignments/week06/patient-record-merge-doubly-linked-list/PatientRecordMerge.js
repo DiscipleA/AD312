@@ -8,13 +8,15 @@
  * Each node contains an SSN, age, full name, a prev reference, and a next reference.
  * The task is to weave the two already-sorted lists into one sorted list by SSN.
  *
- * Time complexity: O(m + n)
- *   The algorithm visits each patient node at most once, where m is the number of
- *   HealthMerge records and n is the number of CarePlus records.
+ * Time complexity: O(n + m)
+ *   n is the number of nodes in the first provider list and m is the number of
+ *   nodes in the second provider list. The merge compares and advances through
+ *   the existing records once, so total work grows linearly with both lists.
  *
  * Extra space complexity: O(1)
- *   The merge reuses the existing patient record nodes. It does not allocate a new
- *   array of records or copy every patient into brand-new nodes.
+ *   The algorithm reuses the existing patient record nodes. It only keeps a few
+ *   pointer variables in memory instead of allocating an array of copied records
+ *   or constructing an entirely new linked list.
  */
 
 export class Node {
@@ -30,6 +32,7 @@ export class Node {
 export function mergeLists(l1, l2) {
   // 1. Handle edge cases if either list is missing.
   // If one provider has no records, the merged result is simply the other list.
+  // The returned list is still a valid head, so its prev link should be null.
   if (!l1 || !l2) {
     const onlyList = l1 || l2
     if (onlyList) onlyList.prev = null
@@ -37,15 +40,15 @@ export function mergeLists(l1, l2) {
   }
 
   // 2. Identify which list head has the smaller SSN to start the merged list.
-  // Using <= keeps records from the first list before same-SSN records from the
-  // second list, while still preserving duplicates from both providers.
+  // Using <= keeps a HealthMerge record before a CarePlus record when the SSNs
+  // match, but it does not remove duplicates. Both records remain in the output.
   let head = l2
   if (l1.ssn <= l2.ssn) head = l1
   head.prev = null
 
   // 3. Initialize working pointers to step through each list.
-  // The selected head is already part of the merged list, so its source pointer
-  // advances to the next node before the weaving loop begins.
+  // The chosen head is already part of the merged list, so the pointer for that
+  // source list moves to the next node before the main weaving loop begins.
   let p1 = l1
   if (head === l1) p1 = l1.next
 
@@ -54,26 +57,26 @@ export function mergeLists(l1, l2) {
 
   let curr = head
 
-  // 4. Traverse both lists and weave existing nodes together in sorted order.
-  // curr always points at the tail of the merged list built so far.
+  // 4. Traverse both lists and weave them together in sorted order.
+  // curr is always the tail of the merged list built so far. On each iteration,
+  // the smaller current SSN node is attached after curr, its prev pointer is
+  // rewired backward to curr, and then that source list advances by one node.
   while (p1 && p2) {
     if (p1.ssn <= p2.ssn) {
-      const nextPatient = p1.next
       curr.next = p1
       p1.prev = curr
-      curr = curr.next
-      p1 = nextPatient
+      p1 = p1.next
     } else {
-      const nextPatient = p2.next
       curr.next = p2
       p2.prev = curr
-      curr = curr.next
-      p2 = nextPatient
+      p2 = p2.next
     }
+    curr = curr.next
   }
 
   // 5. Append any remaining elements from the list that was not fully traversed.
-  // The remainder is already sorted, so it can attach directly to the tail.
+  // The leftover section is already sorted, so it can be attached in one pointer
+  // operation instead of looping through every remaining node again.
   curr.next = p1 || p2
   if (curr.next) {
     curr.next.prev = curr

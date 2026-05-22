@@ -1,0 +1,271 @@
+.order-processing-assignment-guide {
+  --order-card: rgba(15, 23, 42, 0.92);
+  --order-card-soft: rgba(24, 39, 67, 0.98);
+  --order-card-strong: rgba(18, 29, 50, 0.98);
+  --order-border: rgba(120, 157, 230, 0.14);
+  --order-border-strong: rgba(120, 157, 230, 0.18);
+  --order-heading: #ffffff;
+  --order-body: #d9e5f6;
+  --order-muted: #c9d8f0;
+  --order-kicker: #93c5fd;
+  --order-code-bg: rgba(148, 163, 184, 0.16);
+  --order-accent: #bfdbfe;
+  --order-success: #86efac;
+  --order-warning: #fde68a;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: var(--order-body);
+}
+
+.order-processing-card,
+.order-processing-preview-card {
+  background: var(--order-card);
+  border: 1px solid var(--order-border);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  min-width: 0;
+}
+
+.order-processing-hero-card,
+.order-processing-preview-card {
+  background: linear-gradient(180deg, var(--order-card-soft), var(--order-card-strong));
+  border: 1px solid var(--order-border-strong);
+  border-radius: 24px;
+}
+
+.order-processing-hero-card {
+  padding: 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.order-processing-hero-card h1 {
+  margin: 0 0 10px;
+  color: var(--order-heading);
+  font-size: 2rem;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.order-processing-card h2,
+.order-processing-preview-card h2 {
+  margin-top: 0;
+  color: var(--order-heading);
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.order-processing-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  color: var(--order-kicker);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.order-processing-hero-card p,
+.order-processing-card p,
+.order-processing-card li,
+.order-processing-preview-card p,
+.order-processing-preview-card label {
+  color: var(--order-body);
+  line-height: 1.75;
+}
+
+.order-processing-hero-card p {
+  max-width: 820px;
+  margin: 0;
+  color: var(--order-muted);
+}
+
+.order-processing-card ul,
+.order-processing-card ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.order-processing-card li + li {
+  margin-top: 0.35rem;
+}
+
+.order-processing-card code,
+.order-processing-preview-card code,
+.order-processing-live-panel code {
+  background: var(--order-code-bg);
+  color: var(--order-accent);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.order-processing-checklist {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.order-processing-grid-two {
+  display: block;
+}
+
+.order-processing-grid-two > div + div {
+  margin-top: 20px;
+}
+
+.order-processing-live-panel {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.order-processing-assignment-guide .code-block-shell,
+.order-processing-assignment-guide .code-window,
+.order-processing-assignment-guide pre {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.order-processing-input-label {
+  display: grid;
+  gap: 0.45rem;
+  color: var(--order-accent);
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.order-processing-preview-card input {
+  width: 100%;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-radius: 14px;
+  background: #0b1120;
+  color: #f8fafc;
+  padding: 12px 14px;
+  font: inherit;
+}
+
+.order-processing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0 0.75rem;
+}
+
+.order-processing-preview-card button {
+  border: 0;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 800;
+  padding: 0.78rem 1rem;
+}
+
+.order-processing-primary-action {
+  background: linear-gradient(135deg, #86efac, #22d3ee);
+  color: #00111f;
+}
+
+.order-processing-secondary-action {
+  background: rgba(148, 163, 184, 0.18);
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  color: var(--order-heading);
+}
+
+.order-processing-action-note {
+  color: var(--order-muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.order-processing-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.order-processing-result-grid article {
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.72);
+  padding: 20px;
+  min-width: 0;
+}
+
+.order-processing-result-grid span {
+  color: var(--order-kicker);
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.45rem;
+  text-transform: uppercase;
+}
+
+.order-processing-result-grid strong,
+.order-processing-result-grid small {
+  display: block;
+  color: var(--order-heading);
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+
+.order-processing-result-grid small {
+  margin-top: 0.45rem;
+  color: var(--order-muted);
+}
+
+.order-processing-result-grid .order-processing-pass strong {
+  color: var(--order-success);
+}
+
+.order-processing-result-grid .order-processing-warn strong {
+  color: var(--order-warning);
+}
+
+.app-shell.theme-light .order-processing-assignment-guide {
+  --order-card: #ffffff;
+  --order-card-soft: rgba(255, 255, 255, 0.98);
+  --order-card-strong: rgba(241, 245, 249, 0.98);
+  --order-border: rgba(148, 163, 184, 0.22);
+  --order-border-strong: rgba(148, 163, 184, 0.24);
+  --order-heading: #0f172a;
+  --order-body: #334155;
+  --order-muted: #475569;
+  --order-kicker: #0369a1;
+  --order-code-bg: rgba(2, 132, 199, 0.1);
+  --order-accent: #0369a1;
+  --order-success: #047857;
+  --order-warning: #92400e;
+}
+
+.app-shell.theme-light .order-processing-card,
+.app-shell.theme-light .order-processing-preview-card,
+.app-shell.theme-light .order-processing-hero-card {
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+.app-shell.theme-light .order-processing-preview-card input {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: rgba(148, 163, 184, 0.38);
+}
+
+.app-shell.theme-light .order-processing-result-grid article {
+  background: rgba(248, 250, 252, 0.92);
+  border-color: rgba(148, 163, 184, 0.22);
+}
+
+@media (max-width: 760px) {
+  .order-processing-assignment-guide {
+    padding-inline: 14px;
+  }
+
+  .order-processing-hero-card h1 {
+    font-size: 1.65rem;
+  }
+
+  .order-processing-result-grid {
+    grid-template-columns: 1fr;
+  }
+}

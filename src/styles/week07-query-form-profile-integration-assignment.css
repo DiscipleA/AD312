@@ -1,0 +1,131 @@
+/* Assignment 3 intentionally reuses the Week 7 Assignment 2 visual language. The selectors below only add
+   profile-specific refinements, so the page stays aligned with the approved Week 4/5/6/7 assignment pattern. */
+.query-profile-assignment-guide .hook-form-hero-card h1 {
+  max-width: 960px;
+}
+
+.query-profile-preview-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.query-profile-cache-pill {
+  border: 1px solid rgba(56, 189, 248, 0.42);
+  border-radius: 999px;
+  color: #7dd3fc;
+  font-size: 0.82rem;
+  font-weight: 900;
+  padding: 8px 12px;
+  white-space: nowrap;
+}
+
+.query-profile-form {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.query-profile-wide-field {
+  grid-column: 1 / -1;
+}
+
+.query-profile-form textarea {
+  width: 100%;
+  border: 1px solid rgba(96, 165, 250, 0.32);
+  border-radius: 14px;
+  background: #0b1120;
+  color: #f8fafc;
+  padding: 12px 14px;
+  font: inherit;
+  resize: vertical;
+}
+
+.query-profile-form textarea:focus {
+  border-color: rgba(125, 211, 252, 0.84);
+  outline: 3px solid rgba(125, 211, 252, 0.16);
+}
+
+.query-profile-server-card {
+  border: 1px solid rgba(34, 197, 94, 0.34);
+  border-radius: 18px;
+  background: rgba(6, 78, 59, 0.2);
+  margin-top: 20px;
+  padding: 18px;
+}
+
+.query-profile-server-card h3 {
+  color: var(--hook-heading);
+  margin: 0 0 16px;
+}
+
+.query-profile-server-card dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+}
+
+.query-profile-server-card dt {
+  color: var(--hook-muted);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.query-profile-server-card dd {
+  color: var(--hook-heading);
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+}
+
+.query-profile-error-banner {
+  border: 1px solid rgba(248, 113, 113, 0.36);
+  border-radius: 16px;
+  background: rgba(127, 29, 29, 0.24);
+  color: #fecaca;
+  font-weight: 800;
+  padding: 12px 14px;
+  margin-top: 14px;
+}
+
+.query-profile-live-panel {
+  margin-bottom: 20px;
+}
+
+.query-profile-test-note {
+  line-height: 1.65;
+}
+
+.theme-light .query-profile-form textarea {
+  background: #ffffff;
+  color: #0f172a;
+  border-color: rgba(37, 99, 235, 0.24);
+}
+
+.theme-light .query-profile-cache-pill {
+  border-color: rgba(37, 99, 235, 0.28);
+  color: #1d4ed8;
+}
+
+.theme-light .query-profile-server-card {
+  background: rgba(236, 253, 245, 0.88);
+  border-color: rgba(22, 163, 74, 0.28);
+}
+
+@media (max-width: 760px) {
+  .query-profile-preview-header {
+    display: block;
+  }
+
+  .query-profile-cache-pill {
+    display: inline-block;
+    margin-top: 12px;
+    white-space: normal;
+  }
+
+  .query-profile-form,
+  .query-profile-server-card dl {
+    grid-template-columns: 1fr;
+  }
+}

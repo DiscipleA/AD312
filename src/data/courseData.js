@@ -290,9 +290,40 @@ export const courseData = {
           },
         ],
       },
-      ...Array.from({ length: 5 }, (_, index) => ({
-        id: `week${String(index + 7).padStart(2, '0')}`,
-        label: `Week ${String(index + 7).padStart(2, '0')}`,
+      {
+        id: 'week07',
+        label: 'Week 07',
+        lectures: [],
+        assignments: [
+          {
+            id: 'ecommerce-order-processing-system',
+            title: 'E-Commerce Order Processing System',
+            type: 'assignment',
+            summary:
+              'Use raw JavaScript and singly linked-list pointer reversal to process the most recent e-commerce orders first.',
+            status: 'ready',
+          },
+          {
+            id: 'react-hook-form-registration',
+            title: 'Advanced Performance Forms with React Hook Form',
+            type: 'assignment',
+            summary:
+              'Build a performant Vite registration form with React Hook Form, registered fields, validation rules, draft caching, async submit state, and Vitest coverage.',
+            status: 'ready',
+          },
+          {
+            id: 'query-form-profile-integration',
+            title: 'Enterprise Server-State Integration with TanStack Query & React Hook Form',
+            type: 'assignment',
+            summary:
+              'Integrate React Hook Form with TanStack Query, a mock REST profile API, mutation saves, cache invalidation, dirty-state locking, and server error mapping.',
+            status: 'ready',
+          },
+        ],
+      },
+      ...Array.from({ length: 4 }, (_, index) => ({
+        id: `week${String(index + 8).padStart(2, '0')}`,
+        label: `Week ${String(index + 8).padStart(2, '0')}`,
         lectures: [],
         assignments: [],
       })),

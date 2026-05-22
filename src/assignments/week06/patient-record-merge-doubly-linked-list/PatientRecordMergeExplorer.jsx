@@ -7,31 +7,14 @@ import {
 } from './PatientRecordMerge'
 import '../../../styles/week06-patient-record-merge-assignment.css'
 
-const presets = [
-  {
-    label: 'One record from each provider',
-    healthMerge: '10-Alice-30',
-    carePlus: '20-Bob-25',
-  },
-  {
-    label: 'Duplicate SSN preserved',
-    healthMerge: '10-Alice-30',
-    carePlus: '10-Alex-22',
-  },
-  {
-    label: 'CarePlus record goes in the middle',
-    healthMerge: '10-Alice-30; 30-Bob-25',
-    carePlus: '20-Alex-22',
-  },
-  {
-    label: 'HealthMerge list is empty',
-    healthMerge: '',
-    carePlus: '10-Alice-30',
-  },
-]
+const exampleInputs = {
+  healthMerge: '10-Alice-30; 30-Bob-25; 50-Carla-41',
+  carePlus: '20-Alex-22; 40-Dina-36',
+}
 
 function parsePatientRecords(input) {
-  return input
+  const invalidChunks = []
+  const records = input
     .split(';')
     .map((chunk) => chunk.trim())
     .filter(Boolean)
@@ -41,12 +24,15 @@ function parsePatientRecords(input) {
       const age = Number(ageText)
 
       if (!Number.isFinite(ssn) || !Number.isFinite(age) || !nameText) {
+        invalidChunks.push(chunk)
         return null
       }
 
       return { ssn, age, name: nameText }
     })
     .filter(Boolean)
+
+  return { records, invalidChunks }
 }
 
 function isSortedBySsn(records) {
@@ -59,11 +45,22 @@ function formatRecords(records) {
 }
 
 export default function PatientRecordMergeExplorer() {
-  const [healthMergeInput, setHealthMergeInput] = useState('10-Alice-30; 30-Bob-25')
-  const [carePlusInput, setCarePlusInput] = useState('20-Alex-22')
+  const [draftHealthMergeInput, setDraftHealthMergeInput] = useState(exampleInputs.healthMerge)
+  const [draftCarePlusInput, setDraftCarePlusInput] = useState(exampleInputs.carePlus)
+  const [submittedInputs, setSubmittedInputs] = useState(exampleInputs)
+  const [lastAction, setLastAction] = useState('Example list merge loaded')
 
-  const healthMergeRecords = useMemo(() => parsePatientRecords(healthMergeInput), [healthMergeInput])
-  const carePlusRecords = useMemo(() => parsePatientRecords(carePlusInput), [carePlusInput])
+  const healthMergeParse = useMemo(
+    () => parsePatientRecords(submittedInputs.healthMerge),
+    [submittedInputs.healthMerge],
+  )
+  const carePlusParse = useMemo(
+    () => parsePatientRecords(submittedInputs.carePlus),
+    [submittedInputs.carePlus],
+  )
+
+  const healthMergeRecords = healthMergeParse.records
+  const carePlusRecords = carePlusParse.records
 
   const preview = useMemo(() => {
     const healthMergeHead = createPatientList(healthMergeRecords)
@@ -78,7 +75,23 @@ export default function PatientRecordMergeExplorer() {
     }
   }, [healthMergeRecords, carePlusRecords])
 
-  const inputsReady = preview.healthMergeSorted && preview.carePlusSorted
+  const invalidInputCount = healthMergeParse.invalidChunks.length + carePlusParse.invalidChunks.length
+  const inputsReady = preview.healthMergeSorted && preview.carePlusSorted && invalidInputCount === 0
+
+  function runListMerge() {
+    setSubmittedInputs({
+      healthMerge: draftHealthMergeInput,
+      carePlus: draftCarePlusInput,
+    })
+    setLastAction('List merge tested from current entries')
+  }
+
+  function resetExampleLists() {
+    setDraftHealthMergeInput(exampleInputs.healthMerge)
+    setDraftCarePlusInput(exampleInputs.carePlus)
+    setSubmittedInputs(exampleInputs)
+    setLastAction('Example list merge loaded')
+  }
 
   return (
     <section className="patient-merge-preview-card">
@@ -86,7 +99,7 @@ export default function PatientRecordMergeExplorer() {
         <p className="patient-merge-kicker">Working Preview</p>
         <h3>Patient Record Merge Preview</h3>
         <p>
-          Enter each provider list as semicolon-separated records in <code>SSN-Name-Age</code> format.
+          Enter or edit each provider list as semicolon-separated records in <code>SSN-Name-Age</code> format.
           The preview builds two sorted doubly linked lists, merges the existing nodes by SSN, and checks
           that the merged list still has valid backward <code>prev</code> links.
         </p>
@@ -97,9 +110,9 @@ export default function PatientRecordMergeExplorer() {
           HealthMerge records
           <input
             id="healthmerge-record-input"
-            value={healthMergeInput}
-            onChange={(event) => setHealthMergeInput(event.target.value)}
-            placeholder="10-Alice-30; 30-Bob-25"
+            value={draftHealthMergeInput}
+            onChange={(event) => setDraftHealthMergeInput(event.target.value)}
+            placeholder="10-Alice-30; 30-Bob-25; 50-Carla-41"
           />
         </label>
 
@@ -107,26 +120,21 @@ export default function PatientRecordMergeExplorer() {
           CarePlus records
           <input
             id="careplus-record-input"
-            value={carePlusInput}
-            onChange={(event) => setCarePlusInput(event.target.value)}
-            placeholder="20-Alex-22"
+            value={draftCarePlusInput}
+            onChange={(event) => setDraftCarePlusInput(event.target.value)}
+            placeholder="20-Alex-22; 40-Dina-36"
           />
         </label>
       </div>
 
-      <div className="patient-merge-preset-row">
-        {presets.map((preset) => (
-          <button
-            key={preset.label}
-            type="button"
-            onClick={() => {
-              setHealthMergeInput(preset.healthMerge)
-              setCarePlusInput(preset.carePlus)
-            }}
-          >
-            {preset.label}
-          </button>
-        ))}
+      <div className="patient-merge-custom-actions" aria-label="List merge controls">
+        <button type="button" className="patient-merge-primary-action" onClick={runListMerge}>
+          Run List Merge
+        </button>
+        <button type="button" className="patient-merge-secondary-action" onClick={resetExampleLists}>
+          Reset Example Lists
+        </button>
+        <span className="patient-merge-action-note">{lastAction}</span>
       </div>
 
       <div className="patient-merge-result-grid">
@@ -140,7 +148,7 @@ export default function PatientRecordMergeExplorer() {
         </article>
         <article className={inputsReady ? 'patient-merge-pass' : 'patient-merge-warn'}>
           <span>Input Order</span>
-          <strong>{inputsReady ? 'Both lists are sorted by SSN' : 'Sort each provider list by SSN first'}</strong>
+          <strong>{inputsReady ? 'Both lists are sorted by SSN' : 'Check format and sort each provider list by SSN first'}</strong>
         </article>
         <article className={preview.prevLinksValid ? 'patient-merge-pass' : 'patient-merge-warn'}>
           <span>Merged Output</span>

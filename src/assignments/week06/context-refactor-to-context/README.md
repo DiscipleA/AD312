@@ -497,9 +497,9 @@ npm run test:ui
 
 🎥 Demo
 
-| Demo Title | Description | Link |
-|---|---|---|
-| Assignment Walkthrough | Full UI + guide demo |  |
+| Demo Title             | Description          | Link |
+| ---------------------- | -------------------- | ---- |
+| Assignment Walkthrough | Full UI + guide demo |[Week6_A2](https://youtu.be/X8zIdOJ1VmE)|
 
 📌 Summary
 

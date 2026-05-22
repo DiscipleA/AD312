@@ -74,6 +74,12 @@ export default function FileTreePanel({
     activeAssignment?.assignmentId === 'context-refactor-to-context'
   const week06ThemeSwitcherOpen =
     activeAssignment?.assignmentId === 'global-theme-switcher'
+  const week07OrderProcessingOpen =
+    activeAssignment?.assignmentId === 'ecommerce-order-processing-system'
+  const week07ReactHookFormOpen =
+    activeAssignment?.assignmentId === 'react-hook-form-registration'
+  const week07QueryFormOpen =
+    activeAssignment?.assignmentId === 'query-form-profile-integration'
 
   const lecture1Slides = [
     '01 React State (The Component’s Memory)',
@@ -624,7 +630,7 @@ export default function FileTreePanel({
           active={activeCourseId === 'ad312' && selectedWeekId === 'week06'}
           subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week06'}
         />
-        <TreeLine label="assignments/" depth={4} subtle={!(week06PatientRecordMergeOpen || week06ContextRefactorOpen)} />
+        <TreeLine label="assignments/" depth={4} subtle={!(week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen)} />
         <TreeLine
           label="patient-record-merge-doubly-linked-list/"
           depth={5}
@@ -644,9 +650,28 @@ export default function FileTreePanel({
           subtle={!week06ThemeSwitcherOpen}
         />
         <TreeLine
-          label="week07/ ... week11/"
+          label="week07/"
           depth={3}
-          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05', 'week06'].includes(selectedWeekId)}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week07'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week07'}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week07OrderProcessingOpen || week07ReactHookFormOpen)} />
+        <TreeLine
+          label="ecommerce-order-processing-system/"
+          depth={5}
+          active={week07OrderProcessingOpen}
+          subtle={!week07OrderProcessingOpen}
+        />
+        <TreeLine
+          label="react-hook-form-registration/"
+          depth={5}
+          active={week07ReactHookFormOpen}
+          subtle={!week07ReactHookFormOpen}
+        />
+        <TreeLine
+          label="week08/ ... week11/"
+          depth={3}
+          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05', 'week06', 'week07'].includes(selectedWeekId)}
         />
 
         <TreeLine
@@ -868,7 +893,7 @@ export default function FileTreePanel({
           active={week05BlogRouterMpaOpen}
           subtle={!week05BlogRouterMpaOpen}
         />
-        <TreeLine label="week06/" depth={2} subtle={!(week06PatientRecordMergeOpen || week06ContextRefactorOpen)} />
+        <TreeLine label="week06/" depth={2} subtle={!(week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen)} />
         <TreeLine
           label="patient-record-merge-doubly-linked-list/"
           depth={3}
@@ -947,6 +972,85 @@ export default function FileTreePanel({
           active={week06ThemeSwitcherOpen}
           subtle={!week06ThemeSwitcherOpen}
         />
+        <TreeLine label="week07/" depth={2} subtle={!(week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen)} />
+        <TreeLine
+          label="ecommerce-order-processing-system/"
+          depth={3}
+          active={week07OrderProcessingOpen}
+          subtle={!week07OrderProcessingOpen}
+        />
+        <TreeLine
+          label="OrderProcessingSystem.js"
+          depth={4}
+          active={week07OrderProcessingOpen}
+          subtle={!week07OrderProcessingOpen}
+        />
+        <TreeLine
+          label="OrderProcessingSystem.console-tests.js"
+          depth={4}
+          active={week07OrderProcessingOpen}
+          subtle={!week07OrderProcessingOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week07OrderProcessingOpen}
+          subtle={!week07OrderProcessingOpen}
+        />
+        <TreeLine
+          label="react-hook-form-registration/"
+          depth={3}
+          active={week07ReactHookFormOpen}
+          subtle={!week07ReactHookFormOpen}
+        />
+        <TreeLine
+          label="UserRegistrationForm.jsx"
+          depth={4}
+          active={week07ReactHookFormOpen}
+          subtle={!week07ReactHookFormOpen}
+        />
+        <TreeLine
+          label="UserRegistrationForm.test.jsx"
+          depth={4}
+          active={week07ReactHookFormOpen}
+          subtle={!week07ReactHookFormOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week07ReactHookFormOpen}
+          subtle={!week07ReactHookFormOpen}
+        />
+        <TreeLine
+          label="query-form-profile-integration/"
+          depth={3}
+          active={week07QueryFormOpen}
+          subtle={!week07QueryFormOpen}
+        />
+        <TreeLine
+          label="UserProfileQueryForm.jsx"
+          depth={4}
+          active={week07QueryFormOpen}
+          subtle={!week07QueryFormOpen}
+        />
+        <TreeLine
+          label="UserProfileQueryForm.test.jsx"
+          depth={4}
+          active={week07QueryFormOpen}
+          subtle={!week07QueryFormOpen}
+        />
+        <TreeLine
+          label="profile-db.json"
+          depth={4}
+          active={week07QueryFormOpen}
+          subtle={!week07QueryFormOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week07QueryFormOpen}
+          subtle={!week07QueryFormOpen}
+        />
         <TreeLine label="exercises/" depth={1} />
         <TreeLine label="Week01CounterAssignmentGuide.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
         <TreeLine label="AssignmentTestPanel.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
@@ -976,6 +1080,12 @@ export default function FileTreePanel({
         <TreeLine label="ContextRefactorTestPanel.jsx" depth={2} active={week06ContextRefactorOpen} subtle={!week06ContextRefactorOpen} />
         <TreeLine label="Week06ThemeSwitcherAssignmentGuide.jsx" depth={2} active={week06ThemeSwitcherOpen} subtle={!week06ThemeSwitcherOpen} />
         <TreeLine label="ThemeSwitcherTestPanel.jsx" depth={2} active={week06ThemeSwitcherOpen} subtle={!week06ThemeSwitcherOpen} />
+        <TreeLine label="Week07OrderProcessingAssignmentGuide.jsx" depth={2} active={week07OrderProcessingOpen} subtle={!week07OrderProcessingOpen} />
+        <TreeLine label="OrderProcessingTestPanel.jsx" depth={2} active={week07OrderProcessingOpen} subtle={!week07OrderProcessingOpen} />
+        <TreeLine label="Week07ReactHookFormAssignmentGuide.jsx" depth={2} active={week07ReactHookFormOpen} subtle={!week07ReactHookFormOpen} />
+        <TreeLine label="RegistrationFormTestPanel.jsx" depth={2} active={week07ReactHookFormOpen} subtle={!week07ReactHookFormOpen} />
+        <TreeLine label="Week07QueryFormIntegrationAssignmentGuide.jsx" depth={2} active={week07QueryFormOpen} subtle={!week07QueryFormOpen} />
+        <TreeLine label="RegistrationQueryFormTestPanel.jsx" depth={2} active={week07QueryFormOpen} subtle={!week07QueryFormOpen} />
         <TreeLine label="styles/" depth={1} />
         <TreeLine
           label="week04-dog-api-tanstack-query-assignment.css"
@@ -1075,10 +1185,28 @@ export default function FileTreePanel({
           subtle={!week06ThemeSwitcherOpen}
         />
         <TreeLine
+          label="week07-ecommerce-order-processing-assignment.css"
+          depth={2}
+          active={week07OrderProcessingOpen}
+          subtle={!week07OrderProcessingOpen}
+        />
+        <TreeLine
+          label="week07-react-hook-form-registration-assignment.css"
+          depth={2}
+          active={week07ReactHookFormOpen}
+          subtle={!week07ReactHookFormOpen}
+        />
+        <TreeLine
+          label="week07-query-form-profile-integration-assignment.css"
+          depth={2}
+          active={week07QueryFormOpen}
+          subtle={!week07QueryFormOpen}
+        />
+        <TreeLine
           label="assignment-test-panel.css"
           depth={2}
-          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen}
-          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen)}
+          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen}
+          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen)}
         />
 
         <TreeLine label="App.jsx" depth={1} active />
