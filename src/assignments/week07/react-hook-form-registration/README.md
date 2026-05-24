@@ -498,9 +498,9 @@ This separation reduces bugs because form state does not need to manually duplic
 
 🎥 Demo
 
-| Demo Title | Description | Link |
-|---|---|---|
-| Assignment Walkthrough | Full UI + guide demo |  |
+| Demo Title             | Description          | Link |
+| ---------------------- | -------------------- | ---- |
+| Assignment Walkthrough | Full UI + guide demo |[Week7_A3](https://youtu.be/-63HUNVaTEs)|
 
 📌 Summary
 
