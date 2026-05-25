@@ -1,4 +1,3 @@
----
 🎓 AD312 Course Platform — Week 7 Assignment 1
 
 📝 Overview
