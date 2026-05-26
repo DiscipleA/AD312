@@ -1,5 +1,4 @@
----
-🎓 AD312 Course Platform — Week 6 Assignment 1
+#🎓 AD312 Course Platform — Week 6 Assignment 1
 
 📝 Overview
 

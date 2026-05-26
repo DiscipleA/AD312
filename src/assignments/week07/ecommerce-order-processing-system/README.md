@@ -1,4 +1,4 @@
-🎓 AD312 Course Platform — Week 7 Assignment 1
+#🎓 AD312 Course Platform — Week 7 Assignment 1
 
 📝 Overview
 
@@ -407,9 +407,10 @@ When traversal finishes, `prev` points to the new head of the reversed list.
 
 🎥 Demo
 
-| Demo Title | Description | Link |
-|---|---|---|
-| Assignment Walkthrough | Full UI + guide demo |  |
+| Demo Title             | Description          | Link |
+| ---------------------- | -------------------- | ---- |
+| Assignment Walkthrough Part 1| Guide demo |[Week7_A1P1](https://youtu.be/UXruN8wruto)|
+| Assignment Walkthrough Part 2| Guide demo |[Week7_A1P2](https://youtu.be/xUbBeJO6_i0)|
 
 📌 Summary
 
