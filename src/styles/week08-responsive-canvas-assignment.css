@@ -1,0 +1,241 @@
+.responsive-canvas-assignment-guide {
+  --responsive-card: rgba(15, 23, 42, 0.92);
+  --responsive-card-soft: rgba(24, 39, 67, 0.98);
+  --responsive-card-strong: rgba(18, 29, 50, 0.98);
+  --responsive-border: rgba(125, 211, 252, 0.16);
+  --responsive-border-strong: rgba(125, 211, 252, 0.24);
+  --responsive-heading: #ffffff;
+  --responsive-body: #dbeafe;
+  --responsive-muted: #c9d8f0;
+  --responsive-kicker: #93c5fd;
+  --responsive-code-bg: rgba(148, 163, 184, 0.16);
+  --responsive-accent: #bfdbfe;
+  --responsive-demo-bg: rgba(15, 23, 42, 0.74);
+  --responsive-demo-bg-soft: rgba(30, 41, 59, 0.72);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  color: var(--responsive-body);
+}
+
+.theme-light .responsive-canvas-assignment-guide,
+.app-shell.theme-light .responsive-canvas-assignment-guide {
+  --responsive-card: rgba(255, 255, 255, 0.96);
+  --responsive-card-soft: rgba(239, 246, 255, 0.98);
+  --responsive-card-strong: rgba(255, 255, 255, 0.98);
+  --responsive-border: rgba(37, 99, 235, 0.18);
+  --responsive-border-strong: rgba(37, 99, 235, 0.26);
+  --responsive-heading: #0f172a;
+  --responsive-body: #1e293b;
+  --responsive-muted: #475569;
+  --responsive-kicker: #2563eb;
+  --responsive-code-bg: rgba(37, 99, 235, 0.08);
+  --responsive-accent: #1d4ed8;
+  --responsive-demo-bg: rgba(239, 246, 255, 0.9);
+  --responsive-demo-bg-soft: rgba(255, 255, 255, 0.92);
+}
+
+.responsive-assignment-card,
+.responsive-preview-card {
+  background: var(--responsive-card);
+  border: 1px solid var(--responsive-border);
+  border-radius: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  color: var(--responsive-body);
+  margin-bottom: 20px;
+  min-width: 0;
+  padding: 24px;
+}
+
+.theme-light .responsive-assignment-card,
+.theme-light .responsive-preview-card,
+.app-shell.theme-light .responsive-assignment-card,
+.app-shell.theme-light .responsive-preview-card {
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.responsive-assignment-hero,
+.responsive-preview-card {
+  background: linear-gradient(180deg, var(--responsive-card-soft), var(--responsive-card-strong));
+  border-color: var(--responsive-border-strong);
+  border-radius: 24px;
+}
+
+.responsive-assignment-hero {
+  padding: 28px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+}
+
+.theme-light .responsive-assignment-hero,
+.app-shell.theme-light .responsive-assignment-hero {
+  box-shadow: 0 18px 36px rgba(15, 23, 42, 0.1);
+}
+
+.responsive-assignment-hero h1,
+.responsive-assignment-card h2,
+.responsive-preview-card h2 {
+  color: var(--responsive-heading);
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+.responsive-assignment-hero h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.responsive-assignment-card h2,
+.responsive-preview-card h2 {
+  font-size: 1.5rem;
+}
+
+.responsive-assignment-card h3,
+.responsive-preview-card h3 {
+  color: var(--responsive-accent);
+  margin-top: 20px;
+}
+
+.responsive-assignment-kicker {
+  color: var(--responsive-kicker);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.responsive-assignment-hero p,
+.responsive-assignment-card p,
+.responsive-assignment-card li,
+.responsive-preview-card p,
+.responsive-preview-card label {
+  color: var(--responsive-body);
+  line-height: 1.75;
+}
+
+.responsive-assignment-hero p,
+.responsive-preview-header p {
+  max-width: 820px;
+}
+
+.responsive-assignment-card code,
+.responsive-preview-card code,
+.responsive-canvas-live-panel code {
+  background: var(--responsive-code-bg);
+  border-radius: 8px;
+  color: var(--responsive-accent);
+  font-weight: 700;
+  padding: 2px 6px;
+}
+
+.responsive-assignment-card ul,
+.responsive-assignment-card ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.responsive-checklist {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.35rem;
+}
+
+.responsive-preview-header {
+  margin-bottom: 1rem;
+}
+
+.responsive-canvas-card {
+  background: linear-gradient(180deg, var(--responsive-demo-bg-soft), var(--responsive-demo-bg));
+  border: 1px solid var(--responsive-border-strong);
+  border-radius: 20px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  color: var(--responsive-body);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.15rem;
+}
+
+.responsive-canvas-card--desktop,
+.responsive-canvas-card--mobile {
+  background: linear-gradient(180deg, var(--responsive-demo-bg-soft), var(--responsive-demo-bg));
+}
+
+.responsive-canvas-card__header h2 {
+  color: var(--responsive-heading);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.responsive-canvas-card__header p,
+.responsive-canvas-card__details p {
+  color: var(--responsive-body);
+  margin: 0.35rem 0;
+}
+
+.responsive-canvas-card__kicker {
+  color: var(--responsive-kicker);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.responsive-canvas-card__status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.responsive-canvas-card__status article,
+.responsive-canvas-card__details {
+  background: rgba(15, 23, 42, 0.38);
+  border: 1px solid rgba(125, 211, 252, 0.16);
+  border-radius: 18px;
+  padding: 0.9rem 1rem;
+}
+
+.theme-light .responsive-canvas-card__status article,
+.theme-light .responsive-canvas-card__details,
+.app-shell.theme-light .responsive-canvas-card__status article,
+.app-shell.theme-light .responsive-canvas-card__details {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(37, 99, 235, 0.16);
+}
+
+.responsive-canvas-card__status span {
+  color: var(--responsive-muted);
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.responsive-canvas-card__status strong {
+  color: var(--responsive-heading);
+  display: block;
+  font-size: 1.35rem;
+}
+
+.responsive-canvas-live-panel {
+  margin-top: 0;
+}
+
+@media (min-width: 720px) {
+  .responsive-canvas-card__status {
+    flex-direction: row;
+  }
+
+  .responsive-canvas-card__status article {
+    flex: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .responsive-assignment-hero h1 {
+    font-size: 1.6rem;
+  }
+}

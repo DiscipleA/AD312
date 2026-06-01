@@ -1,5 +1,7 @@
 #🎓 AD312 Course Platform — Week 7 Assignment 3
 
+---
+
 📝 Overview
 
 This project continues the Vite + React learning platform introduced in earlier weeks. Instead of behaving like a basic React app, it functions as a course portfolio and instructional platform.

@@ -22,7 +22,8 @@
     "@babel/standalone": "^7.26.10",
     "@uiw/react-codemirror": "^4.23.7",
     "@codemirror/lang-javascript": "^6.2.2",
-    "react-hook-form": "^7.54.2"
+    "react-hook-form": "^7.54.2",
+    "chart.js": "^4.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.4",

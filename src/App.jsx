@@ -37,6 +37,9 @@ import Week06ThemeSwitcherAssignmentGuide from './exercises/Week06ThemeSwitcherA
 import Week07OrderProcessingAssignmentGuide from './exercises/Week07OrderProcessingAssignmentGuide'
 import Week07ReactHookFormAssignmentGuide from './exercises/Week07ReactHookFormAssignmentGuide'
 import Week07QueryFormIntegrationAssignmentGuide from './exercises/Week07QueryFormIntegrationAssignmentGuide'
+import Week08SelectionSortAssignmentGuide from './exercises/Week08SelectionSortAssignmentGuide'
+import Week08ResponsiveCanvasAssignmentGuide from './exercises/Week08ResponsiveCanvasAssignmentGuide'
+import Week08ChartJsPollDashboardAssignmentGuide from './exercises/Week08ChartJsPollDashboardAssignmentGuide'
 import { courseData } from './data/courseData'
 import './styles/app.css'
 
@@ -303,6 +306,33 @@ const assignmentRegistry = {
       weekId: 'week06',
       assignmentId: 'global-theme-switcher',
       title: 'Building a Global Theme/Dark Mode Switcher',
+    },
+  },
+  'selection-sort-analysis': {
+    component: Week08SelectionSortAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week08',
+      assignmentId: 'selection-sort-analysis',
+      title: 'Implementing and Analyzing Selection Sort',
+    },
+  },
+  'responsive-canvas-useeffect': {
+    component: Week08ResponsiveCanvasAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week08',
+      assignmentId: 'responsive-canvas-useeffect',
+      title: 'Mastering useEffect with a Responsive Canvas',
+    },
+  },
+  'chartjs-poll-dashboard': {
+    component: Week08ChartJsPollDashboardAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week08',
+      assignmentId: 'chartjs-poll-dashboard',
+      title: 'Bridging React with Non-React Libraries: Chart.js Integration',
     },
   },
   'ecommerce-order-processing-system': {

@@ -321,9 +321,40 @@ export const courseData = {
           },
         ],
       },
-      ...Array.from({ length: 4 }, (_, index) => ({
-        id: `week${String(index + 8).padStart(2, '0')}`,
-        label: `Week ${String(index + 8).padStart(2, '0')}`,
+      {
+        id: 'week08',
+        label: 'Week 08',
+        lectures: [],
+        assignments: [
+          {
+            id: 'selection-sort-analysis',
+            title: 'Implementing and Analyzing Selection Sort',
+            type: 'assignment',
+            summary:
+              'Implement Selection Sort in raw JavaScript, test random/sorted/descending/all-same/empty/single arrays, analyze O(n²) time and O(1) space, discuss stability, and generate a downloadable report.',
+            status: 'ready',
+          },
+          {
+            id: 'responsive-canvas-useeffect',
+            title: 'Mastering useEffect with a Responsive Canvas',
+            type: 'assignment',
+            summary:
+              'Build a Vite React responsive canvas that tracks live browser width and height with useEffect, switches between Mobile and Desktop modes, and cleans up its resize listener.',
+            status: 'ready',
+          },
+          {
+            id: 'chartjs-poll-dashboard',
+            title: 'Bridging React with Non-React Libraries: Chart.js Integration',
+            type: 'assignment',
+            summary:
+              'Build a dynamic poll dashboard that bridges React state with the raw Chart.js library using refs, useEffect, imperative updates, and cleanup.',
+            status: 'ready',
+          },
+        ],
+      },
+      ...Array.from({ length: 3 }, (_, index) => ({
+        id: `week${String(index + 9).padStart(2, '0')}`,
+        label: `Week ${String(index + 9).padStart(2, '0')}`,
         lectures: [],
         assignments: [],
       })),

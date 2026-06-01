@@ -80,6 +80,12 @@ export default function FileTreePanel({
     activeAssignment?.assignmentId === 'react-hook-form-registration'
   const week07QueryFormOpen =
     activeAssignment?.assignmentId === 'query-form-profile-integration'
+  const week08SelectionSortOpen =
+    activeAssignment?.assignmentId === 'selection-sort-analysis'
+  const week08ResponsiveCanvasOpen =
+    activeAssignment?.assignmentId === 'responsive-canvas-useeffect'
+  const week08ChartJsOpen =
+    activeAssignment?.assignmentId === 'chartjs-poll-dashboard'
 
   const lecture1Slides = [
     '01 React State (The Component’s Memory)',
@@ -669,9 +675,34 @@ export default function FileTreePanel({
           subtle={!week07ReactHookFormOpen}
         />
         <TreeLine
-          label="week08/ ... week11/"
+          label="week08/"
           depth={3}
-          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05', 'week06', 'week07'].includes(selectedWeekId)}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week08'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week08'}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen)} />
+        <TreeLine
+          label="selection-sort-analysis/"
+          depth={5}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="responsive-canvas-useeffect/"
+          depth={5}
+          active={week08ResponsiveCanvasOpen}
+          subtle={!week08ResponsiveCanvasOpen}
+        />
+        <TreeLine
+          label="chartjs-poll-dashboard/"
+          depth={5}
+          active={week08ChartJsOpen}
+          subtle={!week08ChartJsOpen}
+        />
+        <TreeLine
+          label="week09/ ... week11/"
+          depth={3}
+          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05', 'week06', 'week07', 'week08'].includes(selectedWeekId)}
         />
 
         <TreeLine
@@ -972,7 +1003,7 @@ export default function FileTreePanel({
           active={week06ThemeSwitcherOpen}
           subtle={!week06ThemeSwitcherOpen}
         />
-        <TreeLine label="week07/" depth={2} subtle={!(week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen)} />
+        <TreeLine label="week07/" depth={2} subtle={!(week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen)} />
         <TreeLine
           label="ecommerce-order-processing-system/"
           depth={3}
@@ -1051,6 +1082,91 @@ export default function FileTreePanel({
           active={week07QueryFormOpen}
           subtle={!week07QueryFormOpen}
         />
+        <TreeLine label="week08/" depth={2} subtle={!(week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen)} />
+        <TreeLine
+          label="selection-sort-analysis/"
+          depth={3}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="SelectionSort.js"
+          depth={4}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="SelectionSortPdfReport.js"
+          depth={4}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="SelectionSort.console-tests.js"
+          depth={4}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="SelectionSort.test.js"
+          depth={4}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="responsive-canvas-useeffect/"
+          depth={3}
+          active={week08ResponsiveCanvasOpen}
+          subtle={!week08ResponsiveCanvasOpen}
+        />
+        <TreeLine
+          label="ResponsiveCanvas.jsx"
+          depth={4}
+          active={week08ResponsiveCanvasOpen}
+          subtle={!week08ResponsiveCanvasOpen}
+        />
+        <TreeLine
+          label="ResponsiveCanvas.test.jsx"
+          depth={4}
+          active={week08ResponsiveCanvasOpen}
+          subtle={!week08ResponsiveCanvasOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week08ResponsiveCanvasOpen}
+          subtle={!week08ResponsiveCanvasOpen}
+        />
+        <TreeLine
+          label="chartjs-poll-dashboard/"
+          depth={3}
+          active={week08ChartJsOpen}
+          subtle={!week08ChartJsOpen}
+        />
+        <TreeLine
+          label="DynamicPollDashboard.jsx"
+          depth={4}
+          active={week08ChartJsOpen}
+          subtle={!week08ChartJsOpen}
+        />
+        <TreeLine
+          label="DynamicPollDashboard.test.jsx"
+          depth={4}
+          active={week08ChartJsOpen}
+          subtle={!week08ChartJsOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week08ChartJsOpen}
+          subtle={!week08ChartJsOpen}
+        />
         <TreeLine label="exercises/" depth={1} />
         <TreeLine label="Week01CounterAssignmentGuide.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
         <TreeLine label="AssignmentTestPanel.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
@@ -1086,6 +1202,12 @@ export default function FileTreePanel({
         <TreeLine label="RegistrationFormTestPanel.jsx" depth={2} active={week07ReactHookFormOpen} subtle={!week07ReactHookFormOpen} />
         <TreeLine label="Week07QueryFormIntegrationAssignmentGuide.jsx" depth={2} active={week07QueryFormOpen} subtle={!week07QueryFormOpen} />
         <TreeLine label="RegistrationQueryFormTestPanel.jsx" depth={2} active={week07QueryFormOpen} subtle={!week07QueryFormOpen} />
+        <TreeLine label="Week08SelectionSortAssignmentGuide.jsx" depth={2} active={week08SelectionSortOpen} subtle={!week08SelectionSortOpen} />
+        <TreeLine label="SelectionSortTestPanel.jsx" depth={2} active={week08SelectionSortOpen} subtle={!week08SelectionSortOpen} />
+        <TreeLine label="Week08ResponsiveCanvasAssignmentGuide.jsx" depth={2} active={week08ResponsiveCanvasOpen} subtle={!week08ResponsiveCanvasOpen} />
+        <TreeLine label="ResponsiveCanvasTestPanel.jsx" depth={2} active={week08ResponsiveCanvasOpen} subtle={!week08ResponsiveCanvasOpen} />
+        <TreeLine label="Week08ChartJsPollDashboardAssignmentGuide.jsx" depth={2} active={week08ChartJsOpen} subtle={!week08ChartJsOpen} />
+        <TreeLine label="ChartJsPollDashboardTestPanel.jsx" depth={2} active={week08ChartJsOpen} subtle={!week08ChartJsOpen} />
         <TreeLine label="styles/" depth={1} />
         <TreeLine
           label="week04-dog-api-tanstack-query-assignment.css"
@@ -1203,10 +1325,28 @@ export default function FileTreePanel({
           subtle={!week07QueryFormOpen}
         />
         <TreeLine
+          label="week08-selection-sort-assignment.css"
+          depth={2}
+          active={week08SelectionSortOpen}
+          subtle={!week08SelectionSortOpen}
+        />
+        <TreeLine
+          label="week08-responsive-canvas-assignment.css"
+          depth={2}
+          active={week08ResponsiveCanvasOpen}
+          subtle={!week08ResponsiveCanvasOpen}
+        />
+        <TreeLine
+          label="week08-chartjs-poll-dashboard-assignment.css"
+          depth={2}
+          active={week08ChartJsOpen}
+          subtle={!week08ChartJsOpen}
+        />
+        <TreeLine
           label="assignment-test-panel.css"
           depth={2}
-          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen}
-          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen)}
+          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen}
+          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen)}
         />
 
         <TreeLine label="App.jsx" depth={1} active />
