@@ -352,12 +352,66 @@ export const courseData = {
           },
         ],
       },
-      ...Array.from({ length: 3 }, (_, index) => ({
-        id: `week${String(index + 9).padStart(2, '0')}`,
-        label: `Week ${String(index + 9).padStart(2, '0')}`,
+      {
+        id: 'week09',
+        label: 'Week 09',
+        lectures: [],
+        assignments: [
+          {
+            id: 'bubble-sort-optimization',
+            title: 'Exploring and Optimizing Bubble Sort',
+            type: 'assignment',
+            summary:
+              'Implement Bubble Sort in raw JavaScript, compare a basic version with an optimized early-exit version, test required cases, analyze O(n²) time and O(1) space, discuss stability, and generate a downloadable PDF report.',
+            status: 'ready',
+          },
+          {
+            id: 'custom-use-window-size-hook',
+            title: 'Packaging Reusable Logic into a Custom Hook',
+            type: 'assignment',
+            summary:
+              'Build a reusable useWindowSize custom hook for a streaming layout, synchronize browser dimensions with React state, clean up resize listeners, and visualize normal and edge test cases with charts.',
+            status: 'ready',
+          },
+          {
+            id: 'custom-use-local-storage-hook',
+            title: 'Syncing State with LocalStorage using a Custom Hook',
+            type: 'assignment',
+            summary:
+              'Build a reusable useLocalStorage custom hook that combines React state with browser localStorage, safely loads initial data, automatically backs up updates with useEffect, and demonstrates persistence with charts, GUI controls, and an API simulation.',
+            status: 'ready',
+          },
+        ],
+      },
+      {
+        id: 'week10',
+        label: 'Week 10',
+        lectures: [],
+        assignments: [
+          {
+            id: 'insertion-sort-analysis',
+            title: 'Implementing and Analyzing Insertion Sort',
+            type: 'assignment',
+            summary:
+              'Implement stable Insertion Sort in raw JavaScript, test required cases with console and Vitest coverage, analyze best/worst/average performance, prove stability, and generate a downloadable PDF report.',
+            status: 'ready',
+          },
+          {
+            id: 'error-boundary-safety-net',
+            title: 'Building an Application Safety Net with Error Boundaries in React',
+            type: 'assignment',
+            summary:
+              'Build a class-based React Error Boundary around a risky market price widget, show fallback UI for corrupted data, keep the social dashboard alive, include market charts, and verify normal and edge cases with Live Test Results and Vitest.',
+            status: 'ready',
+          },
+        ],
+      },
+      {
+        id: 'week11',
+        label: 'Week 11',
         lectures: [],
         assignments: [],
-      })),
+      },
 
     ],
   },

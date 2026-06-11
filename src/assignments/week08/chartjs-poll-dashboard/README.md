@@ -522,7 +522,7 @@ npm run test:ui
 
 | Demo Title             | Description          | Link |
 | ---------------------- | -------------------- | ---- |
-| Assignment Walkthrough | Full UI + guide demo |[Week8_A3](https://youtu.be/-63HUNVaTEs)|
+| Assignment Walkthrough | Full UI + guide demo |[Week8_A3](https://youtu.be/dLewZVNLqYs)|
 
 ---
 

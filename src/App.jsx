@@ -40,6 +40,11 @@ import Week07QueryFormIntegrationAssignmentGuide from './exercises/Week07QueryFo
 import Week08SelectionSortAssignmentGuide from './exercises/Week08SelectionSortAssignmentGuide'
 import Week08ResponsiveCanvasAssignmentGuide from './exercises/Week08ResponsiveCanvasAssignmentGuide'
 import Week08ChartJsPollDashboardAssignmentGuide from './exercises/Week08ChartJsPollDashboardAssignmentGuide'
+import Week09BubbleSortAssignmentGuide from './exercises/Week09BubbleSortAssignmentGuide'
+import Week09UseWindowSizeAssignmentGuide from './exercises/Week09UseWindowSizeAssignmentGuide'
+import Week09UseLocalStorageAssignmentGuide from './exercises/Week09UseLocalStorageAssignmentGuide'
+import Week10InsertionSortAssignmentGuide from './exercises/Week10InsertionSortAssignmentGuide'
+import Week10ErrorBoundaryAssignmentGuide from './exercises/Week10ErrorBoundaryAssignmentGuide'
 import { courseData } from './data/courseData'
 import './styles/app.css'
 
@@ -333,6 +338,51 @@ const assignmentRegistry = {
       weekId: 'week08',
       assignmentId: 'chartjs-poll-dashboard',
       title: 'Bridging React with Non-React Libraries: Chart.js Integration',
+    },
+  },
+  'bubble-sort-optimization': {
+    component: Week09BubbleSortAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week09',
+      assignmentId: 'bubble-sort-optimization',
+      title: 'Exploring and Optimizing Bubble Sort',
+    },
+  },
+  'custom-use-window-size-hook': {
+    component: Week09UseWindowSizeAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week09',
+      assignmentId: 'custom-use-window-size-hook',
+      title: 'Packaging Reusable Logic into a Custom Hook',
+    },
+  },
+  'custom-use-local-storage-hook': {
+    component: Week09UseLocalStorageAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week09',
+      assignmentId: 'custom-use-local-storage-hook',
+      title: 'Syncing State with LocalStorage using a Custom Hook',
+    },
+  },
+  'insertion-sort-analysis': {
+    component: Week10InsertionSortAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week10',
+      assignmentId: 'insertion-sort-analysis',
+      title: 'Implementing and Analyzing Insertion Sort',
+    },
+  },
+  'error-boundary-safety-net': {
+    component: Week10ErrorBoundaryAssignmentGuide,
+    meta: {
+      courseId: 'ad312',
+      weekId: 'week10',
+      assignmentId: 'error-boundary-safety-net',
+      title: 'Building an Application Safety Net with Error Boundaries in React',
     },
   },
   'ecommerce-order-processing-system': {

@@ -86,6 +86,16 @@ export default function FileTreePanel({
     activeAssignment?.assignmentId === 'responsive-canvas-useeffect'
   const week08ChartJsOpen =
     activeAssignment?.assignmentId === 'chartjs-poll-dashboard'
+  const week09BubbleSortOpen =
+    activeAssignment?.assignmentId === 'bubble-sort-optimization'
+  const week09UseWindowSizeOpen =
+    activeAssignment?.assignmentId === 'custom-use-window-size-hook'
+  const week09UseLocalStorageOpen =
+    activeAssignment?.assignmentId === 'custom-use-local-storage-hook'
+  const week10InsertionSortOpen =
+    activeAssignment?.assignmentId === 'insertion-sort-analysis'
+  const week10ErrorBoundaryOpen =
+    activeAssignment?.assignmentId === 'error-boundary-safety-net'
 
   const lecture1Slides = [
     '01 React State (The Component’s Memory)',
@@ -700,9 +710,54 @@ export default function FileTreePanel({
           subtle={!week08ChartJsOpen}
         />
         <TreeLine
-          label="week09/ ... week11/"
+          label="week09/"
           depth={3}
-          subtle={activeCourseId !== 'ad312' || ['week01', 'week02', 'week03', 'week04', 'week05', 'week06', 'week07', 'week08'].includes(selectedWeekId)}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week09'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week09'}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week09BubbleSortOpen || week09UseWindowSizeOpen || week09UseLocalStorageOpen || week10InsertionSortOpen)} />
+        <TreeLine
+          label="bubble-sort-optimization/"
+          depth={5}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="custom-use-window-size-hook/"
+          depth={5}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="custom-use-local-storage-hook/"
+          depth={5}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine
+          label="week10/"
+          depth={3}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week10'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week10'}
+        />
+        <TreeLine label="assignments/" depth={4} subtle={!(week10InsertionSortOpen || week10ErrorBoundaryOpen)} />
+        <TreeLine
+          label="insertion-sort-analysis/"
+          depth={5}
+          active={week10InsertionSortOpen}
+          subtle={!week10InsertionSortOpen}
+        />
+        <TreeLine
+          label="error-boundary-safety-net/"
+          depth={5}
+          active={week10ErrorBoundaryOpen}
+          subtle={!week10ErrorBoundaryOpen}
+        />
+        <TreeLine
+          label="week11/"
+          depth={3}
+          active={activeCourseId === 'ad312' && selectedWeekId === 'week11'}
+          subtle={activeCourseId !== 'ad312' || selectedWeekId !== 'week11'}
         />
 
         <TreeLine
@@ -1167,6 +1222,121 @@ export default function FileTreePanel({
           active={week08ChartJsOpen}
           subtle={!week08ChartJsOpen}
         />
+        <TreeLine label="week09/" depth={2} subtle={!(week09BubbleSortOpen || week09UseWindowSizeOpen || week09UseLocalStorageOpen || week10InsertionSortOpen)} />
+        <TreeLine
+          label="bubble-sort-optimization/"
+          depth={3}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="BubbleSort.js"
+          depth={4}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="BubbleSortPdfReport.js"
+          depth={4}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="BubbleSort.console-tests.js"
+          depth={4}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="BubbleSort.test.js"
+          depth={4}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="custom-use-window-size-hook/"
+          depth={3}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="useWindowSize.js"
+          depth={4}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="StreamingWindowSizeDemo.jsx"
+          depth={4}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="StreamingWindowSizeDemo.test.jsx"
+          depth={4}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="custom-use-local-storage-hook/"
+          depth={3}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine
+          label="useLocalStorage.js"
+          depth={4}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine
+          label="StreamingPreferencesDemo.jsx"
+          depth={4}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine
+          label="StreamingPreferencesDemo.test.jsx"
+          depth={4}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine
+          label="README.md"
+          depth={4}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine label="week10/" depth={2} subtle={!(week10InsertionSortOpen || week10ErrorBoundaryOpen)} />
+        <TreeLine
+          label="insertion-sort-analysis/"
+          depth={3}
+          active={week10InsertionSortOpen}
+          subtle={!week10InsertionSortOpen}
+        />
+        <TreeLine label="InsertionSort.js" depth={4} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="InsertionSortPdfReport.js" depth={4} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="InsertionSort.console-tests.js" depth={4} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="InsertionSort.test.js" depth={4} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="README.md" depth={4} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="error-boundary-safety-net/" depth={3} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
+        <TreeLine label="ErrorBoundarySafetyNet.jsx" depth={4} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
+        <TreeLine label="ErrorBoundarySafetyNet.helpers.js" depth={4} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
+        <TreeLine label="ErrorBoundarySafetyNet.console-tests.js" depth={4} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
+        <TreeLine label="ErrorBoundarySafetyNet.test.jsx" depth={4} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
+        <TreeLine label="README.md" depth={4} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
         <TreeLine label="exercises/" depth={1} />
         <TreeLine label="Week01CounterAssignmentGuide.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
         <TreeLine label="AssignmentTestPanel.jsx" depth={2} active={week01AssignmentOpen} subtle={!week01AssignmentOpen} />
@@ -1208,6 +1378,16 @@ export default function FileTreePanel({
         <TreeLine label="ResponsiveCanvasTestPanel.jsx" depth={2} active={week08ResponsiveCanvasOpen} subtle={!week08ResponsiveCanvasOpen} />
         <TreeLine label="Week08ChartJsPollDashboardAssignmentGuide.jsx" depth={2} active={week08ChartJsOpen} subtle={!week08ChartJsOpen} />
         <TreeLine label="ChartJsPollDashboardTestPanel.jsx" depth={2} active={week08ChartJsOpen} subtle={!week08ChartJsOpen} />
+        <TreeLine label="Week09BubbleSortAssignmentGuide.jsx" depth={2} active={week09BubbleSortOpen} subtle={!week09BubbleSortOpen} />
+        <TreeLine label="BubbleSortTestPanel.jsx" depth={2} active={week09BubbleSortOpen} subtle={!week09BubbleSortOpen} />
+        <TreeLine label="Week09UseWindowSizeAssignmentGuide.jsx" depth={2} active={week09UseWindowSizeOpen} subtle={!week09UseWindowSizeOpen} />
+        <TreeLine label="UseWindowSizeTestPanel.jsx" depth={2} active={week09UseWindowSizeOpen} subtle={!week09UseWindowSizeOpen} />
+        <TreeLine label="Week09UseLocalStorageAssignmentGuide.jsx" depth={2} active={week09UseLocalStorageOpen} subtle={!week09UseLocalStorageOpen} />
+        <TreeLine label="UseLocalStorageTestPanel.jsx" depth={2} active={week09UseLocalStorageOpen} subtle={!week09UseLocalStorageOpen} />
+        <TreeLine label="Week10InsertionSortAssignmentGuide.jsx" depth={2} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="InsertionSortTestPanel.jsx" depth={2} active={week10InsertionSortOpen} subtle={!week10InsertionSortOpen} />
+        <TreeLine label="Week10ErrorBoundaryAssignmentGuide.jsx" depth={2} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
+        <TreeLine label="ErrorBoundarySafetyNetTestPanel.jsx" depth={2} active={week10ErrorBoundaryOpen} subtle={!week10ErrorBoundaryOpen} />
         <TreeLine label="styles/" depth={1} />
         <TreeLine
           label="week04-dog-api-tanstack-query-assignment.css"
@@ -1343,10 +1523,40 @@ export default function FileTreePanel({
           subtle={!week08ChartJsOpen}
         />
         <TreeLine
+          label="week09-bubble-sort-assignment.css"
+          depth={2}
+          active={week09BubbleSortOpen}
+          subtle={!week09BubbleSortOpen}
+        />
+        <TreeLine
+          label="week09-use-window-size-assignment.css"
+          depth={2}
+          active={week09UseWindowSizeOpen}
+          subtle={!week09UseWindowSizeOpen}
+        />
+        <TreeLine
+          label="week09-use-local-storage-assignment.css"
+          depth={2}
+          active={week09UseLocalStorageOpen}
+          subtle={!week09UseLocalStorageOpen}
+        />
+        <TreeLine
+          label="week10-insertion-sort-assignment.css"
+          depth={2}
+          active={week10InsertionSortOpen}
+          subtle={!week10InsertionSortOpen}
+        />
+        <TreeLine
+          label="week10-error-boundary-assignment.css"
+          depth={2}
+          active={week10ErrorBoundaryOpen}
+          subtle={!week10ErrorBoundaryOpen}
+        />
+        <TreeLine
           label="assignment-test-panel.css"
           depth={2}
-          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen}
-          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen)}
+          active={week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week02TaskManagerOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen || week09BubbleSortOpen || week09UseWindowSizeOpen || week09UseLocalStorageOpen || week10InsertionSortOpen}
+          subtle={!(week01AssignmentOpen || week02RecipeGalleryOpen || week02NestedStateOpen || week03ShoppingListOpen || week03UserProfileWithImmerOpen || week04DogQueryOpen || week04JsonPlaceholderCrudOpen || week05HealthRecordSymmetryOpen || week05RecipeRouterGalleryOpen || week05BlogRouterMpaOpen || week06PatientRecordMergeOpen || week06ContextRefactorOpen || week06ThemeSwitcherOpen || week07OrderProcessingOpen || week07ReactHookFormOpen || week07QueryFormOpen || week08SelectionSortOpen || week08ResponsiveCanvasOpen || week08ChartJsOpen || week09BubbleSortOpen || week09UseWindowSizeOpen || week09UseLocalStorageOpen || week10InsertionSortOpen)}
         />
 
         <TreeLine label="App.jsx" depth={1} active />
